@@ -1,0 +1,11 @@
+{
+ "files": [
+  {
+   "bundle_path": "source/RESULT.md",
+   "bytes": 7564,
+   "sha256": "48866e83c45858b39014eeeeba2f7888e8dfcd84f8f630c7362d68fbfa05cf1f"
+  }
+ ],
+ "immutable_reference": true,
+ "note": "Bound by SHA-256 to the exact bytes in source/. No duplication, no edits."
+}

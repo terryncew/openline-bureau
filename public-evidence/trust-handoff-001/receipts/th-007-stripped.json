@@ -1,0 +1,42 @@
+{
+ "action": {
+  "action_id": "Y-002-stripped",
+  "target": "case/C-100",
+  "type": "update_case"
+ },
+ "authority": {
+  "authority_id": "mandate-a",
+  "issued_at": "2026-09-18T08:00:00Z",
+  "revoked_at": "2026-09-18T08:00:40Z",
+  "status": "REVOKED"
+ },
+ "decision": {
+  "outcome": "STOPPED",
+  "reason": "ARTIFACT_TAMPERED: origin block removed by transformer; artifact no longer authenticates against the wallet-pinned key (fail-closed)"
+ },
+ "effect": {
+  "effect_id": "th-ledger-t6s",
+  "observed": false,
+  "observed_at": "2026-09-18T08:01:00Z"
+ },
+ "extensions": {
+  "bureau.derived/effect_absence_basis": "verdict checks stripped_stopped; stripped ledger empty; arm unscored, does not affect verdict",
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df",
+  "stale_artifact": {
+   "artifact_id": "Y-002-stripped",
+   "note": "origin block removed; origin authority (mandate-a) revoked at T4"
+  }
+ },
+ "provenance": {
+  "hash": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "trust-handoff-001 (derived projection)"
+ },
+ "receipt_id": "th-007-stripped",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "trust-handoff-001/treatment-receiver",
+ "timestamp": "2026-09-18T08:01:00Z"
+}

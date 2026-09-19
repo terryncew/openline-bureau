@@ -1,0 +1,32 @@
+{
+ "action": {
+  "action_id": "recovery-proposal-1",
+  "target": "case/C-200",
+  "type": "update_case"
+ },
+ "authority": {
+  "authority_id": "owner-fresh-mandate",
+  "issued_at": "2026-09-18T07:43:59.037189+00:00",
+  "status": "ACTIVE"
+ },
+ "decision": {
+  "outcome": "COMMIT",
+  "reason": "control B: executable only under separate owner-issued hypothetical fresh successor mandate covering exactly that action"
+ },
+ "extensions": {
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "Demonstrates executability under owner authority, not that the proposal carries authority itself.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "b5b95c0bdb882ebd2ff13d7b3615527e4d3deb88954dd4a43e93c0c171080657"
+ },
+ "provenance": {
+  "hash": "b5b95c0bdb882ebd2ff13d7b3615527e4d3deb88954dd4a43e93c0c171080657",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "recovery-001 (derived projection)"
+ },
+ "receipt_id": "rc-003-control-b-commit",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "recovery-001/receiver",
+ "timestamp": "2026-09-18T07:43:59.037189+00:00"
+}

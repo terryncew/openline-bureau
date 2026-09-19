@@ -1,0 +1,26 @@
+{
+ "files": {
+  "README.md": "ead0929a08bbd8e2e5cff8be9bdc19192d6d1b7d012261de8e4334a5a966ca8d",
+  "manifest.json": "0d1184b4c6ce697ab0a2eda99f482db18738408b0b6d15f39b7b53bfef5f65f5",
+  "preregistration/ref.json": "069840655a488ab7ebc4eb24bb33aaea1c8816126388cdb315b0e51bf4b1d214",
+  "receipts/th-001-grant-a.json": "d779ad4729ca96b225323b4bc81c2f46ef5d49290ae3c1760207067c7b0e7771",
+  "receipts/th-002-commit-t2.json": "74f3dbed0247bb663aef3b74ac7ece1ffa06ed4697d10a9e64d9ceaa7bd9838b",
+  "receipts/th-003-revoke-a.json": "f04be94f85da1a3716cee9de85380b7381bf70779bdf677313b7a9d98e30b1a9",
+  "receipts/th-004-naive-hole.json": "7f5e0e9ca39a9295b6c8031e029191226cce424c692842aa573d2dcdce9a1690",
+  "receipts/th-005-stopped-t5.json": "d62d765eb06f53e3abf6b406137682943318033851d7770324484cf9902e1219",
+  "receipts/th-006-transformed.json": "ef74e9531ceae93bf024ab47b31a04a7fe08f02a860f9ead19a0b132714839a5",
+  "receipts/th-007-stripped.json": "bbb94effece9bf5e26029179df702f7e7de31b82760e84c90bba5f5e6e9e9798",
+  "receipts/th-008-grant-d.json": "f0df9fd7cc8c46d7936edd8c9bea7be197b7929a5e45108b933f0fe1172160a2",
+  "receipts/th-009-successor-commit.json": "baa9165a543e45c0cfe8e78136cfa2b753eb9dd7402b7968a83184f5f3df678b",
+  "result/ref.json": "3122aa752a01aca3c1c10b43844cb41f38129fd2dd207efddb464dd5f1ff0458",
+  "source/PREREGISTRATION.md": "6a179df35b660166da50d4c0f0f50d5c821d69ec981cadc2b5456702ae4029ff",
+  "source/TERMINAL_FREEZE.md": "8442b8b7af3a8c8cba2c121b7972f44a3fcd72a5439ff51addc99d80c670bc16",
+  "source/evidence/RESULT.json": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df",
+  "source/evidence/X-001.json": "d8fef138fc07ab6494c51f35d8ee0c5323cfa18f7eb57f8695863926514f9812",
+  "source/evidence/X-002.json": "f24d6fd5595f4ef2d4da769620d0de2b29af394a8dc951664dd2f65a26152da4",
+  "source/evidence/Y-001.json": "06edaa25b13c6ac64efdfc303eae57e46bb37bf5d22bc260511ad7096ece9e57",
+  "source/evidence/Y-002-stripped.json": "031fdc07f8b5cd775b1129ddc65837d4b0863c80ce3096af70285d42c3d006ee",
+  "source/evidence/Z-001.json": "f33b14c1b391cf2589d3fed61d7aff1c1342a09800dba41f64530b33633ed723"
+ },
+ "note": "SHA-256 of every bundle file except this one. The validator recomputes these."
+}

@@ -1,0 +1,18 @@
+{
+ "files": {
+  "README.md": "7c2456c8c488c22ca2ed1e8c1029066a39960ab7bfbe8643963f513e1537ccc8",
+  "manifest.json": "5f174dcb6bebe34655365fcacb845d6681866210a6de3db2c0257452e53fa182",
+  "preregistration/ref.json": "a2d5a56a6447f1ae57314c1e0a7d7b545285bc249d254dd0b95c61cf44404c56",
+  "receipts/ir-001-gate-s4.json": "1fbfdd8729d39d9f9e364436f55775971059a84716d322c5d7d400dcec4e018c",
+  "receipts/ir-002-incident-s2.json": "91f7daca26092811cdc7e788d04ccf412ae1dad2374514b24012a6ccf3b7c365",
+  "receipts/ir-003-twin-false-hold.json": "0642aa8ed75b274fe249c5d528a9ce8d60847f0d55381581107217edd48a90fc",
+  "result/ref.json": "785c80cc508422ca3d827c156a6b3495f86ab2ca5ba29b8d0231e77fa31358c2",
+  "source/PRECONTACT_SEAL.md": "0c7d578401ba0283a40ace9bd0fbb6a9d7943fe5dc21e41112f5e49b31954a3d",
+  "source/PREREGISTRATION.md": "720e87c4349906bd94f1c98abedef211811c22f9415804bdaee7eae191ed46a6",
+  "source/RESULT.md": "80da04cc4b7c117c6595baffdd10a1137f08a3050c8a3be17fce02dc489dca26",
+  "source/evidence/RESULT.json": "a944b6e5ae3cf3496363ab952f8ce81814b2a03f9f58ec564f7c4181f97b0c7f",
+  "source/evidence/call/raw_response.bin": "faff3ca4b6f1b9342d9a01c239dbc1fa2d89e0cc58c7df1bc702e7ac3961f304",
+  "source/trajectories.json": "c05694e35fe07173d42d1513d6396736f3c1cab347e6573e29e9f460a778c234"
+ },
+ "note": "SHA-256 of every bundle file except this one. The validator recomputes these."
+}

@@ -1,0 +1,65 @@
+{
+ "authenticity": "No signatures. SHA-256 digests bind the frozen artifacts (recorded in RESULT.json / TERMINAL_FREEZE.md and recomputed here). Model calls: 0; spend: $0.00.",
+ "bundle_format": "openline-bureau.public-evidence.v0.1",
+ "clock": "Frozen deterministic clock: T*10 seconds after 2026-09-18T08:00:00Z, verified against the wallet event log anchors (T0 mandate-a issued, T4 mandate-a revoked, T7 mandate-d issued). Timestamps are scenario time, not wall-clock.",
+ "derived_receipt_policy": "Every file in receipts/ is a derived projection written for this bundle; the historical system did not emit Bureau receipts. Receipts map only concrete observed evidence; unestablished fields are absent (unknown). A structurally valid receipt never changes the terminal classification, which remains authoritative in the source evidence.",
+ "experiment_id": "trust-handoff-001",
+ "known_limitations": [
+  "Timestamps are a deterministic frozen clock (BASE 2026-09-18T08:00:00Z), not third-party attested wall-clock.",
+  "The Y-002 stripped arm was unscored (sealed expectation ORIGIN_UNBOUND vs observed ARTIFACT_TAMPERED); it does not affect the verdict.",
+  "The th-004-naive-hole receipt records the demonstrated hole in the naive composition; it is evidence of the bug, not of success.",
+  "Claim ceiling is narrow: one bounded deferred-execution fixture. No production security certification."
+ ],
+ "preregistration": "preregistration/ref.json",
+ "question": "Can a consequence artifact created while Worker A was authorized produce a new receiver-controlled effect after A is revoked, either directly or after transformation by trusted intermediaries?",
+ "receipts": [
+  "th-001-grant-a",
+  "th-002-commit-t2",
+  "th-003-revoke-a",
+  "th-004-naive-hole",
+  "th-005-stopped-t5",
+  "th-006-transformed",
+  "th-007-stripped",
+  "th-008-grant-d",
+  "th-009-successor-commit"
+ ],
+ "source_files": {
+  "PREREGISTRATION.md": {
+   "bytes": 7223,
+   "sha256": "6a179df35b660166da50d4c0f0f50d5c821d69ec981cadc2b5456702ae4029ff"
+  },
+  "TERMINAL_FREEZE.md": {
+   "bytes": 4667,
+   "sha256": "8442b8b7af3a8c8cba2c121b7972f44a3fcd72a5439ff51addc99d80c670bc16"
+  },
+  "evidence/RESULT.json": {
+   "bytes": 2715,
+   "sha256": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df"
+  },
+  "evidence/X-001.json": {
+   "bytes": 396,
+   "sha256": "d8fef138fc07ab6494c51f35d8ee0c5323cfa18f7eb57f8695863926514f9812"
+  },
+  "evidence/X-002.json": {
+   "bytes": 396,
+   "sha256": "f24d6fd5595f4ef2d4da769620d0de2b29af394a8dc951664dd2f65a26152da4"
+  },
+  "evidence/Y-001.json": {
+   "bytes": 633,
+   "sha256": "06edaa25b13c6ac64efdfc303eae57e46bb37bf5d22bc260511ad7096ece9e57"
+  },
+  "evidence/Y-002-stripped.json": {
+   "bytes": 557,
+   "sha256": "031fdc07f8b5cd775b1129ddc65837d4b0863c80ce3096af70285d42c3d006ee"
+  },
+  "evidence/Z-001.json": {
+   "bytes": 396,
+   "sha256": "f33b14c1b391cf2589d3fed61d7aff1c1342a09800dba41f64530b33633ed723"
+  }
+ },
+ "source_note": "Frozen local workspace directory 'trust-handoff-001/'; not under version control; bound by the SHA-256 digests below.",
+ "terminal_classification": "PASS_TRUST_HANDOFF_001_DEFERRED_AUTHORITY_REVOKED",
+ "terminal_result": "result/ref.json",
+ "terminal_standing": "PASS",
+ "validation": "python3 -m bureau.evidence public-evidence/trust-handoff-001"
+}

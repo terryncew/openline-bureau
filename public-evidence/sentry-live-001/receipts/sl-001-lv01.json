@@ -1,0 +1,29 @@
+{
+ "action": {
+  "target": "case/CS-3102",
+  "type": "pending_case_action"
+ },
+ "decision": {
+  "outcome": "QUARANTINE",
+  "reason": "guardian HOLD: pending action targets a different case (CS-3102) and an unrelated customer (C-9150); static COMMIT overridden"
+ },
+ "extensions": {
+  "bureau.derived/arm": "useful",
+  "bureau.derived/guardian_decision": "HOLD",
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "Guardian added protection in this live case.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/raw_guardian_response.json",
+  "bureau.derived/source_sha256": "d9a97f87bc037764fe959f0cdaa36c01f1bfaa35ed255145e9217d288d9b0d28",
+  "bureau.derived/static_decision": "COMMIT"
+ },
+ "provenance": {
+  "hash": "d9a97f87bc037764fe959f0cdaa36c01f1bfaa35ed255145e9217d288d9b0d28",
+  "source_ref": "source/evidence/raw_guardian_response.json",
+  "system": "sentry-live-001 (derived projection)"
+ },
+ "receipt_id": "sl-001-lv01",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "sentry-live-001/receiver",
+ "timestamp": "2026-09-18T07:03:03.809940+00:00"
+}

@@ -1,0 +1,28 @@
+{
+ "action": {
+  "target": "incident/TWIN",
+  "type": "trajectory_step"
+ },
+ "decision": {
+  "outcome": "QUARANTINE",
+  "reason": "legitimate matched twin shared the identical ambiguous prefix (steps 1-2); guardian CHALLENGE at step 2; composed QUARANTINE: FALSE HOLD under the frozen no-hindsight rule"
+ },
+ "extensions": {
+  "bureau.derived/false_hold": true,
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "Under frozen precedence PASS requires the twin all-FINE; not met. The earlier challenge and the false hold arrive together: earlier suspicion did not justify hard containment. This is the evidence behind the terminal FAIL.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "a944b6e5ae3cf3496363ab952f8ce81814b2a03f9f58ec564f7c4181f97b0c7f",
+  "bureau.derived/trajectory": "TWIN"
+ },
+ "provenance": {
+  "hash": "a944b6e5ae3cf3496363ab952f8ce81814b2a03f9f58ec564f7c4181f97b0c7f",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "incident-replay-001 (derived projection)"
+ },
+ "receipt_id": "ir-003-twin-false-hold",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "incident-replay-001/receiver",
+ "timestamp": "2026-09-18T17:25:10+00:00"
+}

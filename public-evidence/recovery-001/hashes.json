@@ -1,0 +1,17 @@
+{
+ "files": {
+  "README.md": "2e4a5aa12b708dbe4c5617db07cd83a33c4cb4dfcc8a59fd7311fd21d6960b8a",
+  "manifest.json": "1dd15e29956adf2ff37d5b1b673ea0e29bf001fdb54fba328f0290517e65f62f",
+  "preregistration/ref.json": "05667719a55cd37880b46c4749d7bdb65c84d1d800a65ef4df15abd848d1cd76",
+  "receipts/rc-001-proposal.json": "b3f389265c7943672fc5568ce28dd2969d59d2367022873076fc1886d5ea94f8",
+  "receipts/rc-002-control-a-deny.json": "fcfeafa6fb82764e947ca491358702f6b0dfa70931361a57eb9a10a33b9e9f10",
+  "receipts/rc-003-control-b-commit.json": "591516f9c40a9093f7eea32ea1004edaa44d85e4dc298fe1cf522e0bb09c6141",
+  "result/ref.json": "5e1e51eeb45d4944bf1ef2d0663ee5848a283c419d7490e766d905c792e594ae",
+  "source/PREREGISTRATION.md": "80b8c24d6cb42416f137df4db1a91dd2586f7248a777242b659ec32580ecf3e5",
+  "source/TERMINAL_FREEZE.md": "72b32a8a2fdb100357c0766c6402a6d07a4ac36ca07c76c5142f46904d3cb90b",
+  "source/evidence/INTEGRITY_MANIFEST.json": "cf91952105e88206f98816600397760fdc6fd22a4ebbe01a0dbccb58fac348d5",
+  "source/evidence/RESULT.json": "b5b95c0bdb882ebd2ff13d7b3615527e4d3deb88954dd4a43e93c0c171080657",
+  "source/evidence/call/raw_response.bin": "cfc9b68c4b3ad5e89da4c93d6890fa7fa63a64b536d80852d0d49d8236ada718"
+ },
+ "note": "SHA-256 of every bundle file except this one. The validator recomputes these."
+}

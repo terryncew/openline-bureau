@@ -1,0 +1,33 @@
+{
+ "action": {
+  "target": "task/t2",
+  "type": "submit_patch"
+ },
+ "authority": {
+  "authority_id": "fixed-authority-scale-001/consequence-ceiling",
+  "bureau.derived/authority_note": "Preregistered fixed receiver-authorized consequence ceiling; not a mandate. No arm expanded formal authority.",
+  "status": "ACTIVE"
+ },
+ "decision": {
+  "outcome": "OBSERVED",
+  "reason": "no submittable patch: final role emitted no python fenced block (handoff-contract failure, not fix-quality failure)"
+ },
+ "extensions": {
+  "bureau.derived/arm": "pair",
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "0 verifier rejections in any arm: every parseable submitted patch passed.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/runs/runs.jsonl",
+  "bureau.derived/source_sha256": "48866e83c45858b39014eeeeba2f7888e8dfcd84f8f630c7362d68fbfa05cf1f",
+  "bureau.derived/verifier_accepted": false
+ },
+ "provenance": {
+  "hash": "48866e83c45858b39014eeeeba2f7888e8dfcd84f8f630c7362d68fbfa05cf1f",
+  "source_ref": "source/runs/runs.jsonl",
+  "system": "fixed-authority-scale-001 (derived projection)"
+ },
+ "receipt_id": "fa-pair-t2",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "fixed-authority-scale-001/verifier",
+ "timestamp": "2026-09-18T10:06:03-0700"
+}

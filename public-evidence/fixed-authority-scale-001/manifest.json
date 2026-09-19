@@ -1,0 +1,49 @@
+{
+ "authenticity": "No signatures. PRECONTACT_SEAL.md binds the frozen inputs by SHA-256; recomputed digests of the sealed inputs match.",
+ "bundle_format": "openline-bureau.public-evidence.v0.1",
+ "clock": "All nine receipts share contact_ts 2026-09-18T10:06:03-0700, identical in every run row. Per-run wall-clock beyond latency was not recorded.",
+ "derived_receipt_policy": "Every file in receipts/ is a derived projection written for this bundle; the historical system did not emit Bureau receipts. Receipts map only concrete observed evidence; unestablished fields are absent (unknown). A structurally valid receipt never changes the terminal classification, which remains authoritative in the source evidence.",
+ "experiment_id": "fixed-authority-scale-001",
+ "known_limitations": [
+  "RESULT.md's self-recorded SHA-256 digest does not reproduce from the present bytes (plausible small post-digest edit; all other digests verify, and every number reconciles against runs/runs.jsonl). The bundle records the digest of the bytes as copied; the mismatch against the frozen document's claim is flagged, not hidden.",
+  "The mechanism claim (final role did not emit a submittable patch block) is not inspectable: raw role output texts were deliberately not retained (recorded as a diagnostic limitation in RESULT.md itself).",
+  "The comparative FAIL (SOLO 3/3 vs PAIR 2/3 vs TEAM 2/3) is carried in the result layer; receipts record per-run evidence only. Bureau claims do not restate the terminal verdict.",
+  "No per-run pytest verifier output artifacts exist; verifier acceptance is attested by the driver-recorded status field."
+ ],
+ "preregistration": "preregistration/ref.json",
+ "question": "Can adding agents increase verified capability while the receiver-authorized consequence ceiling and the total inference budget stay fixed?",
+ "receipts": [
+  "fa-solo-t1",
+  "fa-solo-t2",
+  "fa-solo-t3",
+  "fa-pair-t1",
+  "fa-pair-t2",
+  "fa-pair-t3",
+  "fa-team-t1",
+  "fa-team-t2",
+  "fa-team-t3"
+ ],
+ "source_files": {
+  "PRECONTACT_SEAL.md": {
+   "bytes": 1436,
+   "sha256": "b2e214a3b651c80a716817cf211047bfcbc1ec90e9de634821a0f8c9c0c114cd"
+  },
+  "PREREGISTRATION.md": {
+   "bytes": 9062,
+   "sha256": "7c9b213879ce4a0d3132a9419f97755106b96228c7ce799904866b71cfff315b"
+  },
+  "RESULT.md": {
+   "bytes": 7564,
+   "sha256": "48866e83c45858b39014eeeeba2f7888e8dfcd84f8f630c7362d68fbfa05cf1f"
+  },
+  "runs/runs.jsonl": {
+   "bytes": 2825,
+   "sha256": "0b8a7bebac1efd664fdfcc1ea4187aab60e70be44aed6dd1ec64d0689c3422e5"
+  }
+ },
+ "source_note": "Frozen local workspace directory 'fixed-authority-scale-001/'; not under version control; bound by the SHA-256 digests below.",
+ "terminal_classification": "FAIL_FIXED_AUTHORITY_SCALE_001_COORDINATION_TAX",
+ "terminal_result": "result/ref.json",
+ "terminal_standing": "FAIL",
+ "validation": "python3 -m bureau.evidence public-evidence/fixed-authority-scale-001"
+}

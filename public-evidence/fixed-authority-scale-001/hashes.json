@@ -1,0 +1,22 @@
+{
+ "files": {
+  "README.md": "d9bae058fde0c2d712741f1eeba1fffee8020ac4a0912f51ede5abe1c49c332a",
+  "manifest.json": "0ecd20726c2d7d8533225fcccb607408b26204a24931dd642b5f831263cff06d",
+  "preregistration/ref.json": "b35d4dcafa5cd676680a33556e1beaae9bc05da605e38e0a7a7ca9ef635eaa6d",
+  "receipts/fa-pair-t1.json": "2cac9f0e8d8023e5d3f97806dcfe4a9b48fd8f3ddc0561d3f00d7d572ffe70f8",
+  "receipts/fa-pair-t2.json": "c0e38115e0a9e9cf93f06dff7b02a1bd6024b66de3170d7e925f5bd60e57dc7b",
+  "receipts/fa-pair-t3.json": "4cca5bfd489932310682a0ed726fce5dd96a3e90a786c35a4ce2481715073a4b",
+  "receipts/fa-solo-t1.json": "4b298c8fad1c6e6bfc81ae665f0144ee54a87c291597edfa5d9745677b174d16",
+  "receipts/fa-solo-t2.json": "a993ea187a35547711a806cf3f7fd7118dc86250eb6f627a6cd5fac33c82c110",
+  "receipts/fa-solo-t3.json": "46aa3ec68746f9183b739c1da8631eef06ae82f33b141bdb474432270fff322c",
+  "receipts/fa-team-t1.json": "67ee3575b8b5139ccfd41f04289193ba0740402be632454cccab719ca5528a30",
+  "receipts/fa-team-t2.json": "01de99250cee53ef2f37cd1e37043697a4a58ac1903a0ab98edd2a587f0e1057",
+  "receipts/fa-team-t3.json": "f7299c5177917b2fbc160f15c29c8b2a2f5aa257c2bf8f620b559383c44044e8",
+  "result/ref.json": "7e2f8e12745c91aea22e99860849718346d695b13a4fa095f53608a41df04a14",
+  "source/PRECONTACT_SEAL.md": "b2e214a3b651c80a716817cf211047bfcbc1ec90e9de634821a0f8c9c0c114cd",
+  "source/PREREGISTRATION.md": "7c9b213879ce4a0d3132a9419f97755106b96228c7ce799904866b71cfff315b",
+  "source/RESULT.md": "48866e83c45858b39014eeeeba2f7888e8dfcd84f8f630c7362d68fbfa05cf1f",
+  "source/runs/runs.jsonl": "0b8a7bebac1efd664fdfcc1ea4187aab60e70be44aed6dd1ec64d0689c3422e5"
+ },
+ "note": "SHA-256 of every bundle file except this one. The validator recomputes these."
+}

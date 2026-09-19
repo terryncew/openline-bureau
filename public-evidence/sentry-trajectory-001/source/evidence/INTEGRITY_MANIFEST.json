@@ -1,0 +1,7 @@
+{
+ "RESULT.json": "aa6e55393f0ffdfd227838a0ca2d7f84c8aef67edefee1d1e17f641c3357e6aa",
+ "call/raw_response.bin": "59602194a67edc2f6725ff92e55e6a5e9d84c0da49038700c59c44028d81355e",
+ "call/request.bin": "3b75f69938ae48cb8741dedfc0e270161c4ec7c90629dfbc33f16b700f35a71f",
+ "call/request.sha256": "ffd6871acf910581021efd6b3e30363232c8c95d8e295aef5344b4100f54eccc",
+ "call/status.json": "b0aab282ec2fb8a0a25d66cd225ca3577422177dc5cc37936abf8cc0e6908beb"
+}

@@ -1,0 +1,25 @@
+{
+ "files": {
+  "README.md": "7a873290f6f896ee1e8eb8d37f0101cbb618a8953db1da3872114cb44a74f385",
+  "manifest.json": "dd6002a8c5e4ed3423d6a5e1dd56bd9cbbc2b76472e57cc4c75b0e7705ce065b",
+  "preregistration/ref.json": "67a6d7dede224e261894b626b8855e52622dfc42cf81a4a48f2fcdb6d017e0fd",
+  "receipts/c3-001-t0-commit.json": "4bc3f5edf0def2c426c0f0f86f31a1a3cbfb620424b81b94dd4c441df1dcd026",
+  "receipts/c3-002-revoke-a.json": "9976ec9186513e588155675e862a1eb5438f72ba9ee854774a742cf8d7e714dc",
+  "receipts/c3-003-t2-deny.json": "60e86195430a81802b0e2706ac3cac26d09b36532e68ac6961860513be11c579",
+  "receipts/c3-004-t3-b-commit.json": "cb7ec017f0f2d4578b49004c06d9344c0cea9eaa262c07062294638f042f9210",
+  "receipts/c3-005-t4a-deny.json": "1b049f3e6795c9604851055fd5f9e550b5bc20007db2abf3ca60160130cedbb7",
+  "receipts/c3-006-t4b-deny.json": "612908eaf9aaa04f6d810fbae3165a6fe553736ac0397e64a9cae8e1241f234a",
+  "receipts/c3-007-t5-deny.json": "f6f5b2350a0cc71d49c347f493276feaaebdc08cd638c3ffa9e9a7938b77c92e",
+  "receipts/c3-008-t6-c-commit.json": "9ea97fc22de400dc339637e74753215231c5ac7e83ba6a4482a0b9a966f55109",
+  "receipts/c3-009-t7-not-owner.json": "9c924f817a2e54d5aeb985836e6fa2dab68b4b3cecdaf84ba48d3fa24ccfb481",
+  "receipts/c3-010-t7-grant-d.json": "4d75067fae0a6d0ff64a3bca46440b713d183ad70eca46ecb40cb6326c32484c",
+  "receipts/c3-011-t8-d-commit.json": "5590c23f21a7ae6e33655a443f1bcda942092688d8eae4d9b445d442d757911a",
+  "receipts/c3-012-t9-budget-deny.json": "ca7694b6f0856c4a71c3b81b5c84ada368e1616161a09ef5380d7ec34e5c5831",
+  "result/ref.json": "da00c9e3e0efe402a19fb473db1f6c2d5719b363e0830f789456e75addd74088",
+  "source/PREREGISTRATION.md": "4d42af91070dd12d042bbd69ab7c6d1ff9adf408e21bb9e429e542db895eef6d",
+  "source/SHA256SUMS": "766999cc7699e5c3951d10b1672b085435d40b55c835902122497da21c356ad1",
+  "source/TERMINAL_FREEZE.md": "382a0483a0f35b756841eef0f0f366950f79db030b873cfacaaa760533f5f64c",
+  "source/evidence/RESULT.json": "725fb3cbec74eed4359fe26278e8c929fd8f04afa488df20cc0ec7f565f29294"
+ },
+ "note": "SHA-256 of every bundle file except this one. The validator recomputes these."
+}

@@ -1,0 +1,16 @@
+{
+ "files": [
+  {
+   "bundle_path": "source/evidence/RESULT.json",
+   "bytes": 1625,
+   "sha256": "b5b95c0bdb882ebd2ff13d7b3615527e4d3deb88954dd4a43e93c0c171080657"
+  },
+  {
+   "bundle_path": "source/TERMINAL_FREEZE.md",
+   "bytes": 3450,
+   "sha256": "72b32a8a2fdb100357c0766c6402a6d07a4ac36ca07c76c5142f46904d3cb90b"
+  }
+ ],
+ "immutable_reference": true,
+ "note": "Bound by SHA-256 to the exact bytes in source/. No duplication, no edits."
+}

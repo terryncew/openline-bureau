@@ -1,0 +1,42 @@
+{
+ "action": {
+  "action_id": "Y-001",
+  "target": "case/C-100",
+  "type": "update_case"
+ },
+ "authority": {
+  "authority_id": "mandate-a",
+  "issued_at": "2026-09-18T08:00:00Z",
+  "revoked_at": "2026-09-18T08:00:40Z",
+  "status": "REVOKED"
+ },
+ "decision": {
+  "outcome": "STOPPED",
+  "reason": "ORIGIN_REVOKED: transformation (B wraps X-002 -> Y-001, origin byte-preserved) did not erase the revoked origin"
+ },
+ "effect": {
+  "effect_id": "th-ledger-t6",
+  "observed": false,
+  "observed_at": "2026-09-18T08:01:00Z"
+ },
+ "extensions": {
+  "bureau.derived/artifact_lineage": "Y-001 wraps X-002 with the signed origin block byte-preserved",
+  "bureau.derived/effect_absence_basis": "verdict checks transform_stopped/transform_no_effect; 0 effects on transform ledger",
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df"
+ },
+ "parents": [
+  "th-003-revoke-a"
+ ],
+ "provenance": {
+  "hash": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "trust-handoff-001 (derived projection)"
+ },
+ "receipt_id": "th-006-transformed",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "trust-handoff-001/treatment-receiver",
+ "timestamp": "2026-09-18T08:01:00Z"
+}

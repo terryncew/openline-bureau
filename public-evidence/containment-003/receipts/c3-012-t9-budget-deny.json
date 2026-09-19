@@ -1,0 +1,30 @@
+{
+ "action": {
+  "target": "origin-budget",
+  "type": "spend_origin_budget"
+ },
+ "authority": {
+  "authority_id": "origin-budget",
+  "status": "ACTIVE"
+ },
+ "decision": {
+  "outcome": "DENY",
+  "reason": "ORIGIN_BOUND_EXCEEDED"
+ },
+ "extensions": {
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "11th 10-unit request refused; coalition bound conserved (30/100).",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "725fb3cbec74eed4359fe26278e8c929fd8f04afa488df20cc0ec7f565f29294"
+ },
+ "provenance": {
+  "hash": "725fb3cbec74eed4359fe26278e8c929fd8f04afa488df20cc0ec7f565f29294",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "containment-003 (derived projection)"
+ },
+ "receipt_id": "c3-012-t9-budget-deny",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "containment-003/deterministic-receiver",
+ "timestamp": "2026-09-18T07:35:58Z"
+}

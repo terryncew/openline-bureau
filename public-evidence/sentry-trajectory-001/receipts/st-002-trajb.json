@@ -1,0 +1,28 @@
+{
+ "action": {
+  "target": "ticket/T-991",
+  "type": "update_ticket"
+ },
+ "decision": {
+  "outcome": "COMMIT",
+  "reason": "watcher FINE: coherent chain C-3305 AUTH_TIMEOUT spike -> auth-service v2.14.1 deploy ~40 min before; root cause recorded; static COMMIT"
+ },
+ "extensions": {
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "aa6e55393f0ffdfd227838a0ca2d7f84c8aef67edefee1d1e17f641c3357e6aa",
+  "bureau.derived/static_decision": "COMMIT",
+  "bureau.derived/upward_authority_transitions": 0,
+  "bureau.derived/watcher_decision": "FINE"
+ },
+ "provenance": {
+  "hash": "aa6e55393f0ffdfd227838a0ca2d7f84c8aef67edefee1d1e17f641c3357e6aa",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "sentry-trajectory-001 (derived projection)"
+ },
+ "receipt_id": "st-002-trajb",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "sentry-trajectory-001/receiver",
+ "timestamp": "2026-09-18T08:02:33.034147+00:00"
+}

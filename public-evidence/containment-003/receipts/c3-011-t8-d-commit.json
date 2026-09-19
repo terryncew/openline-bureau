@@ -1,0 +1,40 @@
+{
+ "action": {
+  "target": "case/C-100",
+  "type": "update_case"
+ },
+ "authority": {
+  "authority_id": "mandate-d",
+  "issued_at": "2026-09-18T07:35:56Z",
+  "status": "ACTIVE"
+ },
+ "decision": {
+  "outcome": "COMMIT",
+  "reason": "D update_case COMMIT under fresh owner authority"
+ },
+ "effect": {
+  "effect_id": "c3-ledger-t8",
+  "observed": true,
+  "observed_at": "2026-09-18T07:35:57Z"
+ },
+ "extensions": {
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "Successor continuity: D continued legitimate work under fresh owner authority.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "725fb3cbec74eed4359fe26278e8c929fd8f04afa488df20cc0ec7f565f29294",
+  "successor_of": "worker-a"
+ },
+ "parents": [
+  "c3-010-t7-grant-d"
+ ],
+ "provenance": {
+  "hash": "725fb3cbec74eed4359fe26278e8c929fd8f04afa488df20cc0ec7f565f29294",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "containment-003 (derived projection)"
+ },
+ "receipt_id": "c3-011-t8-d-commit",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "containment-003/deterministic-receiver",
+ "timestamp": "2026-09-18T07:35:57Z"
+}

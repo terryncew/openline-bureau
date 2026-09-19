@@ -1,0 +1,11 @@
+{
+ "files": [
+  {
+   "bundle_path": "source/PREREGISTRATION.md",
+   "bytes": 7806,
+   "sha256": "b95bc72d53aa9b7399b00da04f5cabcc5aa027029a91de247e788dfeee91e5cf"
+  }
+ ],
+ "immutable_reference": true,
+ "note": "Bound by SHA-256 to the exact bytes in source/. No duplication, no edits."
+}

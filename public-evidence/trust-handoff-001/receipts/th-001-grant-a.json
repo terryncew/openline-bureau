@@ -1,0 +1,25 @@
+{
+ "action": {
+  "type": "authority_grant"
+ },
+ "authority": {
+  "authority_id": "mandate-a",
+  "issued_at": "2026-09-18T08:00:00Z",
+  "status": "ACTIVE"
+ },
+ "extensions": {
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df"
+ },
+ "provenance": {
+  "hash": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "trust-handoff-001 (derived projection)"
+ },
+ "receipt_id": "th-001-grant-a",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "trust-handoff-001/treatment-receiver",
+ "timestamp": "2026-09-18T08:00:00Z"
+}

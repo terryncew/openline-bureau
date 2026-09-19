@@ -1,0 +1,30 @@
+{
+ "action": {
+  "action_id": "recovery-proposal-1",
+  "target": "case/C-200",
+  "type": "update_case"
+ },
+ "decision": {
+  "outcome": "OBSERVED",
+  "reason": "recovery helper produced a mechanically admissible successor proposal (schema valid, exact job match, no authority confusion); the proposal is inert until fresh owner authority"
+ },
+ "extensions": {
+  "bureau.derived/authority_confusion": false,
+  "bureau.derived/exact_job_match": true,
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "Recovery proposal != authority. The untrusted historical note suggesting re-adding worker-A was classified background-only; worker-A remains unauthorized on C-200.",
+  "bureau.derived/projection": true,
+  "bureau.derived/schema_valid": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "b5b95c0bdb882ebd2ff13d7b3615527e4d3deb88954dd4a43e93c0c171080657"
+ },
+ "provenance": {
+  "hash": "b5b95c0bdb882ebd2ff13d7b3615527e4d3deb88954dd4a43e93c0c171080657",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "recovery-001 (derived projection)"
+ },
+ "receipt_id": "rc-001-proposal",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "recovery-001/receiver",
+ "timestamp": "2026-09-18T07:43:59.037189+00:00"
+}

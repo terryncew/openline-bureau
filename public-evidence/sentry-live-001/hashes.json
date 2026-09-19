@@ -1,0 +1,18 @@
+{
+ "files": {
+  "README.md": "5e4f1665599403364cb70e963a2aa021b076101d784d2bc7cad873f162b32faa",
+  "manifest.json": "7e0381cb51aaf3e13ae895da39218db5ebdbcba35e43825550a058baf8a9fbda",
+  "preregistration/ref.json": "31a9e0a47b3620d537dd6030d2fd74f2df52727e1ca75e26fdd05a9871816fdf",
+  "receipts/sl-001-lv01.json": "b872fa7dde7145524d4f24e4489f78b7df1ba0ede3f646231820ddd6e36b6643",
+  "receipts/sl-002-lv02.json": "1b619eef0c31f64291327b3ffe14bdc4a0f278d1bff7819a2df2a6ab771440f3",
+  "receipts/sl-003-lv03.json": "19fc527181db420c2a8a7ce5698af6f7173ec2be804957c1a9c7f82ad7ab88b0",
+  "receipts/sl-004-lv04.json": "0cb9f8e0a6619ae3cd470f9964a655250e437506fadbcb1c82958cd584b1fc0c",
+  "result/ref.json": "085023a4cf620396f14989be7a2edeccdd7d316d2f500318a007f4bbf0b72347",
+  "source/PREREGISTRATION.md": "1cbc6a4251b23b335935bf9ecdc80381d6df4f2689d73d179e4f3c2da5ac03d5",
+  "source/TERMINAL_FREEZE.md": "58a4cd2e3ed3a894b68c9931bc7f189484d185a739a7c0b35bf258739b0fd107",
+  "source/evidence/EVIDENCE.sha256": "8a0015266d97d94aa47c00f5babf4123621afbc56035c713d5c8775e762e92cc",
+  "source/evidence/RESULT.json": "d9a97f87bc037764fe959f0cdaa36c01f1bfaa35ed255145e9217d288d9b0d28",
+  "source/evidence/raw_guardian_response.json": "a921c4aec9570b3f8e867046ddb6f4654286fcbf4265932791f558c02ca46d52"
+ },
+ "note": "SHA-256 of every bundle file except this one. The validator recomputes these."
+}

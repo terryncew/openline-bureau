@@ -1,0 +1,11 @@
+{
+ "files": [
+  {
+   "bundle_path": "source/evidence/RESULT.json",
+   "bytes": 2214,
+   "sha256": "aa6e55393f0ffdfd227838a0ca2d7f84c8aef67edefee1d1e17f641c3357e6aa"
+  }
+ ],
+ "immutable_reference": true,
+ "note": "Bound by SHA-256 to the exact bytes in source/. No duplication, no edits."
+}

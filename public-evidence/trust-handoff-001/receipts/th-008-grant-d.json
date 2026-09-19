@@ -1,0 +1,30 @@
+{
+ "action": {
+  "type": "grant_issued"
+ },
+ "authority": {
+  "authority_id": "mandate-d",
+  "issued_at": "2026-09-18T08:01:10Z",
+  "status": "ACTIVE"
+ },
+ "extensions": {
+  "bureau.derived/note": "Derived projection from frozen experiment evidence; the historical system did not emit this receipt.",
+  "bureau.derived/note2": "Fresh owner-issued mandate; Z-001 (D-origin) COMMITted at T9. Deferred work is not killed globally.",
+  "bureau.derived/projection": true,
+  "bureau.derived/source_artifact": "source/evidence/RESULT.json",
+  "bureau.derived/source_sha256": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df",
+  "successor_of": "mandate-a"
+ },
+ "parents": [
+  "th-003-revoke-a"
+ ],
+ "provenance": {
+  "hash": "7baa8682ac79023c4d417a2219bdd3933abd3bc187d6d8004a5be73f6c8fa1df",
+  "source_ref": "source/evidence/RESULT.json",
+  "system": "trust-handoff-001 (derived projection)"
+ },
+ "receipt_id": "th-008-grant-d",
+ "receipt_version": "bureau.receipt.v0.1",
+ "receiver": "trust-handoff-001/treatment-receiver",
+ "timestamp": "2026-09-18T08:01:10Z"
+}
