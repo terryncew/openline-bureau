@@ -195,10 +195,12 @@ The existing headless browser interaction smoke and unrelated proof/comparator
 suites were not rerun; the UI was unchanged, `node --check ui/app.js` passed,
 and the coverage tests exercised all seven existing JSON API views directly.
 
-Git reads are available through the existing HTTPS proxy. GitHub API requests
-to `api.github.com` currently receive a proxy CONNECT 403; draft PR creation is
-blocked by network access, not established missing credentials. The domain was
-added to the saved draft while preserving the package-manager presets. Review
-and save that network change in environment settings to unblock the API request;
-publish separately to activate the prepared environment snapshot. No merge is
-authorized or attempted.
+Git reads and branch push succeeded through the existing HTTPS proxy. Initial
+GitHub API requests to `api.github.com` received a proxy CONNECT 403. The domain
+was added to the saved draft while preserving the package-manager presets.
+After finishing independent validation and pushing the branch, the API operation
+succeeded using existing credentials: draft PR
+https://github.com/terryncew/openline-bureau/pull/2. No new credential was needed.
+Review and save the reusable environment changes in settings, then publish to
+activate the prepared snapshot. Publication and fresh-task restoration were not
+performed or claimed. No merge was attempted.
