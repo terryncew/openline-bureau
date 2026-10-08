@@ -1,0 +1,2816 @@
+{
+  "format": "openline.exchange.selected-evidence.v1",
+  "jobs": [
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.340402+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "46c8bcbd237ddacaefbfa447fba7fc5177ee1123e758e1957ad4dce1168183ee",
+          "job_id": "job-d291d1e5efe5",
+          "nonce": "heldout-0-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.340402+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "46c8bcbd237ddacaefbfa447fba7fc5177ee1123e758e1957ad4dce1168183ee",
+          "job_id": "job-d291d1e5efe5",
+          "nonce": "heldout-0-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "payload_hash": "f95a687d4d0bc45f70fe30118097e878441ac49df9840de96fbad826664a0faf",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "146b7014c5c2aaa0d1dfe8c5d8f9b27d19a3c19ae65ebf81c84458642d4ea553",
+            "value": "6e36b4472063a46d95cb3890e05a13afe7c3eb9a3642c4e70513e56bb69970d3530ba64be21be041a3be06bc669ed00f828fe8e613d532181b0da0e996e18605"
+          }
+        }
+      },
+      "job_id": "job-d291d1e5efe5",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "payload_hash": "04ae8576dbe382379f41cab62325936242f621494b198acdda43f76bb9043809",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "162b3955d8c0614be22787894ac38a1f6f9b13415eae55fa8fa11b908cde194a1f200b0727d51c9fa000aa582db5695fd62c332bcafcaac55ab4f2ca92f6dd09"
+          }
+        }
+      },
+      "settlement": {
+        "record": {
+          "agreement_hash": "f95a687d4d0bc45f70fe30118097e878441ac49df9840de96fbad826664a0faf",
+          "amount": 40,
+          "at": "2026-10-08T20:19:33.412543+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-d291d1e5efe5",
+          "note": "simulated payment; no real money moved",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:f95a687d4d0bc45f70fe30118097e878441ac49df9840de96fbad826664a0faf",
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "a1bb7fc013e204525d6978d5656519b82f3ba77a438640bf4abbf3ea89165e47"
+        },
+        "signature": {
+          "agreement_hash": "f95a687d4d0bc45f70fe30118097e878441ac49df9840de96fbad826664a0faf",
+          "amount": 40,
+          "at": "2026-10-08T20:19:33.412543+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-d291d1e5efe5",
+          "note": "simulated payment; no real money moved",
+          "payload_hash": "7fd354067417f27334715b64a8c2d8655287fb4730ce27d19fd1c27da7e9231e",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:f95a687d4d0bc45f70fe30118097e878441ac49df9840de96fbad826664a0faf",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "d8e1cf7e0946378ea448103ce3844182b42ccee1f1ace235f856f3c91e30b876dbe571ecd299e769dfe3cd286ff7a09d7b671991c4f5674a10daf3a5fb46da02"
+          },
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "a1bb7fc013e204525d6978d5656519b82f3ba77a438640bf4abbf3ea89165e47"
+        }
+      },
+      "submission": {
+        "record": {
+          "input_sha256": "46c8bcbd237ddacaefbfa447fba7fc5177ee1123e758e1957ad4dce1168183ee",
+          "job_id": "job-d291d1e5efe5",
+          "line_count": 2,
+          "nonce": "heldout-0-control",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 5
+        },
+        "signature": {
+          "input_sha256": "46c8bcbd237ddacaefbfa447fba7fc5177ee1123e758e1957ad4dce1168183ee",
+          "job_id": "job-d291d1e5efe5",
+          "line_count": 2,
+          "nonce": "heldout-0-control",
+          "payload_hash": "159e58b452c5fa4596de1d8317f0025d69c910b660106321ee2699ff32a34dd3",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "929d33705dcc7e0e5868621e4d13fba1638c2874230b63722f0d3756a9817f8ea169013a702550c0cb4b6fe18036ade46719db21d3a72bb7338c8c16f8b3ff09"
+          },
+          "word_count": 5
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "f95a687d4d0bc45f70fe30118097e878441ac49df9840de96fbad826664a0faf",
+          "at": "2026-10-08T20:19:33.400635+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash f95a687d4d0bc45f",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.340402+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-d291d1e5efe5",
+          "schema": "commission.verdict.v1",
+          "verdict": "accepted",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "f95a687d4d0bc45f70fe30118097e878441ac49df9840de96fbad826664a0faf",
+          "at": "2026-10-08T20:19:33.400635+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash f95a687d4d0bc45f",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.340402+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-d291d1e5efe5",
+          "payload_hash": "a1bb7fc013e204525d6978d5656519b82f3ba77a438640bf4abbf3ea89165e47",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "ce68aa313d2aa1e8aeafa0eec636a5e4c41106753a57bf82c5ee7751c44cf9c6d31a2da2fe476c393a75ba07fb58e6f632bd32b780c1564be9739197b7d29c07"
+          },
+          "verdict": "accepted",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.426959+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "497546a21b2c47f220a0b31d80be0cee4e0b6e78689f452ef8f5b1bcef6ac0ae",
+          "job_id": "job-8f8d0958e71d",
+          "nonce": "heldout-0-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.426959+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "497546a21b2c47f220a0b31d80be0cee4e0b6e78689f452ef8f5b1bcef6ac0ae",
+          "job_id": "job-8f8d0958e71d",
+          "nonce": "heldout-0-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "payload_hash": "23265c9b547ad3a7889ff641187b4ee0e94a699804304d40eeff96812ff56f9b",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1cd208d3245b5f9551c2cbbbe8f3a932fa84b0631d99b19795302fb584916d61",
+            "value": "58721172c86a37284fb1a985d5bfa0292f50b699af7fe1e8d0f16470930f0cec0257817877d81f96b7b38b587a1d231b3091b18b9d74e67aa1177b43d636d20b"
+          }
+        }
+      },
+      "job_id": "job-8f8d0958e71d",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "payload_hash": "ebda5435e0b042ebd30d09445e1072c16455d68cc9363175407f8ff937cc083f",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "16e62f693ccb45be37f89e41c8f53886a53247d4f5750d2673d64c8567fab3d0f5a66048e43c1ab9c1c2f44bae3412bce3ca6aa8fe3e52af3543f5ccae738706"
+          }
+        }
+      },
+      "settlement": null,
+      "submission": {
+        "record": {
+          "input_sha256": "2b8df205e8298b076da4144e7438fb350d4508746a631b1acf6e338a27f18d5a",
+          "job_id": "job-8f8d0958e71d",
+          "line_count": 4,
+          "nonce": "heldout-0-bureau",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 12
+        },
+        "signature": {
+          "input_sha256": "2b8df205e8298b076da4144e7438fb350d4508746a631b1acf6e338a27f18d5a",
+          "job_id": "job-8f8d0958e71d",
+          "line_count": 4,
+          "nonce": "heldout-0-bureau",
+          "payload_hash": "6a631bdfacaf8b91f910c6bfb1e8263aab8f6426442989873d4c345c73c74608",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "eac54eb154edd66088e9d73673baca9a8c85596e083007fbae89936cb4db411ff32f91310ec76acaa7e3a367f23b2dd199f61b5bcc72497a51f22c2abe33f608"
+          },
+          "word_count": 12
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "23265c9b547ad3a7889ff641187b4ee0e94a699804304d40eeff96812ff56f9b",
+          "at": "2026-10-08T20:19:33.472674+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 23265c9b547ad3a7",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.426959+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-8f8d0958e71d",
+          "schema": "commission.verdict.v1",
+          "verdict": "rejected",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "23265c9b547ad3a7889ff641187b4ee0e94a699804304d40eeff96812ff56f9b",
+          "at": "2026-10-08T20:19:33.472674+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 23265c9b547ad3a7",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.426959+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-8f8d0958e71d",
+          "payload_hash": "0cd0c8147e805c59f89eee7ac1f6620eef75c01437b102ceb72803b8ccff1455",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "14123b12c838b9b4ae9f8269f292345cd8792824cb16cc74f4a00bcd07e46491dd9b36d664a88ddaa15d09f55dd3724647a720137b0031be7611b2325b7bf80f"
+          },
+          "verdict": "rejected",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.502537+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "6b4c607fb17aa73fb291aa40ba367bdc86a2f5260be12614c2c9a5e3f08f1ea6",
+          "job_id": "job-1c61caba6c3c",
+          "nonce": "heldout-1-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.502537+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "6b4c607fb17aa73fb291aa40ba367bdc86a2f5260be12614c2c9a5e3f08f1ea6",
+          "job_id": "job-1c61caba6c3c",
+          "nonce": "heldout-1-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "payload_hash": "8025afd4f842b14fdf63913375b99b80a50724d2e7db2d60c5038c5b54444235",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "146b7014c5c2aaa0d1dfe8c5d8f9b27d19a3c19ae65ebf81c84458642d4ea553",
+            "value": "19e215615539224d7abdab1c76421515d9872ce1471fab31af9714b528c8596befdc22982881101b27bb7d153e3d63d25752ad9302095ecbfb9a458960bd6002"
+          }
+        }
+      },
+      "job_id": "job-1c61caba6c3c",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "payload_hash": "04ae8576dbe382379f41cab62325936242f621494b198acdda43f76bb9043809",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "162b3955d8c0614be22787894ac38a1f6f9b13415eae55fa8fa11b908cde194a1f200b0727d51c9fa000aa582db5695fd62c332bcafcaac55ab4f2ca92f6dd09"
+          }
+        }
+      },
+      "settlement": {
+        "record": {
+          "agreement_hash": "8025afd4f842b14fdf63913375b99b80a50724d2e7db2d60c5038c5b54444235",
+          "amount": 40,
+          "at": "2026-10-08T20:19:33.623845+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-1c61caba6c3c",
+          "note": "simulated payment; no real money moved",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:8025afd4f842b14fdf63913375b99b80a50724d2e7db2d60c5038c5b54444235",
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "25a3ef0c1a9fd61630c5f6b30ac7be112b96bcb393d155d17a3191e13de11f84"
+        },
+        "signature": {
+          "agreement_hash": "8025afd4f842b14fdf63913375b99b80a50724d2e7db2d60c5038c5b54444235",
+          "amount": 40,
+          "at": "2026-10-08T20:19:33.623845+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-1c61caba6c3c",
+          "note": "simulated payment; no real money moved",
+          "payload_hash": "de4baff2b0c6d2c493f7a0627cc6732c63ff24d6bd52c440524ac03a0abc157c",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:8025afd4f842b14fdf63913375b99b80a50724d2e7db2d60c5038c5b54444235",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "5b720da5a0208c02288b38c8f649e28e73205d582565030adf55fa64f0a4805c49c92733bf4c249d6a4bc2872725f32eacf49617a2f16535861dfc886cf2230d"
+          },
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "25a3ef0c1a9fd61630c5f6b30ac7be112b96bcb393d155d17a3191e13de11f84"
+        }
+      },
+      "submission": {
+        "record": {
+          "input_sha256": "6b4c607fb17aa73fb291aa40ba367bdc86a2f5260be12614c2c9a5e3f08f1ea6",
+          "job_id": "job-1c61caba6c3c",
+          "line_count": 2,
+          "nonce": "heldout-1-control",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 5
+        },
+        "signature": {
+          "input_sha256": "6b4c607fb17aa73fb291aa40ba367bdc86a2f5260be12614c2c9a5e3f08f1ea6",
+          "job_id": "job-1c61caba6c3c",
+          "line_count": 2,
+          "nonce": "heldout-1-control",
+          "payload_hash": "4224b4816ba256371f7e4f7b2a90ac54ad2bbee793aec6aa42261e44937afb61",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "829d483070a7d9c81283373a0043ddebeadd92eac2bae27517d4b80e2ded319ef58a51fc23393d4e690d610ac4fcdfe8c8d3e240eb429239ff445687abf23e0a"
+          },
+          "word_count": 5
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "8025afd4f842b14fdf63913375b99b80a50724d2e7db2d60c5038c5b54444235",
+          "at": "2026-10-08T20:19:33.595206+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 8025afd4f842b14f",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.502537+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-1c61caba6c3c",
+          "schema": "commission.verdict.v1",
+          "verdict": "accepted",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "8025afd4f842b14fdf63913375b99b80a50724d2e7db2d60c5038c5b54444235",
+          "at": "2026-10-08T20:19:33.595206+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 8025afd4f842b14f",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.502537+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-1c61caba6c3c",
+          "payload_hash": "25a3ef0c1a9fd61630c5f6b30ac7be112b96bcb393d155d17a3191e13de11f84",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "2116739e41767b8e17be5eb790ef33078b816e04c5c748956f8fdd9f553b417f5c0c1a42886fad2c89c1d773d3944d7340a58edfdff6534f43139a7fd68c9d02"
+          },
+          "verdict": "accepted",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.650538+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "be7ac24042875a524213893375d2cbdc8333f378f8bb1e265fa4c950f6985814",
+          "job_id": "job-efd4d5974e06",
+          "nonce": "heldout-1-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.650538+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "be7ac24042875a524213893375d2cbdc8333f378f8bb1e265fa4c950f6985814",
+          "job_id": "job-efd4d5974e06",
+          "nonce": "heldout-1-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "payload_hash": "ef80f1c4751d9f03efcaec63822336e83a17ab8338811c0cd5794b8335b2bb89",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1cd208d3245b5f9551c2cbbbe8f3a932fa84b0631d99b19795302fb584916d61",
+            "value": "bb260cf8e30a19dce902a26650660d1f1570f463bdf115905daf47eecde2372144c64ee3170bbcebcad0c3511e7f4b5e916d4e1fb856f042d404c53f35a96307"
+          }
+        }
+      },
+      "job_id": "job-efd4d5974e06",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "payload_hash": "ebda5435e0b042ebd30d09445e1072c16455d68cc9363175407f8ff937cc083f",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "16e62f693ccb45be37f89e41c8f53886a53247d4f5750d2673d64c8567fab3d0f5a66048e43c1ab9c1c2f44bae3412bce3ca6aa8fe3e52af3543f5ccae738706"
+          }
+        }
+      },
+      "settlement": null,
+      "submission": {
+        "record": {
+          "input_sha256": "4094543de12c0f0a088a6bcfeb894963bb4adb655dbfff13e4f5085d87ae4d6d",
+          "job_id": "job-efd4d5974e06",
+          "line_count": 4,
+          "nonce": "heldout-1-bureau",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 12
+        },
+        "signature": {
+          "input_sha256": "4094543de12c0f0a088a6bcfeb894963bb4adb655dbfff13e4f5085d87ae4d6d",
+          "job_id": "job-efd4d5974e06",
+          "line_count": 4,
+          "nonce": "heldout-1-bureau",
+          "payload_hash": "5513a4786b19549ac42bd28c0425b1f9bb79a42496239085a31505c9e69246cc",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "c48902b2df3d42fb1dc771a765fe29e0fbbdf40b17ac77867e375bb039e7fe56fea6afc9082dd884828acd74b45023c7eb9be09d36b50e45996166e11bcaf30f"
+          },
+          "word_count": 12
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "ef80f1c4751d9f03efcaec63822336e83a17ab8338811c0cd5794b8335b2bb89",
+          "at": "2026-10-08T20:19:33.751362+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash ef80f1c4751d9f03",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.650538+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-efd4d5974e06",
+          "schema": "commission.verdict.v1",
+          "verdict": "rejected",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "ef80f1c4751d9f03efcaec63822336e83a17ab8338811c0cd5794b8335b2bb89",
+          "at": "2026-10-08T20:19:33.751362+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash ef80f1c4751d9f03",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.650538+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-efd4d5974e06",
+          "payload_hash": "ab800573aa9d52fe3b3be4d6345cca2508286f934bfe527427a09d11a8e65a12",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "7b90985fb515716b7a9654cd9e9d9dfcb80c7e4cc7c86135aca36618bed2b56b7c390553c082fc3946b1abbfdd6fcc5df3cdd97a2e8d2fa73330b4bd974dad0b"
+          },
+          "verdict": "rejected",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.768590+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "41a51d18ba63b97d1422558ebbfe95a2a4b0e5c699fbe534f50827c8fdf4c846",
+          "job_id": "job-0dcc6ac958dd",
+          "nonce": "heldout-2-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.768590+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "41a51d18ba63b97d1422558ebbfe95a2a4b0e5c699fbe534f50827c8fdf4c846",
+          "job_id": "job-0dcc6ac958dd",
+          "nonce": "heldout-2-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "payload_hash": "edb8912b5785ffea9d624a077a4d8428119ea2f002bceb675a92c400ffcd2d40",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "146b7014c5c2aaa0d1dfe8c5d8f9b27d19a3c19ae65ebf81c84458642d4ea553",
+            "value": "c5fec4d53eca6d493a3c6108a524950786707073c72b963fd99597f1d849aa1dde3b748df712f9b5802e9eea3aa75e0ccd85db525e7f1ecf686abd6149c9dd0a"
+          }
+        }
+      },
+      "job_id": "job-0dcc6ac958dd",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "payload_hash": "04ae8576dbe382379f41cab62325936242f621494b198acdda43f76bb9043809",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "162b3955d8c0614be22787894ac38a1f6f9b13415eae55fa8fa11b908cde194a1f200b0727d51c9fa000aa582db5695fd62c332bcafcaac55ab4f2ca92f6dd09"
+          }
+        }
+      },
+      "settlement": {
+        "record": {
+          "agreement_hash": "edb8912b5785ffea9d624a077a4d8428119ea2f002bceb675a92c400ffcd2d40",
+          "amount": 40,
+          "at": "2026-10-08T20:19:33.858605+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-0dcc6ac958dd",
+          "note": "simulated payment; no real money moved",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:edb8912b5785ffea9d624a077a4d8428119ea2f002bceb675a92c400ffcd2d40",
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "cd8e2ede0cae3f5c0d8b40fb3b601323f50500d904f41b4080e348a2d07d47c8"
+        },
+        "signature": {
+          "agreement_hash": "edb8912b5785ffea9d624a077a4d8428119ea2f002bceb675a92c400ffcd2d40",
+          "amount": 40,
+          "at": "2026-10-08T20:19:33.858605+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-0dcc6ac958dd",
+          "note": "simulated payment; no real money moved",
+          "payload_hash": "0d77f8ec6fb1490e39c809a39059d43167a65fa9b7dd011a5915a56378261a39",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:edb8912b5785ffea9d624a077a4d8428119ea2f002bceb675a92c400ffcd2d40",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "26b9f4b24e1cc75ba21a84b9a523eaf155e7cd951e78022d57a957f7e83c5765fb2f90b65f804c049f220ceb26c32a1fbafea343fcb0740d6e7e7788e6dc5104"
+          },
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "cd8e2ede0cae3f5c0d8b40fb3b601323f50500d904f41b4080e348a2d07d47c8"
+        }
+      },
+      "submission": {
+        "record": {
+          "input_sha256": "41a51d18ba63b97d1422558ebbfe95a2a4b0e5c699fbe534f50827c8fdf4c846",
+          "job_id": "job-0dcc6ac958dd",
+          "line_count": 2,
+          "nonce": "heldout-2-control",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 5
+        },
+        "signature": {
+          "input_sha256": "41a51d18ba63b97d1422558ebbfe95a2a4b0e5c699fbe534f50827c8fdf4c846",
+          "job_id": "job-0dcc6ac958dd",
+          "line_count": 2,
+          "nonce": "heldout-2-control",
+          "payload_hash": "969a9fa229eeea62464a0982e30af1d06250325b68bb3bd575ada353ac35559a",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "cde5bec17a62722baacc0c5b53411fd05224267daeb86e7b3f09556ba3b77ab65a131230ef745cfd30deddb8f83eb42e33621c2e469ecfaafea90898cf233107"
+          },
+          "word_count": 5
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "edb8912b5785ffea9d624a077a4d8428119ea2f002bceb675a92c400ffcd2d40",
+          "at": "2026-10-08T20:19:33.845600+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash edb8912b5785ffea",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.768590+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-0dcc6ac958dd",
+          "schema": "commission.verdict.v1",
+          "verdict": "accepted",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "edb8912b5785ffea9d624a077a4d8428119ea2f002bceb675a92c400ffcd2d40",
+          "at": "2026-10-08T20:19:33.845600+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash edb8912b5785ffea",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.768590+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-0dcc6ac958dd",
+          "payload_hash": "cd8e2ede0cae3f5c0d8b40fb3b601323f50500d904f41b4080e348a2d07d47c8",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "fbe97ca52d6cebb477f07f09ad575422a2252fd2b2a57b6aaaad5de390fff21147fa9fd3b6a69c6a1992a572ce5a9058c5e8710bc98580e1d535c1a376de0c00"
+          },
+          "verdict": "accepted",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.877548+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "dd4afca0c827636766f4e3981a5613024e85246f32e6d4fbfff27a6dfe575daf",
+          "job_id": "job-f9557208618d",
+          "nonce": "heldout-2-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.877548+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "dd4afca0c827636766f4e3981a5613024e85246f32e6d4fbfff27a6dfe575daf",
+          "job_id": "job-f9557208618d",
+          "nonce": "heldout-2-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "payload_hash": "e2701df3564b9c825d45501656cee19275f4fad42e59aa058f62247f9c42aac8",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1cd208d3245b5f9551c2cbbbe8f3a932fa84b0631d99b19795302fb584916d61",
+            "value": "b401b97a10aab632a3f6a3486c7c7118d15411d168587541f01de6c50c0549b37fc392a3e9e6e219ff7c02fd2aaae2dbf6c5015f0e2aaef91bd0cccdba565d06"
+          }
+        }
+      },
+      "job_id": "job-f9557208618d",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "payload_hash": "ebda5435e0b042ebd30d09445e1072c16455d68cc9363175407f8ff937cc083f",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "16e62f693ccb45be37f89e41c8f53886a53247d4f5750d2673d64c8567fab3d0f5a66048e43c1ab9c1c2f44bae3412bce3ca6aa8fe3e52af3543f5ccae738706"
+          }
+        }
+      },
+      "settlement": null,
+      "submission": {
+        "record": {
+          "input_sha256": "d41655ea5a497233ffe7a6975c1b43bcf33bbfc4871ba1a280abb0238d8be981",
+          "job_id": "job-f9557208618d",
+          "line_count": 4,
+          "nonce": "heldout-2-bureau",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 12
+        },
+        "signature": {
+          "input_sha256": "d41655ea5a497233ffe7a6975c1b43bcf33bbfc4871ba1a280abb0238d8be981",
+          "job_id": "job-f9557208618d",
+          "line_count": 4,
+          "nonce": "heldout-2-bureau",
+          "payload_hash": "4ab4899db0de6e3f267fa74f6b8b45cb7c5a8ee9f5773615dc5ad013d5712897",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "ff83ba23adf47388d393099f748208e7666b239a3d3c7cb4109206e4120948d08479d1740701fa7b321e3ebe0ec1a819f9d2204516b4e0e854c566ae63cab50a"
+          },
+          "word_count": 12
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "e2701df3564b9c825d45501656cee19275f4fad42e59aa058f62247f9c42aac8",
+          "at": "2026-10-08T20:19:33.931210+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash e2701df3564b9c82",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.877548+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-f9557208618d",
+          "schema": "commission.verdict.v1",
+          "verdict": "rejected",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "e2701df3564b9c825d45501656cee19275f4fad42e59aa058f62247f9c42aac8",
+          "at": "2026-10-08T20:19:33.931210+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash e2701df3564b9c82",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.877548+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-f9557208618d",
+          "payload_hash": "cbfe67aaf021e566b52546670a51f99d93436824e3d988f8b94e3c252314dabd",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "aa93539a9bc51e5a63f97ac46462c5684ada22a71d1b87c4f2b8e073fa0736e8059ad5b45e60ced39833cc3fb0b7e17099a10b2c45312ad04a89104243691604"
+          },
+          "verdict": "rejected",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.949443+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "edccab4cad8bd8dbcae4193fb4ddc747a774c6348c5d6401d596d7c0374a1658",
+          "job_id": "job-5c5bcddf481b",
+          "nonce": "heldout-3-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:3111554e5eb4069f9ab58a05fb15b8d4418f389482035125e966eb70055696f8",
+          "amount": 40,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:33.949443+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "edccab4cad8bd8dbcae4193fb4ddc747a774c6348c5d6401d596d7c0374a1658",
+          "job_id": "job-5c5bcddf481b",
+          "nonce": "heldout-3-control",
+          "offer_id": "offer-digest-b",
+          "payee": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "payload_hash": "90b91dc31d0e1297eead3faa77a289e37dd462a41c753640c0511fedd04d15c9",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "146b7014c5c2aaa0d1dfe8c5d8f9b27d19a3c19ae65ebf81c84458642d4ea553",
+            "value": "1f32966bbbaa3f347a561da4e215c36a89f7620a5c8aefe80ac6763dbc20a776ba6c7091bcef8bcafd4c2f3003c779f4c1018c1888b5817d465fb4d2642a7c00"
+          }
+        }
+      },
+      "job_id": "job-5c5bcddf481b",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-b",
+          "payload_hash": "04ae8576dbe382379f41cab62325936242f621494b198acdda43f76bb9043809",
+          "price": 40,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "162b3955d8c0614be22787894ac38a1f6f9b13415eae55fa8fa11b908cde194a1f200b0727d51c9fa000aa582db5695fd62c332bcafcaac55ab4f2ca92f6dd09"
+          }
+        }
+      },
+      "settlement": {
+        "record": {
+          "agreement_hash": "90b91dc31d0e1297eead3faa77a289e37dd462a41c753640c0511fedd04d15c9",
+          "amount": 40,
+          "at": "2026-10-08T20:19:34.007956+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-5c5bcddf481b",
+          "note": "simulated payment; no real money moved",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:90b91dc31d0e1297eead3faa77a289e37dd462a41c753640c0511fedd04d15c9",
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "5ae5592a2df0eaccd60a37c60106f458e254a20cad99d7025dc11a3ffda923ac"
+        },
+        "signature": {
+          "agreement_hash": "90b91dc31d0e1297eead3faa77a289e37dd462a41c753640c0511fedd04d15c9",
+          "amount": 40,
+          "at": "2026-10-08T20:19:34.007956+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-5c5bcddf481b",
+          "note": "simulated payment; no real money moved",
+          "payload_hash": "f5ae65d24abfc72eda2b5d66a885407a20559d886915de34662a07b23453e1f6",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:90b91dc31d0e1297eead3faa77a289e37dd462a41c753640c0511fedd04d15c9",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "7d95880ca441ca4ac54fe11b1c6197cd4a4bd1f630977c2822de83c53e9b6331081d7d5ece0e41315c64f6d1867691153b4df0a658625119d472803a189cfb0d"
+          },
+          "to": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+          "verdict_hash": "5ae5592a2df0eaccd60a37c60106f458e254a20cad99d7025dc11a3ffda923ac"
+        }
+      },
+      "submission": {
+        "record": {
+          "input_sha256": "edccab4cad8bd8dbcae4193fb4ddc747a774c6348c5d6401d596d7c0374a1658",
+          "job_id": "job-5c5bcddf481b",
+          "line_count": 2,
+          "nonce": "heldout-3-control",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 5
+        },
+        "signature": {
+          "input_sha256": "edccab4cad8bd8dbcae4193fb4ddc747a774c6348c5d6401d596d7c0374a1658",
+          "job_id": "job-5c5bcddf481b",
+          "line_count": 2,
+          "nonce": "heldout-3-control",
+          "payload_hash": "756b1dac9cc976de58cd49509eac2dbcfd1ad8897b52d176646d746ba18528e1",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "572925b94ecc6b072a4a3c4ff0f976c7f9a60ebc84491c85d00776d8e9267038",
+            "value": "625ee47ed825fc63a79bf80cae24efe3f303ec83ee3d45a4cca346bb62eb039f899d3ac677077417eac7b89286d6d63714dbebf47d27ba3309349af35a1d650c"
+          },
+          "word_count": 5
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "90b91dc31d0e1297eead3faa77a289e37dd462a41c753640c0511fedd04d15c9",
+          "at": "2026-10-08T20:19:33.996215+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 90b91dc31d0e1297",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.949443+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-5c5bcddf481b",
+          "schema": "commission.verdict.v1",
+          "verdict": "accepted",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "90b91dc31d0e1297eead3faa77a289e37dd462a41c753640c0511fedd04d15c9",
+          "at": "2026-10-08T20:19:33.996215+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 90b91dc31d0e1297",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:33.949443+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-5c5bcddf481b",
+          "payload_hash": "5ae5592a2df0eaccd60a37c60106f458e254a20cad99d7025dc11a3ffda923ac",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "7e6b656d85443b7e3fd3e64131c5c224968afad1ff00242a31bd80f9c228d8f5ee2a8ee909b2771f5fe84e15a11ca968f7d07af932d8accb4c0dfe499964f000"
+          },
+          "verdict": "accepted",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.024981+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "4ae8ee6858a799150fe864c641d4e1836a6c687e85fb48d8d636dbc75af36da2",
+          "job_id": "job-f1957b589485",
+          "nonce": "heldout-3-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:5e3c3f45bcd55e6653b157e7f1a9ccd6d95e24c387d38d0fae3f614eff43ef14",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.024981+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "4ae8ee6858a799150fe864c641d4e1836a6c687e85fb48d8d636dbc75af36da2",
+          "job_id": "job-f1957b589485",
+          "nonce": "heldout-3-bureau",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "payload_hash": "6030391b1615f1f6c7c4f2c081655d64184ed1ec65bd6e098e78f809dfa194cb",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1cd208d3245b5f9551c2cbbbe8f3a932fa84b0631d99b19795302fb584916d61",
+            "value": "55bb03d864d473faaaf8d695d7255304d1da05ed9bf119e4cd639ec6699d63ef732863994243d8cec9d33920213dd22584f3ce6e162e17e29b9ab7e3d5d33b0a"
+          }
+        }
+      },
+      "job_id": "job-f1957b589485",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "payload_hash": "ebda5435e0b042ebd30d09445e1072c16455d68cc9363175407f8ff937cc083f",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "16e62f693ccb45be37f89e41c8f53886a53247d4f5750d2673d64c8567fab3d0f5a66048e43c1ab9c1c2f44bae3412bce3ca6aa8fe3e52af3543f5ccae738706"
+          }
+        }
+      },
+      "settlement": null,
+      "submission": {
+        "record": {
+          "input_sha256": "7cfbbf837d4961174e5731e43cd5114f08af42e010a644a9d47558e2a7b5ee99",
+          "job_id": "job-f1957b589485",
+          "line_count": 4,
+          "nonce": "heldout-3-bureau",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 12
+        },
+        "signature": {
+          "input_sha256": "7cfbbf837d4961174e5731e43cd5114f08af42e010a644a9d47558e2a7b5ee99",
+          "job_id": "job-f1957b589485",
+          "line_count": 4,
+          "nonce": "heldout-3-bureau",
+          "payload_hash": "b5df59ac28e1b1c4d27b89168afc6ed99c2f687905d8443b55cd92ea39704407",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "292c15bf49e5345281bb58a2feb0873145be6a17150ae9c60dc17877e9f0b0b85ec53ec08ee80a657e73a2838b05fba5e46cdf185ea5a47f0df881180226d60a"
+          },
+          "word_count": 12
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "6030391b1615f1f6c7c4f2c081655d64184ed1ec65bd6e098e78f809dfa194cb",
+          "at": "2026-10-08T20:19:34.100152+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 6030391b1615f1f6",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:34.024981+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-f1957b589485",
+          "schema": "commission.verdict.v1",
+          "verdict": "rejected",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "6030391b1615f1f6c7c4f2c081655d64184ed1ec65bd6e098e78f809dfa194cb",
+          "at": "2026-10-08T20:19:34.100152+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 6030391b1615f1f6",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:34.024981+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-f1957b589485",
+          "payload_hash": "5ad5ff1c29e2140a1814cab8eaa56a68e935ceba6f5e47301851bff5b8c8f5b3",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "bc72dbd64f238b7d8bf516b96282068f87788bd3bfc4dd7483c1dd5a394d5cda63ed72ad1a179acf33d20aa466aa7fc06ba7dfe3ba8f95faf7e081692386d30e"
+          },
+          "verdict": "rejected",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:68cc7353c8676c7c3b51ee93773151ce3db517b860ef4d1d71bdf6c91f799dbe",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.167856+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "59cd94c49f88155e06809904ded2178fa75ef44b35132dbd3f9c8c0b229d07b1",
+          "job_id": "job-e8f4851d518b",
+          "nonce": "buyer-success",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:68cc7353c8676c7c3b51ee93773151ce3db517b860ef4d1d71bdf6c91f799dbe",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.167856+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "59cd94c49f88155e06809904ded2178fa75ef44b35132dbd3f9c8c0b229d07b1",
+          "job_id": "job-e8f4851d518b",
+          "nonce": "buyer-success",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "payload_hash": "718bb3de98d9723be62082958044a7260abab95651645e6303b8dd809da0bbd9",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "403f138fde887f45639ed14f3ea7af12e10b94a8347d9340c4f131a9b0a04202",
+            "value": "8652a6c25273e6e79f0c25ad1c1a3114694a505b054b43937ea81f32ad0d7f16cc1f63dcae8227cbdce73851688751609ea713fb7b3f3f8050fc4205770f740f"
+          }
+        }
+      },
+      "job_id": "job-e8f4851d518b",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "payload_hash": "ebda5435e0b042ebd30d09445e1072c16455d68cc9363175407f8ff937cc083f",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "16e62f693ccb45be37f89e41c8f53886a53247d4f5750d2673d64c8567fab3d0f5a66048e43c1ab9c1c2f44bae3412bce3ca6aa8fe3e52af3543f5ccae738706"
+          }
+        }
+      },
+      "settlement": {
+        "record": {
+          "agreement_hash": "718bb3de98d9723be62082958044a7260abab95651645e6303b8dd809da0bbd9",
+          "amount": 50,
+          "at": "2026-10-08T20:19:34.286968+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-e8f4851d518b",
+          "note": "simulated payment; no real money moved",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:718bb3de98d9723be62082958044a7260abab95651645e6303b8dd809da0bbd9",
+          "to": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "verdict_hash": "cb7a9d84b7547d0b2cb07a61be0114dbe23ad69198f29e542f3f11abdb6567dc"
+        },
+        "signature": {
+          "agreement_hash": "718bb3de98d9723be62082958044a7260abab95651645e6303b8dd809da0bbd9",
+          "amount": 50,
+          "at": "2026-10-08T20:19:34.286968+00:00",
+          "currency": "SIM_USD (simulated)",
+          "from": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "job_id": "job-e8f4851d518b",
+          "note": "simulated payment; no real money moved",
+          "payload_hash": "352e35bf84faf15ecefddc6a94d5976ed1d21193310e855be1a73090680633fc",
+          "schema": "commission.settlement.v1",
+          "settlement_id": "settle:718bb3de98d9723be62082958044a7260abab95651645e6303b8dd809da0bbd9",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "864b8edb9ce5b9f6c900337f28b000d0692052bed4006b6b5588822acb7936a42d562923fca1887d2a70789298ed6376f939188ca1c95ad79ee9cc07d2fe7a08"
+          },
+          "to": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "verdict_hash": "cb7a9d84b7547d0b2cb07a61be0114dbe23ad69198f29e542f3f11abdb6567dc"
+        }
+      },
+      "submission": {
+        "record": {
+          "input_sha256": "59cd94c49f88155e06809904ded2178fa75ef44b35132dbd3f9c8c0b229d07b1",
+          "job_id": "job-e8f4851d518b",
+          "line_count": 2,
+          "nonce": "buyer-success",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 3
+        },
+        "signature": {
+          "input_sha256": "59cd94c49f88155e06809904ded2178fa75ef44b35132dbd3f9c8c0b229d07b1",
+          "job_id": "job-e8f4851d518b",
+          "line_count": 2,
+          "nonce": "buyer-success",
+          "payload_hash": "832281fa365e6ed21bff7588f67d73f16af61edfbf78e29f5d639a3390340582",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "18f3dcc1c94993b62cfbd58445095a3d49c6d9e667c36adadbe37131b363c9e873e7ead151c15abc626cbffbacc4c2737bfba910d48bcc8dcc50846603ab3504"
+          },
+          "word_count": 3
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "718bb3de98d9723be62082958044a7260abab95651645e6303b8dd809da0bbd9",
+          "at": "2026-10-08T20:19:34.271682+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 718bb3de98d9723b",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:34.167856+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-e8f4851d518b",
+          "schema": "commission.verdict.v1",
+          "verdict": "accepted",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "718bb3de98d9723be62082958044a7260abab95651645e6303b8dd809da0bbd9",
+          "at": "2026-10-08T20:19:34.271682+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash 718bb3de98d9723b",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": true
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field matches",
+              "name": "acceptance_exact_recompute",
+              "pass": true
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:34.167856+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-e8f4851d518b",
+          "payload_hash": "cb7a9d84b7547d0b2cb07a61be0114dbe23ad69198f29e542f3f11abdb6567dc",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "7fc18d72f65886839c033d235b14703fed31443e71a65eb522e3b9be0576ef9acdff6bbd1f864f199694981106868da83be1960bf2c76c38e8040f82a40cf209"
+          },
+          "verdict": "accepted",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:69ff55c8dc4685886e118d6e2cc029857e762b5dda39383e8f0776b9ec071235",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.334040+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "bba5e0c6a64dca106acdf96f7d9ef2f657743628683f76c3e57750ac188720ee",
+          "job_id": "job-4968545aebe5",
+          "nonce": "buyer-failure",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:69ff55c8dc4685886e118d6e2cc029857e762b5dda39383e8f0776b9ec071235",
+          "amount": 50,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.334040+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "bba5e0c6a64dca106acdf96f7d9ef2f657743628683f76c3e57750ac188720ee",
+          "job_id": "job-4968545aebe5",
+          "nonce": "buyer-failure",
+          "offer_id": "offer-digest-a",
+          "payee": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "payload_hash": "e24d53f23092acd411696ec8bc1b710d265fac4830b38a98e268b10bc936154e",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "68681493206d26a58ba9b69704be4bf38511a808e61630ded944e8596526431d",
+            "value": "9018928d91bcb7e3e5b315f4e4091ddda968fbef1341187b7fd323fed5e3e4a570ae11a1b1423f0fc918b176ae3f51b32f5fb7ae0a5f35553a5d52324db39f09"
+          }
+        }
+      },
+      "job_id": "job-4968545aebe5",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-a",
+          "payload_hash": "ebda5435e0b042ebd30d09445e1072c16455d68cc9363175407f8ff937cc083f",
+          "price": 50,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "16e62f693ccb45be37f89e41c8f53886a53247d4f5750d2673d64c8567fab3d0f5a66048e43c1ab9c1c2f44bae3412bce3ca6aa8fe3e52af3543f5ccae738706"
+          }
+        }
+      },
+      "settlement": null,
+      "submission": {
+        "record": {
+          "input_sha256": "89f1a6ec418a0b25bda88a45b2eb39638f1d1f4a5805a7cd8e8e9395b254a8d2",
+          "job_id": "job-4968545aebe5",
+          "line_count": 4,
+          "nonce": "buyer-failure",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "word_count": 10
+        },
+        "signature": {
+          "input_sha256": "89f1a6ec418a0b25bda88a45b2eb39638f1d1f4a5805a7cd8e8e9395b254a8d2",
+          "job_id": "job-4968545aebe5",
+          "line_count": 4,
+          "nonce": "buyer-failure",
+          "payload_hash": "1087546ba83011b5e78cf7d84cb8585589a4a4b76c5aa6955fc52f2c953945aa",
+          "schema": "commission.result.v1",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "51eae9c609af0b053d7c7f7bff371516ab23939d47ed390a6e4726a2f9358a5b",
+            "value": "c3b7db45a29e63f08fdb09bc924482c5b90c0d06cc7c0ec9b414046989d519cf6274583082e7e9e5baf1c99e0d67760ad0c62f1066a75c492993479a8b7f0e0c"
+          },
+          "word_count": 10
+        }
+      },
+      "verdict": {
+        "record": {
+          "agreement_hash": "e24d53f23092acd411696ec8bc1b710d265fac4830b38a98e268b10bc936154e",
+          "at": "2026-10-08T20:19:34.387223+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash e24d53f23092acd4",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:34.334040+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-4968545aebe5",
+          "schema": "commission.verdict.v1",
+          "verdict": "rejected",
+          "verified_by": "owner"
+        },
+        "signature": {
+          "agreement_hash": "e24d53f23092acd411696ec8bc1b710d265fac4830b38a98e268b10bc936154e",
+          "at": "2026-10-08T20:19:34.387223+00:00",
+          "checks": [
+            {
+              "detail": "frozen hash e24d53f23092acd4",
+              "name": "agreement_integrity",
+              "pass": true
+            },
+            {
+              "detail": "payee openline:princip",
+              "name": "payee_matches_offer",
+              "pass": true
+            },
+            {
+              "detail": "submission on record",
+              "name": "result_submitted",
+              "pass": true
+            },
+            {
+              "detail": "signed by the agreement's seller",
+              "name": "seller_signature",
+              "pass": true
+            },
+            {
+              "detail": "result names this job, nonce, and input hash",
+              "name": "result_binds_job",
+              "pass": false
+            },
+            {
+              "detail": "receiver recomputed from the job input; every field does NOT match",
+              "name": "acceptance_exact_recompute",
+              "pass": false
+            },
+            {
+              "detail": "deadline 2026-10-08T22:19:34.334040+00:00",
+              "name": "within_deadline",
+              "pass": true
+            }
+          ],
+          "job_id": "job-4968545aebe5",
+          "payload_hash": "025228a29585a0043c139217c6ce8eb8e9a4914938bdeeb66297ff9d3e721d95",
+          "schema": "commission.verdict.v1",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "1782025515ddc3e2718327bb637059cca5f88bb34cfb411530d817648dd52d7a",
+            "value": "4b278997ce2d6f5fa389109b72807bf3a8809d3005a13a5da50388858f2f48621f45ea30f2d7a9c24b7bc21515b2fad8e592ef18e05a15cf967ffd5b867d7007"
+          },
+          "verdict": "rejected",
+          "verified_by": "owner"
+        }
+      }
+    },
+    {
+      "agreement": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:f9e06ef7aa44589c5e86fd86c7911443c84ed5b8567e6701f53fcad2b3fcf036",
+          "amount": 60,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.428632+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "16c4328bab7924e68ca09dc08c99d142afb3c538e3628ae67cddacd058646f4f",
+          "job_id": "job-b45a01ec09a3",
+          "nonce": "exch-job-7",
+          "offer_id": "offer-digest-c",
+          "payee": "openline:principal:9e978b99df62eda3abc9416257a2253ede194ad0cd231c161f95db78aac20fea",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:9e978b99df62eda3abc9416257a2253ede194ad0cd231c161f95db78aac20fea",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "agent": "openline:principal:f9e06ef7aa44589c5e86fd86c7911443c84ed5b8567e6701f53fcad2b3fcf036",
+          "amount": 60,
+          "buyer": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381",
+          "currency": "SIM_USD (simulated)",
+          "deadline": "2026-10-08T22:19:34.428632+00:00",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "input_sha256": "16c4328bab7924e68ca09dc08c99d142afb3c538e3628ae67cddacd058646f4f",
+          "job_id": "job-b45a01ec09a3",
+          "nonce": "exch-job-7",
+          "offer_id": "offer-digest-c",
+          "payee": "openline:principal:9e978b99df62eda3abc9416257a2253ede194ad0cd231c161f95db78aac20fea",
+          "payload_hash": "89772bcc9d322ddc380cd99640b90b6fd1eda16a202708e1491c9460a82c2e56",
+          "rules": {
+            "on_accept": "settle exactly once to the payee after the buyer's receiver verifies the result",
+            "on_reject": "no payment; the reserved amount is released back to the agent allowance",
+            "on_revoke": "revocation blocks new commissions; an already-earned (verified, accepted) obligation is never silently erased and remains payable",
+            "replay": "settlement is idempotent; replaying settle cannot produce a second payment"
+          },
+          "schema": "commission.agreement.v1",
+          "seller": "openline:principal:9e978b99df62eda3abc9416257a2253ede194ad0cd231c161f95db78aac20fea",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "d2cca89e776f2df355b980c34e023533fad8db54853fc7df4d5a35e42e47d2d0",
+            "value": "0060479e725bfeda55654500f422c05a33015fd3152f5dc557917f801f380279b02621e9019cbf0013090cce31c695f5b9e609f2a0cc73aa04cd99e49b2a570e"
+          }
+        }
+      },
+      "job_id": "job-b45a01ec09a3",
+      "offer": {
+        "record": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-c",
+          "price": 60,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:9e978b99df62eda3abc9416257a2253ede194ad0cd231c161f95db78aac20fea",
+          "service": "text_digest"
+        },
+        "signature": {
+          "acceptance": {
+            "fields": [
+              "input_sha256",
+              "word_count",
+              "line_count",
+              "nonce"
+            ],
+            "rule": "the buyer's receiver recomputes sha256, word count, and line count from the frozen job input and requires every field to match the seller's submitted result exactly",
+            "type": "exact_recompute"
+          },
+          "currency": "SIM_USD (simulated)",
+          "deliverable": "a digest report for the job input: input sha256, word count, line count, and the input nonce, returned as JSON",
+          "note": "results only; the seller retains its implementation",
+          "offer_id": "offer-digest-c",
+          "payload_hash": "6852f7241368bcddb5d12ae8aac1d6fa33742e3128c032ffc3eb0f037d912787",
+          "price": 60,
+          "schema": "commission.offer.v1",
+          "seller": "openline:principal:9e978b99df62eda3abc9416257a2253ede194ad0cd231c161f95db78aac20fea",
+          "service": "text_digest",
+          "signature": {
+            "algorithm": "Ed25519",
+            "public_key": "e5130dd90240e5b5c836e396a587f8c4bed60443845b4cdd28daf6f1c9cc70af",
+            "value": "8adda9842053b0f4ad2accae2cce748522dd5cdd1b01dd5deada9cdd53c2665fce66c77c584eec62778aa7e72ff9c533ec651b4f18fe703e76aa5300ef2bc002"
+          }
+        }
+      },
+      "settlement": null,
+      "submission": null,
+      "verdict": null
+    }
+  ],
+  "profiles": [
+    {
+      "capability": "digest-report",
+      "currency": "SIM_USD (simulated)",
+      "listing_id": "listing-1fd64d480ceb2fe5",
+      "offer_id": "offer-digest-a",
+      "price": 50,
+      "seller_id": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+      "seller_name": "Seller A",
+      "service": "text_digest",
+      "standing": "active"
+    },
+    {
+      "capability": "digest-report",
+      "currency": "SIM_USD (simulated)",
+      "listing_id": "listing-7a07138e6e94eece",
+      "offer_id": "offer-digest-c",
+      "price": 60,
+      "seller_id": "openline:principal:9e978b99df62eda3abc9416257a2253ede194ad0cd231c161f95db78aac20fea",
+      "seller_name": "Seller C",
+      "service": "text_digest",
+      "standing": "active"
+    },
+    {
+      "capability": "digest-report",
+      "currency": "SIM_USD (simulated)",
+      "listing_id": "listing-8b9f723a346ec842",
+      "offer_id": "offer-digest-b",
+      "price": 40,
+      "seller_id": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c",
+      "seller_name": "Seller B",
+      "service": "text_digest",
+      "standing": "active"
+    }
+  ],
+  "source": {
+    "record_file": "commission/jobs.json",
+    "sha256": "058b45db282c6e00bd1f8ed1c121d101e3c482d6c211d27c886e61ed4d883464"
+  },
+  "warning": "LOCAL CONTROLLED WORKERS; SIM_USD simulated, no real payment"
+}

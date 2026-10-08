@@ -408,6 +408,9 @@ ADAPTERS = [
     ("external_receipt", detect_external_receipt, adapt_external_receipt),
 ]
 
+from . import exchange
+ADAPTERS.insert(0, ("exchange", exchange.detect, exchange.adapt))
+
 
 def detect(payload):
     for name, det, _ in ADAPTERS:

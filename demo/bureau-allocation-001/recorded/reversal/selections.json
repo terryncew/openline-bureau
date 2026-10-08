@@ -1,0 +1,16 @@
+{
+  "choices": {
+    "bureau": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+    "control": "openline:principal:3e21caaefe67653bcd88bd1b7bfcf706ca66b1d6586241aa7493c9b096a9296c"
+  },
+  "history_sha256": "7df9cc6174222ff5b670d101b3573802cfb469e88555af3aa3abef453949ba0a",
+  "protocol_sha256": "46c713b215628f01b1310dde4134040241e0af7627a09eb7d37e0f14c60beedb",
+  "scenario": "reversal",
+  "synthetic": true,
+  "task_ids": [
+    "heldout-0",
+    "heldout-1",
+    "heldout-2",
+    "heldout-3"
+  ]
+}

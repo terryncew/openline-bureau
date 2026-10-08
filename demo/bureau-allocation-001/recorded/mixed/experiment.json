@@ -1,0 +1,117 @@
+{
+  "bureau_worse_tasks": [
+    "heldout-3"
+  ],
+  "completion_delta": 0.5,
+  "conditions": {
+    "bureau": {
+      "accepted": 3,
+      "accepted_per_settled_sim_usd": 0.02,
+      "completion_rate": 0.75,
+      "observed_settled_sim_usd": 150,
+      "rejected": 1,
+      "selections": 4
+    },
+    "control": {
+      "accepted": 1,
+      "accepted_per_settled_sim_usd": 0.025,
+      "completion_rate": 0.25,
+      "observed_settled_sim_usd": 40,
+      "rejected": 3,
+      "selections": 4
+    }
+  },
+  "protocol_sha256": "46c713b215628f01b1310dde4134040241e0af7627a09eb7d37e0f14c60beedb",
+  "rows": [
+    {
+      "accepted": false,
+      "condition": "control",
+      "input_sha256": "46c8bcbd237ddacaefbfa447fba7fc5177ee1123e758e1957ad4dce1168183ee",
+      "job_id": "job-fcae5abfc183",
+      "rejected": true,
+      "settled_sim_usd": null,
+      "task": "heldout-0",
+      "task_content_sha256": "2424e94979ff7eae5c91fb97b3607a68f121cec3433f5959475cfe6117c2104a",
+      "worker": "openline:principal:a48c99091c14a32d560a40334a65818efbc58d30e51e4910d908a04645c3c89b"
+    },
+    {
+      "accepted": true,
+      "condition": "bureau",
+      "input_sha256": "497546a21b2c47f220a0b31d80be0cee4e0b6e78689f452ef8f5b1bcef6ac0ae",
+      "job_id": "job-9b1a90c08814",
+      "rejected": false,
+      "settled_sim_usd": 50,
+      "task": "heldout-0",
+      "task_content_sha256": "2424e94979ff7eae5c91fb97b3607a68f121cec3433f5959475cfe6117c2104a",
+      "worker": "openline:principal:5bca25e9e8ca647deea1b08e0afa0809519a87b55de03f3781005029eb61d42e"
+    },
+    {
+      "accepted": false,
+      "condition": "control",
+      "input_sha256": "6b4c607fb17aa73fb291aa40ba367bdc86a2f5260be12614c2c9a5e3f08f1ea6",
+      "job_id": "job-392a9fd27997",
+      "rejected": true,
+      "settled_sim_usd": null,
+      "task": "heldout-1",
+      "task_content_sha256": "b4b3f2111d42e73c21379f166b5d5963cdd2f24748211f4fa66bff0f3579b2ff",
+      "worker": "openline:principal:a48c99091c14a32d560a40334a65818efbc58d30e51e4910d908a04645c3c89b"
+    },
+    {
+      "accepted": true,
+      "condition": "bureau",
+      "input_sha256": "be7ac24042875a524213893375d2cbdc8333f378f8bb1e265fa4c950f6985814",
+      "job_id": "job-a73e2fbc02a9",
+      "rejected": false,
+      "settled_sim_usd": 50,
+      "task": "heldout-1",
+      "task_content_sha256": "b4b3f2111d42e73c21379f166b5d5963cdd2f24748211f4fa66bff0f3579b2ff",
+      "worker": "openline:principal:5bca25e9e8ca647deea1b08e0afa0809519a87b55de03f3781005029eb61d42e"
+    },
+    {
+      "accepted": false,
+      "condition": "control",
+      "input_sha256": "41a51d18ba63b97d1422558ebbfe95a2a4b0e5c699fbe534f50827c8fdf4c846",
+      "job_id": "job-8f9ddcb0dbfe",
+      "rejected": true,
+      "settled_sim_usd": null,
+      "task": "heldout-2",
+      "task_content_sha256": "6e683d93241b9bb475744d516bea7551d70398e937d705a7ca1bc4607f264295",
+      "worker": "openline:principal:a48c99091c14a32d560a40334a65818efbc58d30e51e4910d908a04645c3c89b"
+    },
+    {
+      "accepted": true,
+      "condition": "bureau",
+      "input_sha256": "dd4afca0c827636766f4e3981a5613024e85246f32e6d4fbfff27a6dfe575daf",
+      "job_id": "job-b3fee54d2e12",
+      "rejected": false,
+      "settled_sim_usd": 50,
+      "task": "heldout-2",
+      "task_content_sha256": "6e683d93241b9bb475744d516bea7551d70398e937d705a7ca1bc4607f264295",
+      "worker": "openline:principal:5bca25e9e8ca647deea1b08e0afa0809519a87b55de03f3781005029eb61d42e"
+    },
+    {
+      "accepted": true,
+      "condition": "control",
+      "input_sha256": "edccab4cad8bd8dbcae4193fb4ddc747a774c6348c5d6401d596d7c0374a1658",
+      "job_id": "job-ddf4d89203fb",
+      "rejected": false,
+      "settled_sim_usd": 40,
+      "task": "heldout-3",
+      "task_content_sha256": "cc5b6eaece6919728b1dc4b32099834b1fe99c4a72ba29617e68529651d3fab8",
+      "worker": "openline:principal:a48c99091c14a32d560a40334a65818efbc58d30e51e4910d908a04645c3c89b"
+    },
+    {
+      "accepted": false,
+      "condition": "bureau",
+      "input_sha256": "4ae8ee6858a799150fe864c641d4e1836a6c687e85fb48d8d636dbc75af36da2",
+      "job_id": "job-5d938401439e",
+      "rejected": true,
+      "settled_sim_usd": null,
+      "task": "heldout-3",
+      "task_content_sha256": "cc5b6eaece6919728b1dc4b32099834b1fe99c4a72ba29617e68529651d3fab8",
+      "worker": "openline:principal:5bca25e9e8ca647deea1b08e0afa0809519a87b55de03f3781005029eb61d42e"
+    }
+  ],
+  "sparse_history": false,
+  "verdict": "ADVANTAGE"
+}

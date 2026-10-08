@@ -1,0 +1,16 @@
+{
+  "choices": {
+    "bureau": "openline:principal:e43a3e869f82eadb197be6edf38daf16e43807149d56dc66a1ce4fe455372f31",
+    "control": "openline:principal:e43a3e869f82eadb197be6edf38daf16e43807149d56dc66a1ce4fe455372f31"
+  },
+  "history_sha256": "2b01b64733ba01e9d469f5445648dc82cb121b473fb326b1a4622cf0da3978f5",
+  "protocol_sha256": "46c713b215628f01b1310dde4134040241e0af7627a09eb7d37e0f14c60beedb",
+  "scenario": "mixed",
+  "synthetic": true,
+  "task_ids": [
+    "heldout-0",
+    "heldout-1",
+    "heldout-2",
+    "heldout-3"
+  ]
+}
