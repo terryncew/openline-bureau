@@ -1,0 +1,292 @@
+{
+  "minimum_history": 3,
+  "service": "text_digest",
+  "trusted_buyers": [
+    "openline:principal:eb22b47eecd97fb8881d7ddc4b98aec701a24c4b4f3e7fbf90509e68c447358c"
+  ],
+  "warning": "Local controlled demonstration. Buyer verification is independent of the seller, not independent commercial attestation. Sparse history is not evidence of untrustworthiness.",
+  "workers": [
+    {
+      "accepted": 7,
+      "accepted_fraction": 0.7777777777777778,
+      "accepted_per_simulated_unit": 0.02,
+      "accepted_receipt_ids": [
+        "exchange:job-3f6a0f4aea0c:verdict:702f2faf729b2ef18ab9d5a0385d50a2a7a00f9b018c27147898e9a7fc3d773a",
+        "exchange:job-592c77a522c3:verdict:84be5424d4142fe2f83a55f6e7ac206325a44b612dc9830a25bac0c87b40c21b",
+        "exchange:job-83336de75b60:verdict:083fbc4be31b2de964f4ec9ff4f12f27219d34429e457432a95f5bc48c47f416",
+        "exchange:job-9b1a90c08814:verdict:e37fee579875af657e208e259adc1a093effd7c5af73d0a7248180ceeea423ac",
+        "exchange:job-a73e2fbc02a9:verdict:85851cddaa5830ee47e52526ba45605dcc33c449b3d5d89aa80b7767b4481a2e",
+        "exchange:job-b3fee54d2e12:verdict:237a0adc90b0d2feb9fb78502fbcbb7937ce759c175c2381742ab1edaea9058c",
+        "exchange:job-d32016f5d13c:verdict:b33583100c488ba59b63bf71bdcf2912a591ab5283445d0d9d3c711224e0c976"
+      ],
+      "advertisement_authenticity": "self-reported registry profile",
+      "attempt_count": null,
+      "authorization_standing": "NOT ESTABLISHED \u2014 selected transaction evidence is not a current mandate",
+      "comparable_verified_jobs": 9,
+      "cost_definition": "signed SIM_USD settlement amounts for accepted jobs; rejected jobs pay nothing under the Exchange rules; excludes work and opportunity costs",
+      "cost_receipt_ids": [
+        "exchange:job-3f6a0f4aea0c:settlement:cb20fcb350052333dd1db7f56d5396a03ac14b3e2d722c1fcaa14fad2e3e71a8",
+        "exchange:job-592c77a522c3:settlement:dbb6335cfc3d31f0058d8a86d32b1799c452b9120a4f915ff910d45f8ea8a492",
+        "exchange:job-83336de75b60:settlement:fae50fca62eee13ea3348686210bd049ba63b837a8b258f41f70afccf3ab5e02",
+        "exchange:job-9b1a90c08814:settlement:a14d1be35c45cc466e224bc05e2920c10a696b4c9d986bb61dcbeb183f795bfb",
+        "exchange:job-a73e2fbc02a9:settlement:966a0c67a21f40fc8400b3a9ef614d6dfc627af9ea9ac642f7d8606090ae263c",
+        "exchange:job-b3fee54d2e12:settlement:593237ab823436e335b44dbe3d16db17372089a72a183b38effd1c6446dadf06",
+        "exchange:job-d32016f5d13c:settlement:e95b78224d40cdda76d6ef0e8437c9692502bf70355c7ecfa3a3c768b8c8d215"
+      ],
+      "denominator": "distinct authenticated buyer verdicts for this job type; not all attempts",
+      "job_states": [
+        {
+          "job_id": "job-592c77a522c3",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        },
+        {
+          "job_id": "job-d32016f5d13c",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        },
+        {
+          "job_id": "job-3f6a0f4aea0c",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        },
+        {
+          "job_id": "job-9b1a90c08814",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        },
+        {
+          "job_id": "job-a73e2fbc02a9",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        },
+        {
+          "job_id": "job-b3fee54d2e12",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        },
+        {
+          "job_id": "job-5d938401439e",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        },
+        {
+          "job_id": "job-83336de75b60",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        },
+        {
+          "job_id": "job-86d820951dba",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        }
+      ],
+      "observed_simulated_cost": 350,
+      "profile": {
+        "capability": "digest-report",
+        "currency": "SIM_USD (simulated)",
+        "listing_id": "listing-b1bf0a54b40a18a6",
+        "offer_id": "offer-digest-a",
+        "price": 50,
+        "seller_id": "openline:principal:5bca25e9e8ca647deea1b08e0afa0809519a87b55de03f3781005029eb61d42e",
+        "seller_name": "Seller A",
+        "service": "text_digest",
+        "standing": "active"
+      },
+      "ranking_status": "fixture decision rule available",
+      "real_payment": "NOT ESTABLISHED \u2014 all settlement is simulated",
+      "receipt_ids": [
+        "exchange:job-3f6a0f4aea0c:agreement:5f65c9db15d3c0ff7f86706cd54c543392c8cf608d629e5ddcd47eb3504e3810",
+        "exchange:job-3f6a0f4aea0c:settlement:cb20fcb350052333dd1db7f56d5396a03ac14b3e2d722c1fcaa14fad2e3e71a8",
+        "exchange:job-3f6a0f4aea0c:submission:a1cb9fbc2e65e6656a6f585d763d70b047091f4d16d66cd5da5b133f3a747eca",
+        "exchange:job-3f6a0f4aea0c:verdict:702f2faf729b2ef18ab9d5a0385d50a2a7a00f9b018c27147898e9a7fc3d773a",
+        "exchange:job-592c77a522c3:agreement:5e1ca8c3483a0daa6cab2a456d28d79bedab2b3cc06b637759858a18588710eb",
+        "exchange:job-592c77a522c3:settlement:dbb6335cfc3d31f0058d8a86d32b1799c452b9120a4f915ff910d45f8ea8a492",
+        "exchange:job-592c77a522c3:submission:1fa4ca278f59ebe5fad707c0dabf0175fa44db25c08e604a819dee53b23ed3df",
+        "exchange:job-592c77a522c3:verdict:84be5424d4142fe2f83a55f6e7ac206325a44b612dc9830a25bac0c87b40c21b",
+        "exchange:job-5d938401439e:agreement:87f6c17086c5a3de259682de613eddb66e9702c6db53e28a1e95c9d0012c6bfc",
+        "exchange:job-5d938401439e:submission:9f6ba5bbd534ba3cfa990cfc4118d7f131b54d97fbc1e81ad96c420121797e33",
+        "exchange:job-5d938401439e:verdict:19f5acda6f65f0963dfd557044a51f89bea6655971c1c66ab3b6e67ab14ae99a",
+        "exchange:job-83336de75b60:agreement:61c2f2524181e25a1b830f7f8c93df632574d00ddd1eed3a5069dedd5cf7fa20",
+        "exchange:job-83336de75b60:settlement:fae50fca62eee13ea3348686210bd049ba63b837a8b258f41f70afccf3ab5e02",
+        "exchange:job-83336de75b60:submission:530f3d3049571be8e8d4177e5e9d13346bc1c53e10b90bb7991a074e32f3c8d6",
+        "exchange:job-83336de75b60:verdict:083fbc4be31b2de964f4ec9ff4f12f27219d34429e457432a95f5bc48c47f416",
+        "exchange:job-86d820951dba:agreement:532c1994bb5cf9f6c68d7e59fa49d89cf36cf4bba5bea5166813dca3c25077ed",
+        "exchange:job-86d820951dba:submission:ed57fea287a1f1c5efece66b06873d93d62238d72e6dafc48c2d96ec1c1ba7c8",
+        "exchange:job-86d820951dba:verdict:3722f3850ed6b0908d42603f7fe4a04ce4aa4df24c61934e6ba457e27929942e",
+        "exchange:job-9b1a90c08814:agreement:b6dbb596985eaef221e4740d0eb13f765bdac738f08895d278f493961842191d",
+        "exchange:job-9b1a90c08814:settlement:a14d1be35c45cc466e224bc05e2920c10a696b4c9d986bb61dcbeb183f795bfb",
+        "exchange:job-9b1a90c08814:submission:a536b094c096039e8b75c8a2c9270b48d6c7a54f0bc13d30f090f22ae0d51ab5",
+        "exchange:job-9b1a90c08814:verdict:e37fee579875af657e208e259adc1a093effd7c5af73d0a7248180ceeea423ac",
+        "exchange:job-a73e2fbc02a9:agreement:86e79c280b760dea3cbc04a91170371cf3f40b15ca0e3ff33db7127a8c75a672",
+        "exchange:job-a73e2fbc02a9:settlement:966a0c67a21f40fc8400b3a9ef614d6dfc627af9ea9ac642f7d8606090ae263c",
+        "exchange:job-a73e2fbc02a9:submission:11f65d9848feb5894d30b534ed88a5f093d4ac6aa3112082d70e30ccbcc3e7d6",
+        "exchange:job-a73e2fbc02a9:verdict:85851cddaa5830ee47e52526ba45605dcc33c449b3d5d89aa80b7767b4481a2e",
+        "exchange:job-b3fee54d2e12:agreement:7d977ebeabe1e8f64b3290cc4a021c74bc50ce874f15cce07b8d571ff67b0971",
+        "exchange:job-b3fee54d2e12:settlement:593237ab823436e335b44dbe3d16db17372089a72a183b38effd1c6446dadf06",
+        "exchange:job-b3fee54d2e12:submission:76ee63b8d52db0d4126e7bb8bfb25b3ae0482f903cbce63fe60e12e3dbed670f",
+        "exchange:job-b3fee54d2e12:verdict:237a0adc90b0d2feb9fb78502fbcbb7937ce759c175c2381742ab1edaea9058c",
+        "exchange:job-d32016f5d13c:agreement:a74ae77915f8137b3c02d75a7b090d75838fc64645f77b687520089142caf684",
+        "exchange:job-d32016f5d13c:settlement:e95b78224d40cdda76d6ef0e8437c9692502bf70355c7ecfa3a3c768b8c8d215",
+        "exchange:job-d32016f5d13c:submission:1431f63d3917551df9bd6bdfced00529f27fb13e0d5b5ed69ca471d9bf2c3a10",
+        "exchange:job-d32016f5d13c:verdict:b33583100c488ba59b63bf71bdcf2912a591ab5283445d0d9d3c711224e0c976"
+      ],
+      "rejected": 2,
+      "rejected_receipt_ids": [
+        "exchange:job-5d938401439e:verdict:19f5acda6f65f0963dfd557044a51f89bea6655971c1c66ab3b6e67ab14ae99a",
+        "exchange:job-86d820951dba:verdict:3722f3850ed6b0908d42603f7fe4a04ce4aa4df24c61934e6ba457e27929942e"
+      ],
+      "unobserved_failure_count": null,
+      "unresolved_jobs": [],
+      "worker_id": "openline:principal:5bca25e9e8ca647deea1b08e0afa0809519a87b55de03f3781005029eb61d42e"
+    },
+    {
+      "accepted": 0,
+      "accepted_fraction": null,
+      "accepted_per_simulated_unit": null,
+      "accepted_receipt_ids": [],
+      "advertisement_authenticity": "self-reported registry profile",
+      "attempt_count": null,
+      "authorization_standing": "NOT ESTABLISHED \u2014 selected transaction evidence is not a current mandate",
+      "comparable_verified_jobs": 0,
+      "cost_definition": "signed SIM_USD settlement amounts for accepted jobs; rejected jobs pay nothing under the Exchange rules; excludes work and opportunity costs",
+      "cost_receipt_ids": [],
+      "denominator": "distinct authenticated buyer verdicts for this job type; not all attempts",
+      "job_states": [
+        {
+          "job_id": "job-9ff8347a7f4f",
+          "outcome": "NOT ESTABLISHED",
+          "settlement": "NOT ESTABLISHED"
+        }
+      ],
+      "observed_simulated_cost": null,
+      "profile": {
+        "capability": "digest-report",
+        "currency": "SIM_USD (simulated)",
+        "listing_id": "listing-e6569a8d4a7dd497",
+        "offer_id": "offer-digest-c",
+        "price": 60,
+        "seller_id": "openline:principal:9330bde8e1b5000b9526184be937e79d3361f7406980b47d16aa6fb9480c2cc9",
+        "seller_name": "Seller C",
+        "service": "text_digest",
+        "standing": "active"
+      },
+      "ranking_status": "cannot yet be ranked reliably",
+      "real_payment": "NOT ESTABLISHED \u2014 all settlement is simulated",
+      "receipt_ids": [
+        "exchange:job-9ff8347a7f4f:agreement:7c32408825a706838f1d7bcd786f1001080fd9e3b19f1009f1aef3b368fe4b6a"
+      ],
+      "rejected": 0,
+      "rejected_receipt_ids": [],
+      "unobserved_failure_count": null,
+      "unresolved_jobs": [
+        "job-9ff8347a7f4f"
+      ],
+      "worker_id": "openline:principal:9330bde8e1b5000b9526184be937e79d3361f7406980b47d16aa6fb9480c2cc9"
+    },
+    {
+      "accepted": 1,
+      "accepted_fraction": 0.14285714285714285,
+      "accepted_per_simulated_unit": 0.025,
+      "accepted_receipt_ids": [
+        "exchange:job-ddf4d89203fb:verdict:dd386fb5c7109e291157894176af1785df6c9ee9c23f26aa91b77023d0eda310"
+      ],
+      "advertisement_authenticity": "self-reported registry profile",
+      "attempt_count": null,
+      "authorization_standing": "NOT ESTABLISHED \u2014 selected transaction evidence is not a current mandate",
+      "comparable_verified_jobs": 7,
+      "cost_definition": "signed SIM_USD settlement amounts for accepted jobs; rejected jobs pay nothing under the Exchange rules; excludes work and opportunity costs",
+      "cost_receipt_ids": [
+        "exchange:job-ddf4d89203fb:settlement:da7a33564c63cc731b7a1f63bfe1b4fd16f714a552e74ab7d2a5813e4c942678"
+      ],
+      "denominator": "distinct authenticated buyer verdicts for this job type; not all attempts",
+      "job_states": [
+        {
+          "job_id": "job-79699c044364",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        },
+        {
+          "job_id": "job-0513af5b6bb5",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        },
+        {
+          "job_id": "job-9d90b9eff3e8",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        },
+        {
+          "job_id": "job-fcae5abfc183",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        },
+        {
+          "job_id": "job-392a9fd27997",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        },
+        {
+          "job_id": "job-8f9ddcb0dbfe",
+          "outcome": "BUYER_VERIFIED_REJECTED",
+          "settlement": "NO PAYMENT UNDER AGREEMENT RULE; release evidence not exported"
+        },
+        {
+          "job_id": "job-ddf4d89203fb",
+          "outcome": "BUYER_VERIFIED_ACCEPTED",
+          "settlement": "SIMULATED_SETTLEMENT_OBSERVED"
+        }
+      ],
+      "observed_simulated_cost": 40,
+      "profile": {
+        "capability": "digest-report",
+        "currency": "SIM_USD (simulated)",
+        "listing_id": "listing-0e19a2531662986b",
+        "offer_id": "offer-digest-b",
+        "price": 40,
+        "seller_id": "openline:principal:a48c99091c14a32d560a40334a65818efbc58d30e51e4910d908a04645c3c89b",
+        "seller_name": "Seller B",
+        "service": "text_digest",
+        "standing": "active"
+      },
+      "ranking_status": "fixture decision rule available",
+      "real_payment": "NOT ESTABLISHED \u2014 all settlement is simulated",
+      "receipt_ids": [
+        "exchange:job-0513af5b6bb5:agreement:31d244af56bdf38230c2b45ad44ecbebadc832654814e67f8e0a12e83eaf7f8f",
+        "exchange:job-0513af5b6bb5:submission:64c270b4dc91b4db836f78388e965fac1502e4c92ca6a0b0d34ae9f70acf20ca",
+        "exchange:job-0513af5b6bb5:verdict:bacbed90d2ff1df5cf52ea8083ddf5626d63bbecf32326c88369d6f2d0290502",
+        "exchange:job-392a9fd27997:agreement:b1293ad1a15bb6fedd33fde480688caea502d2c826e6862d46a19984ea72f5b1",
+        "exchange:job-392a9fd27997:submission:ddf605ed5205e078cdb3e05a3f586ad9a04f019a9f74bcda0cb2d76372dd34d9",
+        "exchange:job-392a9fd27997:verdict:5cf165c329111e5b776473c3c421e7e269bbfab8df4d125bb0374dc3943122c2",
+        "exchange:job-79699c044364:agreement:26a2139ba6c27a1fe1aea38698f4dca0e335b86f0eb72ce4eaa979b10d03dbcf",
+        "exchange:job-79699c044364:submission:1eab92a537a63b087f9272258dcbd28bab44af2cbd16b84e44885f97d9e9970a",
+        "exchange:job-79699c044364:verdict:a788a7cfff3bc81a7d4dbb9db64ab8a31742b1eb471f2d5c8988fb0c0de2679e",
+        "exchange:job-8f9ddcb0dbfe:agreement:67049b955bb64089885438df011cddcfbd3e518d63098020ea0175342a8b40cf",
+        "exchange:job-8f9ddcb0dbfe:submission:e6559ebb9e780627fa6034ff49367ff5c687c82e762129dd85e21d591707d328",
+        "exchange:job-8f9ddcb0dbfe:verdict:004942a82f026a35b12bc7aff2a634cb5ad3ada2a84ce8e5039471d1318747bf",
+        "exchange:job-9d90b9eff3e8:agreement:a5f5ac9bb78f131a52fd0f8809bee8780eaae108bfd1fb9c321a4ebb7102b675",
+        "exchange:job-9d90b9eff3e8:submission:021491a5966973e6e4334183497406163a49c8f68696a72818dafb4d291e17a5",
+        "exchange:job-9d90b9eff3e8:verdict:a36ccf685ace15dab1b2a949983582459674900e7fe03b0c788c371ff1bf4864",
+        "exchange:job-ddf4d89203fb:agreement:41d42a963da9c509849374cfb4a71ebcc3dc9b2aa2b09ab69c77a8e8b1552d1b",
+        "exchange:job-ddf4d89203fb:settlement:da7a33564c63cc731b7a1f63bfe1b4fd16f714a552e74ab7d2a5813e4c942678",
+        "exchange:job-ddf4d89203fb:submission:3166553bd2d694fa2b229b56e97841fde51e1c6a37d26d0d513f99a66af41544",
+        "exchange:job-ddf4d89203fb:verdict:dd386fb5c7109e291157894176af1785df6c9ee9c23f26aa91b77023d0eda310",
+        "exchange:job-fcae5abfc183:agreement:694984c18d3a9a490a61161c9975a85027315609e50841306410a0e97d7b8918",
+        "exchange:job-fcae5abfc183:submission:294dd77265c441e5073426d798682561e559a201e7eb7f213ed2712a80b22b0a",
+        "exchange:job-fcae5abfc183:verdict:1b82d2ce7490d1f51722c961a63bd4ed01fd8e7bbf943998cc466f6c1119c4ff"
+      ],
+      "rejected": 6,
+      "rejected_receipt_ids": [
+        "exchange:job-0513af5b6bb5:verdict:bacbed90d2ff1df5cf52ea8083ddf5626d63bbecf32326c88369d6f2d0290502",
+        "exchange:job-392a9fd27997:verdict:5cf165c329111e5b776473c3c421e7e269bbfab8df4d125bb0374dc3943122c2",
+        "exchange:job-79699c044364:verdict:a788a7cfff3bc81a7d4dbb9db64ab8a31742b1eb471f2d5c8988fb0c0de2679e",
+        "exchange:job-8f9ddcb0dbfe:verdict:004942a82f026a35b12bc7aff2a634cb5ad3ada2a84ce8e5039471d1318747bf",
+        "exchange:job-9d90b9eff3e8:verdict:a36ccf685ace15dab1b2a949983582459674900e7fe03b0c788c371ff1bf4864",
+        "exchange:job-fcae5abfc183:verdict:1b82d2ce7490d1f51722c961a63bd4ed01fd8e7bbf943998cc466f6c1119c4ff"
+      ],
+      "unobserved_failure_count": null,
+      "unresolved_jobs": [],
+      "worker_id": "openline:principal:a48c99091c14a32d560a40334a65818efbc58d30e51e4910d908a04645c3c89b"
+    }
+  ]
+}

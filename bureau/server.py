@@ -59,7 +59,11 @@ class Handler(BaseHTTPRequestHandler):
             return v[0] if v else None
 
         try:
-            if path == "/api/overview":
+            if path == "/api/workers":
+                from .allocation import comparison
+                self._json(comparison(store, q("service") or "text_digest",
+                                      getattr(self.server, "trusted_buyers", ())))
+            elif path == "/api/overview":
                 window = {"since": q("since"), "until": q("until")}
                 ms = M.compute_all(store, since=q("since"), until=q("until"))
                 self._json({"window": window, "metrics": ms,
@@ -240,10 +244,13 @@ def main(argv=None):
     ap.add_argument("--db", default="bureau.db")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--host", default="127.0.0.1")
+    ap.add_argument("--trusted-buyer", action="append", default=[],
+                    help="explicit buyer principal whose signed receiver verdicts are trusted")
     args = ap.parse_args(argv)
     store = Store(args.db)
     srv = HTTPServer((args.host, args.port), Handler)
     srv.store = store
+    srv.trusted_buyers = args.trusted_buyer
     print("bureau on http://%s:%d/  (db=%s, receipts=%d)"
           % (args.host, args.port, args.db, store.count()))
     try:

@@ -1,0 +1,27 @@
+{
+  "evidence_exports": [
+    "history.json",
+    "feedback.json"
+  ],
+  "experiment": "NO_ADVANTAGE",
+  "feedback_ingest": {
+    "duplicate": 0,
+    "errors": [],
+    "inserted": 36,
+    "invalid": 0
+  },
+  "incomplete_job": "job-b45a01ec09a3",
+  "paid_external_calls": 0,
+  "privacy": "selected-record data minimization; no cryptographic selective disclosure",
+  "private_exchange_home": "exchange/ (contains local private keys; do not publish)",
+  "real_payments": 0,
+  "repeat_ingest": {
+    "duplicate": 36,
+    "errors": [],
+    "inserted": 0,
+    "invalid": 0
+  },
+  "selected_worker": "openline:principal:ad3df03e1c82988ca828e3c18fa2976a99a37674730be417076027892f3ac374",
+  "synthetic": true,
+  "trust": "openline:principal:79cee124877daf337808449a8206b9156567183b2c9774e9d329bcbb345cb381"
+}

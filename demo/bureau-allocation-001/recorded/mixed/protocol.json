@@ -1,0 +1,15 @@
+{
+  "bureau": "with >=3 distinct buyer-verified historical verdicts and no unresolved job, maximize accepted fraction / offered price; otherwise control",
+  "control": "lowest advertised price within budget; ties by worker id",
+  "cost_boundary": "only simulated settlement cost is observed; failed work remains unpaid; labor/compute/opportunity cost unknown",
+  "decision": "INCONCLUSIVE if fewer than 4 paired tasks, unknown outcomes or fewer than 3 historical verdicts for A and B; ADVANTAGE if primary >0, otherwise NO_ADVANTAGE (including losses)",
+  "evaluation": "existing buyer receiver exact_recompute; existing settlement rules",
+  "held_out_tasks": 4,
+  "label": "DETERMINISTIC SYNTHETIC WORKERS AND TASKS; NO ECONOMIC CLAIM",
+  "pool": "same three text_digest workers and advertised prices, both conditions",
+  "primary": "Bureau verified completion rate minus control rate on paired held-out tasks",
+  "privacy": "export selected signed public text_digest records only; no inputs or private Wallet history",
+  "secondary": "accepted per signed settled SIM_USD, rejected selections, sparse fallback, paired worse choices",
+  "task_budget": 60,
+  "version": "BUREAU-ALLOCATION-001/v1"
+}

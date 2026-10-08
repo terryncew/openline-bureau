@@ -1,0 +1,27 @@
+{
+  "evidence_exports": [
+    "history.json",
+    "feedback.json"
+  ],
+  "experiment": "INCONCLUSIVE",
+  "feedback_ingest": {
+    "duplicate": 0,
+    "errors": [],
+    "inserted": 34,
+    "invalid": 0
+  },
+  "incomplete_job": "job-edb2be652136",
+  "paid_external_calls": 0,
+  "privacy": "selected-record data minimization; no cryptographic selective disclosure",
+  "private_exchange_home": "exchange/ (contains local private keys; do not publish)",
+  "real_payments": 0,
+  "repeat_ingest": {
+    "duplicate": 34,
+    "errors": [],
+    "inserted": 0,
+    "invalid": 0
+  },
+  "selected_worker": "openline:principal:e43a3e869f82eadb197be6edf38daf16e43807149d56dc66a1ce4fe455372f31",
+  "synthetic": true,
+  "trust": "openline:principal:3f6fd9c37cfd26098d13f3c387cc790ec485f0c8f4301770016c82186f78dfd6"
+}
