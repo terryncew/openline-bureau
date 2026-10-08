@@ -80,3 +80,127 @@ Reports preserve the four paired task IDs, common task-content hashes,
 condition-specific signed job IDs, selection/history/protocol digests, raw
 selected signatures, successful and failed transactions, unknown pending work,
 and per-metric receipt links. Private Exchange homes and keys are not committed.
+
+## COVERAGE-001 validation
+
+Finding: **PASS under the frozen receiver/checkpoint assumptions**. The dishonest
+receiver suppression counterexample remains reproducible; global completeness
+is **NOT ESTABLISHED**. No external paid APIs were used ($0).
+
+## Reproduce
+
+Python 3.12.14, Node 24.19.0; Wallet at
+`c46e82a324199050239540f1825a3b0c942e4053`, Bureau base
+`3c3f7588b4665dff3344f834cce932628693aa02`. The plan was committed before
+implementation and execution: `322a643`.
+
+Use the existing checkouts; these commands do not require a worktree.
+Wallet declares dependency ranges rather than a lockfile; installed versions
+include cryptography 50.0.2 and MCP 2.3.0. No dependency declarations changed.
+
+```bash
+python3 -m venv /workspace/.venvs/openline
+/workspace/.venvs/openline/bin/python -m pip install -e '/workspace/openline-wallet[mcp]'
+source /workspace/.venvs/openline/bin/activate
+cd /workspace/openline-bureau
+python -m unittest tests.test_coverage -v
+python -m unittest discover -s tests -v
+python -m bureau.evidence public-evidence
+# Choose a NEW scratch directory on each run; it contains simulated private DBs/keys.
+python -m bureau.coverage_demo --wallet-repo /workspace/openline-wallet \
+  --out /workspace/.onboarding/coverage-001-validated
+```
+
+The final full discovery run includes **54 passing tests: 18 new coverage tests
+and 36 existing regressions**, no skips. All seven public evidence bundles pass
+and report source files modified: 0. The standalone demonstration passes the
+complete, selective, uncertifiable, dishonest-receiver and nonmember assertions.
+`experiments/coverage-001/result.json` retains the observed synthetic counts;
+the code regenerates the private signed evidence in the chosen scratch directory.
+Keys and private databases are not committed. Generated identities/timestamps
+vary between runs; arm outcomes and assertions are deterministic.
+
+Expected core results:
+
+| History | Verified reports / committed jobs | Missing outcomes | Completion rate |
+| --- | --- | --- | --- |
+| Complete | 8/8 | 0 | 2/8 |
+| Selective | 2/8 | 6 | UNKNOWN |
+| No anchor | denominator UNKNOWN | uncertifiable | UNKNOWN |
+| Dishonest receiver, six admissions hidden | 2/2 visible; actual 8 | hidden six undiscoverable | 2/2 only relative to false receiver declaration; global NOT ESTABLISHED |
+
+Checks cover signatures, fabricated completions, immutable scope and reports,
+duplicate evidence, sequence gaps, missing registrations, stale/future checkpoints,
+signed conflicts retained across restart, pre-anchor reports, late registration
+after disclosure, partial/unsettled outcomes, interrupted admission and replay,
+private fields and every existing unauthenticated JSON API view. Accepted-but-
+unsettled work is reported separately from missing verification; it cannot earn
+a complete settled-history rate.
+
+## Wallet regression and setup diagnosis
+
+The unchanged Wallet suite initially ran 196 tests with five errors because
+`Path.home()` points to read-only `/home/agent`; seven optional RRSI tests skipped.
+Redirecting only `Path.home()` for that run diagnosed one further failure: the
+image's Codex 0.159.0-alpha.3 does not match the suite's pinned 0.153.0 assertion.
+No assertions or tests were disabled. Install the repository's exact CI CLI pin:
+
+```bash
+npm install --prefix /workspace/.tools/codex-0.153.0 \
+  --cache /workspace/.cache/npm @openai/codex@0.153.0
+mkdir -p /workspace/.onboarding/test-home
+cd /workspace/openline-wallet
+PATH=/workspace/.tools/codex-0.153.0/node_modules/.bin:$PATH \
+  /workspace/.venvs/openline/bin/python - <<'PY'
+from pathlib import Path
+from unittest.mock import patch
+import unittest
+with patch.object(Path, 'home', return_value=Path('/workspace/.onboarding/test-home')):
+    result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.discover('tests'))
+raise SystemExit(not result.wasSuccessful())
+PY
+```
+
+Final Wallet result: **196 tests run, 189 passed, 7 skipped**, no failures/errors.
+The existing Exchange regression suite also passed **54/54**:
+
+```bash
+cd /workspace/openline-wallet
+PYTHONPATH=demo/agent-exchange-001 /workspace/.venvs/openline/bin/python \
+  -m unittest discover -s demo/agent-exchange-001/tests -v
+```
+
+The skips require the optional google-research/rrsi checkout at
+`e4d1a7a0388e02b388bc40eb0a125fcfc7123f8d`; that unrelated upstream comparator
+was not installed. Real Claude/Codex provider experiments were not run. The
+home override is limited to the test process; HOME and credentials are unchanged.
+
+Additional setup checks passed: Wallet wheel build, provider-switch demo
+(`PLATFORM_EXIT_CONTINUITY_ENFORCED`), exported bundle (`EVIDENCE_VALID`),
+`pip check`, and Bureau's synthetic 28-receipt HTTP workflow (root, overview,
+ledger, timeline, incidents and coverage). Reusable install/start instructions
+were saved to the environment draft and the complete install script was rerun
+successfully. Saving is not publication or fresh-task restoration validation.
+
+## Limits and review
+
+Local trusted-operator time/role policy, faithfully instrumented receiver and
+pre-outcome independent retention are assumptions. An imported timestamp or
+signature alone proves neither timing nor completeness. If the receiver hides
+jobs before commitment, six real failures can be concealed; the experiment
+preserves that counterexample rather than calling signatures complete evidence.
+No remote witness, production auth, external adoption, off-platform detection,
+general semantic privacy filtering or production settlement is claimed.
+The existing headless browser interaction smoke and unrelated proof/comparator
+suites were not rerun; the UI was unchanged, `node --check ui/app.js` passed,
+and the coverage tests exercised all seven existing JSON API views directly.
+
+Git reads and branch push succeeded through the existing HTTPS proxy. Initial
+GitHub API requests to `api.github.com` received a proxy CONNECT 403. The domain
+was added to the saved draft while preserving the package-manager presets.
+After finishing independent validation and pushing the branch, the API operation
+succeeded using existing credentials: draft PR
+https://github.com/terryncew/openline-bureau/pull/2. No new credential was needed.
+Review and save the reusable environment changes in settings, then publish to
+activate the prepared snapshot. Publication and fresh-task restoration were not
+performed or claimed. No merge was attempted.
