@@ -1,0 +1,84 @@
+{
+  "arms": {
+    "complete": {
+      "eligible_jobs": 8,
+      "execution_receipts": 8,
+      "global_completeness": "NOT ESTABLISHED",
+      "issues": [],
+      "missing_outcome_count": 0,
+      "missing_registration_sequences": [],
+      "observed_completion_rate": 0.25,
+      "reporting_coverage": 1.0,
+      "reports_received": 8,
+      "settled_successes": 2,
+      "status": "COMPLETE_FOR_COMMITTED_BOUNDARY",
+      "verified_failures": 6,
+      "verified_outcomes": 8,
+      "verified_successes": 2
+    },
+    "selective": {
+      "eligible_jobs": 8,
+      "execution_receipts": 2,
+      "global_completeness": "NOT ESTABLISHED",
+      "issues": [],
+      "missing_outcome_count": 6,
+      "missing_registration_sequences": [],
+      "observed_completion_rate": null,
+      "reporting_coverage": 0.25,
+      "reports_received": 2,
+      "settled_successes": 2,
+      "status": "INCOMPLETE",
+      "verified_failures": 0,
+      "verified_outcomes": 2,
+      "verified_successes": 2
+    },
+    "uncertifiable": {
+      "eligible_jobs": null,
+      "execution_receipts": 2,
+      "global_completeness": "NOT ESTABLISHED",
+      "issues": [
+        "NO_INDEPENDENT_CHECKPOINT"
+      ],
+      "missing_outcome_count": 0,
+      "missing_registration_sequences": [],
+      "observed_completion_rate": null,
+      "reporting_coverage": null,
+      "reports_received": 2,
+      "settled_successes": 2,
+      "status": "NOT_ESTABLISHED",
+      "verified_failures": 0,
+      "verified_outcomes": 2,
+      "verified_successes": 2
+    }
+  },
+  "experiment": "COVERAGE-001",
+  "external_paid_api_spend_usd": 0,
+  "finding": "PASS",
+  "frozen_plan_commit": "322a643",
+  "nonmember": {
+    "analysis_denied": true,
+    "transaction": "accepted"
+  },
+  "public_receipt_count": 0,
+  "suppression_counterexample": {
+    "actual_eligible_jobs": 8,
+    "assessment": {
+      "eligible_jobs": 2,
+      "execution_receipts": 2,
+      "global_completeness": "NOT ESTABLISHED",
+      "issues": [],
+      "missing_outcome_count": 0,
+      "missing_registration_sequences": [],
+      "observed_completion_rate": 1.0,
+      "reporting_coverage": 1.0,
+      "reports_received": 2,
+      "settled_successes": 2,
+      "status": "COMPLETE_FOR_COMMITTED_BOUNDARY",
+      "verified_failures": 0,
+      "verified_outcomes": 2,
+      "verified_successes": 2
+    },
+    "global_finding": "NOT ESTABLISHED",
+    "hidden_failures": 6
+  }
+}

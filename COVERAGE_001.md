@@ -64,3 +64,65 @@ Stop after answering the question and preserving the suppression counterexample.
 PASS means selective reporting is detected under the specified assumptions,
 including an honest report of the critical falsifier; it never means global
 receiver honesty or universal completeness was proven.
+
+## Implemented mechanism and observed finding
+
+The frozen plan commit is `322a643`. `bureau.coverage` adds private SQLite
+tables separate from the public receipt table. `ReceiverBoundary.admit` reuses
+the existing pre-work `Sharing.register`, records a signed receiver admission
+with a durable sequence, then calls the unchanged Exchange commission method.
+An interruption can therefore leave an admission without an execution; this is
+incomplete evidence, not a failed outcome. The receiver journal and Bureau
+checkpoint live in separate databases. The trusted local operator supplies
+epoch seconds; demo times are synthetic, not claims about wall-clock timing.
+
+The receiver's closing checkpoint lists every ordered admission hash, binds the
+exact signed agreement and period, and is retained before reports. Bureau checks
+that local admissions match every committed sequence. Missing admissions can
+arrive later if they match the retained hash, but a previously disclosed outcome
+cannot acquire a retrospective registration. Authenticated equivocation is
+retained and quarantines future assessments, including after reopening the DB.
+Replays do not refresh a checkpoint. Expiry requires a new prospective coverage
+period; this implementation does not retroactively renew old commitments.
+
+Reports reuse original authorized membership/Exchange receipts and the existing
+adapter's signature, job, receiver-verification and settlement checks. Signed
+records are never redacted or rewritten. Admission counts, execution receipts,
+verified outcomes, missing verification, and missing settlement remain separate.
+Reporting coverage counts verified outcomes. An overall completion rate requires
+the entire committed history, including settlement evidence for successes;
+unreported jobs are never counted as failures. Evidence is limited to the existing
+authorized receipt fields, opaque job identifiers and hashes: private input files
+and contents, prompts, credentials and keys are not exported. This experiment
+uses synthetic fixed receipt metadata, not a general free-text privacy scanner.
+
+The private API reuses membership's local role check. It is not production
+authentication. No new public route was added; all seven existing JSON API views
+were checked for private coverage IDs, job IDs and receiver principals.
+
+**Finding: PASS for receiver-relative selective-report detection.**
+
+| Arm | Observed result |
+| --- | --- |
+| A | 8/8 coverage; 2 verified successes, 6 verified failures; completion 2/8 |
+| B | 2/8 coverage; six missing outcomes; completion UNKNOWN |
+| C | authentic successful receipts without an independent checkpoint; NOT ESTABLISHED, completion UNKNOWN; retrospective anchoring refused |
+| D | duplicates idempotent; forgeries and changed scope refused; gaps, staleness, mismatches and signed conflicts prevent certification; interrupted reporting/admission can recover without imputing outcomes |
+| E | simulated nonmember transaction accepted; private analysis denied |
+| Critical falsifier | actual eight jobs, six failures hidden before independent commitment; dishonest checkpoint includes only two admissions; conditional 2/2 appears complete; global completeness NOT ESTABLISHED |
+
+The critical counterexample is preserved in the demonstration and tests. It uses
+a fresh receiver execution: the dishonest truncated checkpoint is independently
+retained before any outcomes in that execution. This is not a backdated result.
+The receiver journal has eight actual admissions, while the independent Bureau
+sees only two. Bureau cannot infer the hidden six from authentic signatures.
+
+Under honest instrumentation and pre-outcome independent retention, a worker
+cannot hide six outcomes and receive a complete assessment: the ordered signed
+commitment supplies an eight-job denominator and missing reports withhold the
+rate. If the receiver suppresses admissions before commitment, the answer is
+**yes for a misleading receiver-relative history**; broader completeness remains
+NOT ESTABLISHED. No claim about external adoption or off-platform work is earned.
+
+No frozen expectations changed. Wallet, World, public evidence, prior experiments
+and Paper I were not edited. See `VALIDATION.md` for reproduction and limitations.
