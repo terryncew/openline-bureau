@@ -33,9 +33,13 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Check out pinned experimental commit (exact SHA)
+        # Full history (fetch-depth 0): the mission's baseline commit
+        # (24f5609) must be present for worktree creation. A shallow
+        # checkout breaks 15/32 tests with git exit 128.
         uses: actions/checkout@v4
         with:
           ref: ${{ env.PINNED_COMMIT }}
+          fetch-depth: 0
 
       - name: Verify the checkout is the pinned commit
         run: |
