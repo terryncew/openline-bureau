@@ -105,17 +105,16 @@ class RejectHoldTests(_Base):
 class AuthorityTests(_Base):
     def test_revoked_mission_starts_nothing(self):
         import yaml
-        mission_path = EXP / "mission.yaml"
-        original = mission_path.read_text()
-        try:
-            doc = yaml.safe_load(original)
-            doc["revoked"] = True
-            mission_path.write_text(yaml.safe_dump(doc))
+        from unittest.mock import patch
+
+        mission_path = Path(self.tmp.name) / "mission.yaml"
+        doc = yaml.safe_load((EXP / "mission.yaml").read_text())
+        doc["revoked"] = True
+        mission_path.write_text(yaml.safe_dump(doc))
+        with patch("coordinator.MISSION_PATH", mission_path):
             c = self.ctl(queue_ids=["readme-export-docs"])
             self.assertEqual(c.run_once(), "revoked")
             self.assertEqual(c.state["tasks"], {})
-        finally:
-            mission_path.write_text(original)
 
     def test_receipts_conform(self):
         c = self.ctl(queue_ids=["readme-export-docs", "bug-injection"])
