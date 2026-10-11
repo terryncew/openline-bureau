@@ -1,0 +1,5 @@
+# Receipt Gate's declared build backend, plus pinned installer dependencies.
+pip==26.2.1
+setuptools==82.0.1
+wheel==0.47.0
+packaging==26.3

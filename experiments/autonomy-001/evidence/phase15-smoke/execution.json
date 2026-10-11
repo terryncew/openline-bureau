@@ -1,0 +1,17 @@
+{
+  "action_hash": "5425db68ea2f9354d920b652281526bff1fafd5f74935f9df1dac2aa0389d125",
+  "attempt_id": "54e61228a60a8ba71c92fb8b",
+  "authorization_hash": "71601d0800780b0c832ee77805f09ea8ea5cbb3927cfb4f6e2ee42f728b12ea8",
+  "authorized": true,
+  "decision_payload_hash": "6b6c07b97484bdcb897e3629dae5231fa0980ee7cffad1eb7b4c9ce07d059384",
+  "execution_status": "completed",
+  "permission_consumed": true,
+  "preflight_allowed": true,
+  "reason_codes": [],
+  "replay_scope_hash": "49cf42a3574123962af2b44e2b29ff2914eb141ccd218ccaadf1f2e346050839",
+  "tool_result": {
+    "commit": "e57f9208bb9d7682d52268b99862fa6e7a6c3020",
+    "ref": "refs/heads/autonomy-001/accepted/ui-empty-records"
+  },
+  "tool_result_hash": "959bbf74421f2595104dab7bb63825579e8b0b7c715000911f4905e2522b7add"
+}

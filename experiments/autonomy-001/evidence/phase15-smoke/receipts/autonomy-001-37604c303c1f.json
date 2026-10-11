@@ -1,0 +1,49 @@
+{
+  "_conformance": "VALID",
+  "action": {
+    "action_id": "ui-empty-records",
+    "target": "experiments/review-desk-001",
+    "type": "assign"
+  },
+  "actor": "worker:worker-alpha",
+  "authority": {
+    "status": "ACTIVE"
+  },
+  "decision": {
+    "outcome": "COMMIT",
+    "reason": "task assigned to worker-alpha"
+  },
+  "effect": {
+    "effect_id": "autonomy-001:assign:ui-empty-records",
+    "observed": false
+  },
+  "extensions": {
+    "autonomy": {
+      "evidence": {
+        "queue_priority": 1
+      },
+      "kind": "assign",
+      "previous_receipt_hash": null,
+      "run_id": "2277c6d6",
+      "signature_note": "Local receiver key; no independent external attestation",
+      "signed": true,
+      "task_id": "ui-empty-records",
+      "worker_id": "worker-alpha"
+    }
+  },
+  "payload_hash": "e3584b4faaa9e3e0a4da54493783d652ef133e34721720ea78898d62641602b4",
+  "principal": "owner:Terrynce White",
+  "provenance": {
+    "source_ref": "run/2277c6d6",
+    "system": "openline-autonomy-001"
+  },
+  "receipt_id": "autonomy-001-37604c303c1f",
+  "receipt_version": "bureau.receipt.v0.1",
+  "receiver": "autonomy-001-coordinator",
+  "signature": {
+    "algorithm": "Ed25519",
+    "public_key": "1aa4dda0d7fdbbc506f6d63eb8c0524ddcb2a75b80200c27be74b3e604b5805a",
+    "value": "72a904efa4fbdd796d3e5ae1a9c69a1f45f48947eb7622b39a83d416ae6cdfdf8f40df5dc3203e1d4e79bf640da9256601528edb2ce291057d1b8bb16cdaf509"
+  },
+  "timestamp": "2026-10-11T04:03:35Z"
+}

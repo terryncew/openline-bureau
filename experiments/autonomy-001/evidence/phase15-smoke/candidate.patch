@@ -1,0 +1,13 @@
+diff --git a/experiments/review-desk-001/ui/app.js b/experiments/review-desk-001/ui/app.js
+index 579951f..74c839c 100644
+--- a/experiments/review-desk-001/ui/app.js
++++ b/experiments/review-desk-001/ui/app.js
+@@ -70,7 +70,7 @@ async function refresh() {
+     `<li><code>${d.review_id || d.challenge_id}</code> — ${
+       d.assessment ? d.assessment.classification + " · " +
+         (d.human_approval ? "approved" : "draft") : "challenge · " +
+-        d.test_status}</li>`).join("");
++        d.test_status}</li>`).join("") || "<li>No records yet.</li>";
+ }
+ 
+ $("refreshBtn").onclick = refresh;

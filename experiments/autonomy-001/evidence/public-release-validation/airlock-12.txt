@@ -1,0 +1,17 @@
+test_generation_limit_cannot_exceed_operator_contract (test_improvement.ImprovementLoopTests.test_generation_limit_cannot_exceed_operator_contract) ... ok
+test_tampered_generation_breaks_report_verification (test_improvement.ImprovementLoopTests.test_tampered_generation_breaks_report_verification) ... ok
+test_ten_generations_compound_off_main_and_form_a_verifiable_chain (test_improvement.ImprovementLoopTests.test_ten_generations_compound_off_main_and_form_a_verifiable_chain) ... ok
+test_uncommitted_objective_change_cannot_redefine_better_at_run_time (test_improvement.ImprovementLoopTests.test_uncommitted_objective_change_cannot_redefine_better_at_run_time) ... ok
+test_unmeasurable_base_stops_before_agent_spend_and_still_leaves_a_valid_receipt (test_improvement.ImprovementLoopTests.test_unmeasurable_base_stops_before_agent_spend_and_still_leaves_a_valid_receipt) ... ok
+test_ambiguous_scores_stop_instead_of_inventing_a_winner (test_improvement.ObjectiveTests.test_ambiguous_scores_stop_instead_of_inventing_a_winner) ... ok
+test_candidate_cannot_smuggle_a_changed_objective_through_a_survivor_record (test_improvement.ObjectiveTests.test_candidate_cannot_smuggle_a_changed_objective_through_a_survivor_record) ... ok
+test_cli_defaults_are_bounded_by_the_objective (test_improvement.ObjectiveTests.test_cli_defaults_are_bounded_by_the_objective) ... ok
+test_conservative_gain_requires_separation_from_measurement_noise (test_improvement.ObjectiveTests.test_conservative_gain_requires_separation_from_measurement_noise) ... ok
+test_measurement_repeats_are_bound_and_side_effects_fail_closed (test_improvement.ObjectiveTests.test_measurement_repeats_are_bound_and_side_effects_fail_closed) ... ok
+test_objective_is_operator_owned_and_validated (test_improvement.ObjectiveTests.test_objective_is_operator_owned_and_validated) ... ok
+test_repo_owned_evaluator_file_must_be_protected (test_improvement.ObjectiveTests.test_repo_owned_evaluator_file_must_be_protected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 5.596s
+
+OK

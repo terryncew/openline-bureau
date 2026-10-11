@@ -1,0 +1,28 @@
+{
+  "external_model_calls": 0,
+  "external_spend_usd": "0.00",
+  "files": {
+    "candidate-commit.txt": "feaf4c81866e573b1ad6d8201ad7460ad61d694686a7a4486e1613d08d2b2549",
+    "candidate.patch": "0198520038f07a411545d195a0a6487d4ba6895db15c94f712b404fde4193f46",
+    "evidence.json": "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369",
+    "execution.json": "252215447a5cd74b0a0b6e3ae35df49bc52ac8b6db6ebce3a299082d0cf3d03a",
+    "permission.json": "767d73f34ed68fa2bb6beb5594f942f089c894855f7862f1ab4ffe4c855ece40",
+    "proof-inputs.json": "69a9ee239e7cf2fce19e04b91efd6a2399891dace71e528183ad01578169c47d",
+    "receipts/autonomy-001-37604c303c1f.json": "7e33ceb7135b08099926d53859479ca11a6cd00bdc75bd2f2647bda38debccef",
+    "receipts/autonomy-001-f56ec9194075.json": "7ca1a5aed796043490777df9cdadc9a30a95df0d52da75578d19f3cab6758824"
+  },
+  "local_receiver_public_key": "1aa4dda0d7fdbbc506f6d63eb8c0524ddcb2a75b80200c27be74b3e604b5805a",
+  "local_source_public_keys": {
+    "did:example:autonomy-local-evaluator#key-1": "350b9cce72f1da60c9a449a695c3095685b46817fa24d2c23974d446e3b8ae60"
+  },
+  "outcome": {
+    "branch": "autonomy-001/accepted/ui-empty-records",
+    "status": "accepted"
+  },
+  "phase1_parent": "f7c9515b8f9f08076e3f5ca83dc06199001a553b",
+  "receipt_head": "25cb9e9eba55ecdeb19b9d9b254b6eee7126437a7e372e81353a9227bbf272cf",
+  "schema": "openline.autonomy.phase15.smoke-manifest.v1",
+  "target_baseline": "24f5609992d5a1bb088e361b4b066d2e11bfa676",
+  "task": "ui-empty-records",
+  "trust_note": "Locally generated test receiver key; not owner identity or external attestation"
+}

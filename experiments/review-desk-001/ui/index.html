@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Review Desk · REVIEW-DESK-001</title><link rel="stylesheet" href="/ui/style.css"></head>
+<body>
+<header><span>OPENLINE / BUREAU · REVIEW DESK</span>
+<h1>Criticism is welcome. Claims require evidence.</h1>
+<p>Paste a public comment or technical objection. The desk drafts a review from the evidence registry — a human decides what happens next. Nothing here publishes anything.</p></header>
+<aside>LOCAL EXPERIMENT · No auto-publish · Drafts are not verdicts · Missing evidence → UNKNOWN</aside>
+<main>
+<section>
+<h2>1 · Intake</h2>
+<textarea id="comment" rows="6" placeholder="Paste the comment, objection, or proposed counterexample here…"></textarea>
+<div class="row"><button id="reviewBtn">Review</button><span id="status" aria-live="polite"></span></div>
+</section>
+<section id="result" hidden>
+<h2>2 · Review (draft)</h2>
+<div class="row"><span class="label">Classification</span><strong id="cls"></strong></div>
+<p id="rationale"></p>
+<div id="flags"></div>
+<h3>Evidence</h3><ul id="evidence"></ul>
+<h3>Proposed response</h3><pre id="draft"></pre>
+<div class="row">
+<button id="approveBtn">Approve draft (records locally)</button>
+<button id="challengeBtn">Send to challenges</button>
+</div>
+<div id="challengeForm" hidden>
+<h3>Challenge record</h3>
+<label>Claim <input id="chgClaim" size="60"></label>
+<label>Proposed falsifier <input id="chgFalsifier" size="60"></label>
+<div class="row"><button id="chgSave">Save challenge record</button></div>
+</div>
+</section>
+<section>
+<h2>3 · Records</h2>
+<div class="row"><button id="refreshBtn">Refresh</button>
+<button id="exportBtn">Export machine-readable record</button></div>
+<ul id="records"></ul>
+<pre id="exportOut" hidden></pre>
+</section>
+</main>
+<footer>Uncertainty stays visible. An AI-generated response is a draft, not a technical verdict.</footer>
+<script src="/ui/app.js"></script>
+</body></html>

@@ -1,0 +1,31 @@
+test_structure (test_review_desk.ChallengeRecordTests.test_structure) ... ok
+test_addressed_objection (test_review_desk.ClassificationTests.test_addressed_objection) ... ok
+test_empty (test_review_desk.ClassificationTests.test_empty) ... ok
+test_no_claim (test_review_desk.ClassificationTests.test_no_claim) ... ok
+test_testable_objection (test_review_desk.ClassificationTests.test_testable_objection) ... ok
+test_unresolvable (test_review_desk.ClassificationTests.test_unresolvable) ... ok
+test_contradictory_comments_recorded_separately (test_review_desk.ContradictionTests.test_contradictory_comments_recorded_separately) ... ok
+test_draft_is_not_a_verdict (test_review_desk.DraftHonestyTests.test_draft_is_not_a_verdict) ... ok
+test_draft_refs_come_from_registry (test_review_desk.DraftHonestyTests.test_draft_refs_come_from_registry) ... ok
+test_fabricated_citation_flagged (test_review_desk.DraftHonestyTests.test_fabricated_citation_flagged) ... ok
+test_false_premise_corrected_not_agreed (test_review_desk.DraftHonestyTests.test_false_premise_corrected_not_agreed) ... ok
+test_missing_evidence_says_unknown (test_review_desk.DraftHonestyTests.test_missing_evidence_says_unknown) ... ok
+test_sections_separated (test_review_desk.ExportTests.test_sections_separated) ... ok
+test_instruction_override_ignored (test_review_desk.InjectionTests.test_instruction_override_ignored) ... ok
+test_no_psychology_or_bad_faith (test_review_desk.InjectionTests.test_no_psychology_or_bad_faith) ... ok
+test_system_prefix_ignored (test_review_desk.InjectionTests.test_system_prefix_ignored) ... ok
+test_claims_have_evidence (test_review_desk.RegistryIntegrityTests.test_claims_have_evidence) ... ok
+test_objections_resolve_to_real_claims (test_review_desk.RegistryIntegrityTests.test_objections_resolve_to_real_claims) ... ok
+test_bad_input_rejected (test_review_desk.ServerSmokeTests.test_bad_input_rejected) ... ok
+test_challenge_and_approve (test_review_desk.ServerSmokeTests.test_challenge_and_approve) ... ok
+test_duplicate_host_or_origin_headers_rejected (test_review_desk.ServerSmokeTests.test_duplicate_host_or_origin_headers_rejected) ... ok
+test_foreign_or_malformed_origins_rejected (test_review_desk.ServerSmokeTests.test_foreign_or_malformed_origins_rejected) ... ok
+test_review_roundtrip (test_review_desk.ServerSmokeTests.test_review_roundtrip) ... ok
+test_same_origin_browser_json_requests (test_review_desk.ServerSmokeTests.test_same_origin_browser_json_requests) ... ok
+test_simple_browser_content_types_cannot_write (test_review_desk.ServerSmokeTests.test_simple_browser_content_types_cannot_write) ... ok
+test_untrusted_hosts_rejected_for_reads_and_writes (test_review_desk.ServerSmokeTests.test_untrusted_hosts_rejected_for_reads_and_writes) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.620s
+
+OK
