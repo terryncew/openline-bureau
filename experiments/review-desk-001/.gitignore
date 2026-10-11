@@ -1,0 +1,3 @@
+records/*.json
+records/test-records-smoke/
+__pycache__/
