@@ -403,7 +403,7 @@ class Controller:
 
         build.files_changed = ev.invariants["files"]
         build.lines_changed = ev.invariants["lines_changed"]
-        if self._policy_allows(task, build):
+        if self._policy_allows(task, build, wt):
             branch = f"autonomy-001/accepted/{tid}"
             self._accept_to_branch(wt, branch, task, evidence)
             self._receipt("accept", tid, self.worker_id, "COMMIT",
@@ -423,7 +423,7 @@ class Controller:
         print(f"task {tid}: HELD for human (not preauthorized)")
         return "held"
 
-    def _policy_allows(self, task, build) -> bool:
+    def _policy_allows(self, task, build, wt=None) -> bool:
         cls = next((c for c in self.policy["auto_accept_classes"]
                     if c["id"] == task["change_class"]), None)
         if cls is None:
@@ -437,6 +437,25 @@ class Controller:
                 return False
         if build.lines_changed > cls["max_lines"]:
             return False
+        if cls['id'] == 'ui-copy':
+            # A path/line budget cannot establish that JavaScript or HTML is
+            # only copy. Bind this narrow experiment to the owner's queued
+            # replacements; arbitrary executable UI edits require review.
+            if wt is None or not task.get('patch'):
+                return False
+            expected = {}
+            for edit in task['patch']:
+                rel = edit['file']
+                if rel not in expected:
+                    expected[rel] = sh('git', '-C', str(wt), 'show',
+                                       'HEAD:' + rel).stdout
+                if expected[rel].count(edit['old']) != 1:
+                    return False
+                expected[rel] = expected[rel].replace(edit['old'], edit['new'])
+            if set(build.files_changed) != set(expected):
+                return False
+            if any((wt / rel).read_text() != text for rel, text in expected.items()):
+                return False
         return True
 
     def _accept_to_branch(self, wt, branch, task, evidence):

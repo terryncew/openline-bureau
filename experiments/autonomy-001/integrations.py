@@ -69,12 +69,17 @@ def isolated_run(workspace, argv, timeout=120):
     Workspace must be an exported tree without Git pointers to host metadata.
     Image is digest pinned, pulls disabled, network disabled, limits enforced.
     """
+    if os.getuid() == 0:
+        raise RuntimeError('run the controller as a non-root user with Docker access')
     if (Path(workspace) / '.git').exists():
         raise ValueError('sandbox workspace must not contain Git metadata')
-    # Trusted in-container supervisor limits output and kills the container's
-    # workload by exiting even if the host Docker client/controller is killed.
+    # Docker runs this supervisor as namespace init. Linux protects PID 1 from
+    # child SIGSTOP/SIGKILL; making it non-dumpable also prevents same-UID
+    # tracing of the deadline process. Refuse a changed executor/init topology.
     supervisor = (
-        "import subprocess,sys,tempfile,resource; "
+        "import subprocess,sys,tempfile,resource,os,ctypes; "
+        "assert os.getpid()==1, 'deadline supervisor must be namespace init'; "
+        "assert ctypes.CDLL(None).prctl(4,0,0,0,0)==0, 'cannot protect supervisor'; "
         "resource.setrlimit(resource.RLIMIT_FSIZE,(2097152,2097152)); "
         "out=tempfile.TemporaryFile(); err=tempfile.TemporaryFile(); "
         "\ntry:\n p=subprocess.run(sys.argv[2:],stdout=out,stderr=err,timeout=int(sys.argv[1]))"
@@ -83,8 +88,11 @@ def isolated_run(workspace, argv, timeout=120):
         "\n f.seek(0,2); n=f.tell(); f.seek(max(0,n-2000)); dst.write(f.read())"
         "\nsys.exit(p.returncode)"
     )
-    return _docker_result(Path(workspace), IMAGE,
+    result = _docker_result(Path(workspace), IMAGE,
         ['python', '-I', '-c', supervisor, str(timeout), *argv], LIMITS, timeout + 15)
+    if result['exit_code'] == 124:
+        result['timed_out'] = True
+    return result
 
 
 def issue_permission(state_dir, action_core, evidence, policy_binding):
@@ -151,7 +159,9 @@ def issue_permission(state_dir, action_core, evidence, policy_binding):
     durable_write(root / 'proof-inputs.json', {
         'source_receipts': request['source_receipts'],
         'outcome_receipt': request['outcome_receipt'], 'policy': policy.as_dict(),
-        'binding': binding, 'action': action})
+        'binding': binding, 'action': action,
+        'public_keys': {method: public_key_hex(source_key),
+                        'local_receiver': public_key_hex(gate_key)}})
     receipt = evaluate_request(request, policy=policy, trust_store=store,
         signing_key=gate_key, issuer_id='autonomy-001-local-receiver',
         decision_path=root / 'decisions.jsonl', session_ledger=sessions,

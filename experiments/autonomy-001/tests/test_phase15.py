@@ -248,6 +248,90 @@ print('ISOLATION_CHECKED')
         result = IN.isolated_run(exported,
             ['python', '-I', '-c', 'import time; time.sleep(60)'], timeout=1)
         self.assertEqual(result['exit_code'], 124, result)
+        self.assertTrue(result['timed_out'], result)
+
+    def test_root_caller_cannot_start_untrusted_execution(self):
+        exported = self.root / 'root-refused'
+        exported.mkdir()
+        with patch.object(IN.os, 'getuid', return_value=0), patch.object(IN, '_docker_result') as run:
+            with self.assertRaisesRegex(RuntimeError, 'non-root'):
+                IN.isolated_run(exported, ['python'])
+            run.assert_not_called()
+
+    def test_deadline_supervisor_resists_child_interruption(self):
+        exported = self.root / 'deadline-init'
+        exported.mkdir()
+        # PID 1 must remain the trusted supervisor. Linux namespace init
+        # protection prevents a same-UID child stopping its deadline parent.
+        script = ('import os,signal,time; assert os.getppid()==1; '
+                  'os.kill(os.getppid(), signal.SIGSTOP); time.sleep(60)')
+        result = IN.isolated_run(exported, ['python', '-I', '-c', script], timeout=1)
+        self.assertEqual(result['exit_code'], 124, result)
+        self.assertTrue(result['timed_out'], result)
+        self.assertLess(result['duration_seconds'], 12)
+
+    def test_container_deadline_survives_controller_and_client_death(self):
+        exported = self.root / 'host-death'
+        exported.mkdir()
+        marker = exported / 'ready'
+        def containers():
+            raw = subprocess.check_output(['docker', 'ps', '-q', '--filter',
+                                          'ancestor=' + IN.IMAGE], text=True)
+            if not raw.strip():
+                return set()
+            mounts = subprocess.run(['docker', 'inspect', '--format',
+                '{{.Id}} {{json .Mounts}}', *raw.split()], capture_output=True, text=True)
+            return {line.split(' ', 1)[0] for line in mounts.stdout.splitlines()
+                    if any(m['Source'] == str(exported) for m in
+                           json.loads(line.split(' ', 1)[1]))}
+        before = containers()
+        program = ('import sys; from pathlib import Path; '
+                   'sys.path.insert(0,sys.argv[1]); import integrations as IN; '
+                   'IN.isolated_run(Path(sys.argv[2]), ["python","-I","-c",'
+                   '"from pathlib import Path; import time; '
+                   "Path('ready').write_text('ready'); time.sleep(60)" + '"], 2)')
+        proc = subprocess.Popen([sys.executable, '-c', program, str(EXP), str(exported)],
+                                start_new_session=True, env=self.env,
+                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        running = set()
+        try:
+            deadline = time.monotonic() + 15
+            while not marker.exists() and proc.poll() is None and time.monotonic() < deadline:
+                time.sleep(.05)
+            self.assertTrue(marker.exists(), 'isolated workload never started')
+            running = containers() - before
+            self.assertTrue(running)
+            os.killpg(proc.pid, signal.SIGKILL)
+            proc.wait(timeout=5)
+            deadline = time.monotonic() + 10
+            while running & containers() and time.monotonic() < deadline:
+                time.sleep(.1)
+            self.assertFalse(running & containers(), 'container outlived independent deadline')
+        finally:
+            if proc.poll() is None:
+                os.killpg(proc.pid, signal.SIGKILL)
+                proc.wait(timeout=5)
+            remaining = running & containers()
+            if remaining:
+                subprocess.run(['docker', 'rm', '-f', *remaining], check=True,
+                               stdout=subprocess.DEVNULL)
+
+    def test_ui_copy_authority_does_not_allow_executable_changes(self):
+        c = self.ctl()
+        task = c.queue.get('ui-empty-records') or next(
+            t for t in __import__('coordinator').load_queue()
+            if t['id'] == 'ui-empty-records')
+        with patch.dict(os.environ, self.env):
+            base = c._ensure_scratch()
+        wt = c._worktree(task['id'], base)
+        from workers import ScriptedWorker
+        build = ScriptedWorker('fixture').build(task, wt,
+            c.mission['target']['scope_paths'], c.mission['boundaries']['protected_paths'])
+        self.assertTrue(c._policy_allows(task, build, wt))
+        ui = wt / build.files_changed[0]
+        ui.write_text(ui.read_text() + '\nwindow.unapprovedExecutableChange = true;\n')
+        self.assertFalse(c._policy_allows(task, build, wt))
+        self.assertFalse(c._policy_allows(task, build))
 
     def test_passing_tests_not_measured_improvement(self):
         # Exercise Airlock's actual improvement evaluator on frozen commits.
