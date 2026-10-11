@@ -1,0 +1,154 @@
+# AUTONOMY-INDEPENDENT-REPRO-001
+#
+# Independently hosted runtime reproduction of the pinned experimental
+# commit for openline-bureau PR #3 ("research: OpenLine Autonomy
+# Phase 1.5"). This workflow lives on a SEPARATE branch; the pinned
+# commit under test is checked out by exact SHA and never modified.
+#
+# This is an independently hosted runtime reproduction, NOT an
+# independent security certification.
+#
+# Least privilege: contents:read only. No secrets, no credentials,
+# no paid APIs, no production resources. Private signing keys and
+# demo state are NEVER uploaded; only console logs leave the runner.
+
+name: autonomy-independent-repro-001
+
+on:
+  push:
+    branches: [ci/autonomy-independent-repro-001]
+  workflow_dispatch:
+
+# Least privilege: read the repo, nothing else.
+permissions:
+  contents: read
+
+# Exact pinned experimental commit under test. Do not change.
+env:
+  PINNED_COMMIT: 5f75687f54202f53cd345731159aea53178a404c
+
+jobs:
+  repro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out pinned experimental commit (exact SHA)
+        # Full history (fetch-depth 0): the mission's baseline commit
+        # (24f5609) must be present for worktree creation. A shallow
+        # checkout breaks 15/32 tests with git exit 128.
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PINNED_COMMIT }}
+          fetch-depth: 0
+
+      - name: Verify the checkout is the pinned commit
+        run: |
+          test "$(git rev-parse HEAD)" = "${PINNED_COMMIT}"
+          git log --oneline -1
+          git status --porcelain
+          test -z "$(git status --porcelain)" || (echo 'checkout not clean' >&2; exit 1)
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Record environment information
+        run: |
+          set -x
+          python3 --version
+          python3 -c 'import sys; print(sys.version)'
+          id -u
+          test "$(id -u)" != "0" || (echo 'must not run as root' >&2; exit 1)
+          git --version
+          docker --version
+          docker info --format '{{.ServerVersion}}'
+          node --version
+          bash --version | head -1
+          uname -a
+
+      - name: Pinned setup (fresh venv + pinned wallet + pinned image)
+        run: |
+          set -euo pipefail
+          TASK_ENV="$(mktemp -d /tmp/openline-phase15.XXXXXX)"
+          echo "TASK_ENV=${TASK_ENV}" >> "${GITHUB_ENV}"
+          bash experiments/autonomy-001/setup/setup.sh \
+            --venv "${TASK_ENV}/venv" \
+            --wallet-repo "${TASK_ENV}/wallet" \
+            2>&1 | tee /tmp/repro-setup.log
+          test "${PIPESTATUS[0]}" = "0"
+
+      - name: "Autonomy test suite (adversarial: revocation, replay, isolation, SIGKILL)"
+        run: |
+          set -euo pipefail
+          unset PYTHONPATH
+          export OPENLINE_WALLET_REPO="${TASK_ENV}/wallet"
+          "${TASK_ENV}/venv/bin/python" -m unittest discover \
+            -s experiments/autonomy-001/tests -v 2>&1 | tee /tmp/repro-autonomy-tests.log
+          test "${PIPESTATUS[0]}" = "0"
+
+      - name: Review Desk test suite
+        run: |
+          set -euo pipefail
+          unset PYTHONPATH
+          export OPENLINE_WALLET_REPO="${TASK_ENV}/wallet"
+          "${TASK_ENV}/venv/bin/python" -m unittest discover \
+            -s experiments/review-desk-001/tests 2>&1 | tee /tmp/repro-reviewdesk-tests.log
+          test "${PIPESTATUS[0]}" = "0"
+
+      - name: Full Bureau test discovery
+        run: |
+          set -euo pipefail
+          unset PYTHONPATH
+          export OPENLINE_WALLET_REPO="${TASK_ENV}/wallet"
+          "${TASK_ENV}/venv/bin/python" -m unittest discover \
+            -s tests 2>&1 | tee /tmp/repro-bureau-tests.log
+          test "${PIPESTATUS[0]}" = "0"
+
+      - name: Public evidence verification
+        run: |
+          set -euo pipefail
+          unset PYTHONPATH
+          export OPENLINE_WALLET_REPO="${TASK_ENV}/wallet"
+          "${TASK_ENV}/venv/bin/python" -m bureau.evidence public-evidence \
+            2>&1 | tee /tmp/repro-evidence.log
+          test "${PIPESTATUS[0]}" = "0"
+
+      - name: Frontend and shell syntax checks
+        run: |
+          set -euo pipefail
+          node --check ui/app.js
+          node --check experiments/review-desk-001/ui/app.js
+          bash -n experiments/autonomy-001/setup/setup.sh
+          bash -n experiments/autonomy-001/demo/reproduce.sh
+          bash -n experiments/autonomy-001/demo/run-demo.sh
+          echo 'syntax checks passed' | tee /tmp/repro-syntax.log
+
+      - name: Scripted demonstration (one bounded cycle, private state stays on runner)
+        run: |
+          set -euo pipefail
+          unset PYTHONPATH
+          export OPENLINE_WALLET_REPO="${TASK_ENV}/wallet"
+          export TMPDIR=/tmp
+          PYTHON_BIN="${TASK_ENV}/venv/bin/python" \
+            bash experiments/autonomy-001/demo/run-demo.sh \
+            2>&1 | tee /tmp/repro-demo.log
+          test "${PIPESTATUS[0]}" = "0"
+
+      - name: Summarize results
+        if: always()
+        run: |
+          echo '=== result summary ==='
+          for f in /tmp/repro-*.log; do
+            echo "--- ${f} ($(wc -l < "${f}") lines)"
+            tail -5 "${f}"
+          done
+
+      - name: Upload logs only (no private keys, no demo state)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: autonomy-independent-repro-001-logs
+          path: /tmp/repro-*.log
+          if-no-files-found: error
+          retention-days: 90
