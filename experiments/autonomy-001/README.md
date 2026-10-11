@@ -2,6 +2,10 @@
 
 **Status: experiment branch. Nothing merged, nothing published, no external spend.**
 
+**Phase 1.5 continuation:** see [PHASE15.md](PHASE15.md) for the current
+authorization, isolation, recovery and validation results. The Phase 1 record
+below is preserved as historical context.
+
 ## What this is
 
 A thin mission loop around already-proven OpenLine components. The

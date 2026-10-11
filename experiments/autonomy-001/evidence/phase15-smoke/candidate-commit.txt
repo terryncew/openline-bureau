@@ -1,0 +1,6 @@
+tree c322deb3d440a7ee22d80f628f9e8ee683271ca8
+parent 24f5609992d5a1bb088e361b4b066d2e11bfa676
+author autonomy-001 <autonomy-001@local> 1791691428 +0000
+committer autonomy-001 <autonomy-001@local> 1791691428 +0000
+
+autonomy-001: accept ui-empty-records

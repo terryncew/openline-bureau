@@ -1,0 +1,20 @@
+.........................
+----------------------------------------------------------------------
+Ran 25 tests in 158.098s
+
+OK
+task readme-export-docs: ACCEPTED -> autonomy-001/accepted/readme-export-docs
+task ui-empty-records: ACCEPTED -> autonomy-001/accepted/ui-empty-records
+task readme-export-docs: ACCEPTED -> autonomy-001/accepted/readme-export-docs
+task bug-injection: REJECTED by evaluation
+mission revoked: no work started
+budget exhausted: max_cycles reached
+[demo hook] stopping after phase: build
+task readme-export-docs: ACCEPTED -> autonomy-001/accepted/readme-export-docs
+task ui-empty-records: ACCEPTED -> autonomy-001/accepted/ui-empty-records
+task bug-injection: REJECTED by evaluation
+task registry-add-claim: QUARANTINED (rules modification attempt)
+task rules-rewrite: QUARANTINED (rules modification attempt)
+mission revoked: no work started
+mission revoked: no work started
+queue empty: idle

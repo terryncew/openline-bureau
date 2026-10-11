@@ -19,7 +19,7 @@ EXP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(EXP))
 sys.path.insert(0, str(EXP.parents[2]))
 
-os.environ["AUTONOMY_TARGET_REPO"] = "/tmp/rd/bureau"
+os.environ["AUTONOMY_TARGET_REPO"] = str(EXP.parents[1])
 
 from coordinator import Controller  # noqa: E402
 from bureau.conformance import validate  # noqa: E402
@@ -83,11 +83,11 @@ class RejectHoldTests(_Base):
         self.assertNotIn("autonomy-001/accepted/bug-injection",
                          self.scratch_branches())
 
-    def test_registry_change_held_for_human(self):
+    def test_registry_change_quarantined_before_write(self):
         c = self.ctl(queue_ids=["registry-add-claim"])
-        self.assertEqual(c.run_once(), "held")
+        self.assertEqual(c.run_once(), "done")
         self.assertEqual(c.state["tasks"]["registry-add-claim"]["status"],
-                         "held")
+                         "quarantined")
         self.assertNotIn("autonomy-001/accepted/registry-add-claim",
                          self.scratch_branches())
 
@@ -160,8 +160,8 @@ class ContinuityTests(_Base):
         self.assertTrue((self.state / "state.json").exists())
         c2 = Controller(self.state, "worker-alpha")
         c2.queue = _queue("readme-export-docs")
-        # Resume: the interrupted task is picked up again and completes.
-        self.assertEqual(c2.run_once(), "accepted")
+        # Recovery holds the interrupted task without repeating the worker.
+        self.assertEqual(c2.run_once(), "held")
 
     def test_budgets_enforced(self):
         c = self.ctl(queue_ids=["readme-export-docs"])

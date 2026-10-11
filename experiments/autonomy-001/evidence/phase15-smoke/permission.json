@@ -1,0 +1,233 @@
+{
+  "action": {
+    "claim_hash": "0a905b75403689c516480c23f3b4ef8fd608894a21f82bb5955c46b9f4044dce",
+    "id": "3c81785a198d43dea49d988285f4db35",
+    "risk_level": "medium",
+    "type": "tool_call"
+  },
+  "algorithm_id": "openline-proof-to-policy-gate-0.4",
+  "assessments": {
+    "coverage": {
+      "details": {
+        "claim": "declared chain from sequence 1 through terminal verified; action omission remains out of scope"
+      },
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "evidence": {
+      "details": {
+        "artifact_hashes": {
+          "result": "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369"
+        },
+        "bound_evidence_ids": [
+          "result"
+        ],
+        "raw_evidence_stored_in_decision": false,
+        "required_claim_ids": [
+          "3c81785a198d43dea49d988285f4db35"
+        ],
+        "required_evidence_ids": [
+          "result"
+        ],
+        "scope": "policy-declared evidence binding and predicates; no general truth inference"
+      },
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "freshness": {
+      "details": {
+        "replay_guard": {
+          "details": {
+            "challenge_issued_at": "2026-10-11T04:03:48.474442Z"
+          },
+          "reason_codes": [],
+          "status": "pass"
+        },
+        "source_age_seconds": 0
+      },
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "independence": {
+      "details": {
+        "required": false
+      },
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "integrity": {
+      "details": {},
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "outcome": {
+      "details": {
+        "evidence_hash": "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369",
+        "harmful": false,
+        "independence": "receiver",
+        "rollback_supported": true,
+        "status": "pass",
+        "witness_id": "local-receiver",
+        "witness_key": "194c0ee2782299c9c594aea2a145575e753c6b6b2a330bf435ec4ef1df8b0664"
+      },
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "profile": {
+      "details": {},
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "provenance": {
+      "details": {
+        "controllers": [
+          "local-source"
+        ],
+        "independence": [
+          "operator"
+        ]
+      },
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "source_signal": {
+      "details": {
+        "required": false
+      },
+      "reason_codes": [],
+      "status": "pass"
+    },
+    "verified_commit": {
+      "details": {
+        "authorization": {
+          "action_hash": "5425db68ea2f9354d920b652281526bff1fafd5f74935f9df1dac2aa0389d125",
+          "authorization_hash": "71601d0800780b0c832ee77805f09ea8ea5cbb3927cfb4f6e2ee42f728b12ea8",
+          "capsule_hash": "3097d888c8abcdb2e5f8915ee549beadd87c33d2fa93f195ff2a21e04b95a0c4",
+          "evidence_hashes": [
+            "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369"
+          ],
+          "expires_at": "2026-10-11T04:05:18.470116+00:00",
+          "one_use_code_hash": "3ff151921d506736041a12a646e2f4952904ff9c6da7cc4362a5a94ab16b8132",
+          "policy_hash": "3cc38656e78a74dd776775f7ce659b898b4a1f5c9e10ae7a4e1c5e5bad3305b1",
+          "profile": "verified_commit/v1",
+          "run_id": "3c81785a198d43dea49d988285f4db35",
+          "settings_hash": "00b1bbc98af0a9057b0abe1e26c21c896f680eada7bfd6359a48374efb407772",
+          "target": "refs/heads/autonomy-001/accepted/ui-empty-records",
+          "tool": "git.update-ref"
+        },
+        "profile": "verified_commit/v1",
+        "raw_one_use_code_stored": false,
+        "raw_settings_stored": false,
+        "required": true
+      },
+      "reason_codes": [],
+      "status": "pass"
+    }
+  },
+  "binding": {
+    "challenge_nonce": "2db5af1da30826ced192c40d699ee245",
+    "expected_source_hash": "00e09ba35930aa7d9af39c238d684d32fc00e2a182890ea5b7cb576cf957e71a",
+    "parent_decision_hash": null,
+    "run_id": "3c81785a198d43dea49d988285f4db35",
+    "sequence": 1,
+    "session_id": "3c81785a198d43dea49d988285f4db35"
+  },
+  "canonicalization_id": "olp-canonical-json-int-v1",
+  "chain_accepted": true,
+  "commit_authorization": {
+    "action_hash": "5425db68ea2f9354d920b652281526bff1fafd5f74935f9df1dac2aa0389d125",
+    "authorization_hash": "71601d0800780b0c832ee77805f09ea8ea5cbb3927cfb4f6e2ee42f728b12ea8",
+    "capsule_hash": "3097d888c8abcdb2e5f8915ee549beadd87c33d2fa93f195ff2a21e04b95a0c4",
+    "evidence_hashes": [
+      "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369"
+    ],
+    "expires_at": "2026-10-11T04:05:18.470116+00:00",
+    "one_use_code_hash": "3ff151921d506736041a12a646e2f4952904ff9c6da7cc4362a5a94ab16b8132",
+    "policy_hash": "3cc38656e78a74dd776775f7ce659b898b4a1f5c9e10ae7a4e1c5e5bad3305b1",
+    "profile": "verified_commit/v1",
+    "run_id": "3c81785a198d43dea49d988285f4db35",
+    "settings_hash": "00b1bbc98af0a9057b0abe1e26c21c896f680eada7bfd6359a48374efb407772",
+    "target": "refs/heads/autonomy-001/accepted/ui-empty-records",
+    "tool": "git.update-ref"
+  },
+  "created_at": "2026-10-11T04:03:48.470116Z",
+  "decision": "COMMIT",
+  "issuer": {
+    "id": "autonomy-001-local-receiver"
+  },
+  "kind": "proof_to_policy_decision_receipt",
+  "payload_hash": "6b6c07b97484bdcb897e3629dae5231fa0980ee7cffad1eb7b4c9ce07d059384",
+  "policy": {
+    "hash": "3cc38656e78a74dd776775f7ce659b898b4a1f5c9e10ae7a4e1c5e5bad3305b1",
+    "id": "autonomy-001.local-receiver",
+    "snapshot": {
+      "deny_risk_levels": [],
+      "evidence_assertions": [
+        {
+          "evidence_id": "result",
+          "op": "equals",
+          "path": "eligible",
+          "value": true
+        }
+      ],
+      "max_evidence_bytes": 10000000,
+      "max_source_age_seconds": 300,
+      "metadata": {
+        "verified_commit": {
+          "capsule_hash": "3097d888c8abcdb2e5f8915ee549beadd87c33d2fa93f195ff2a21e04b95a0c4",
+          "evidence_hashes": [
+            "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369"
+          ],
+          "max_ttl_seconds": 120,
+          "required": true,
+          "run_id": "3c81785a198d43dea49d988285f4db35",
+          "settings_hash": "00b1bbc98af0a9057b0abe1e26c21c896f680eada7bfd6359a48374efb407772",
+          "target": "refs/heads/autonomy-001/accepted/ui-empty-records",
+          "tool": "git.update-ref"
+        }
+      },
+      "no_badge_action_types": [
+        "eval_score_claim"
+      ],
+      "policy_id": "autonomy-001.local-receiver",
+      "require_declared_coverage": true,
+      "require_evidence": true,
+      "require_independent_source": false,
+      "require_outcome_witness": true,
+      "require_replay_guard": true,
+      "require_source_bound_evidence": true,
+      "require_trusted_source": true,
+      "required_claim_ids": [],
+      "required_evidence_ids": [
+        "result"
+      ],
+      "rollback_on_harm": true,
+      "version": "1.5"
+    },
+    "version": "1.5"
+  },
+  "privacy": {
+    "raw_evidence_stored": false,
+    "raw_source_disclosure_stored": false
+  },
+  "reason_codes": [],
+  "receipt_version": "0.4",
+  "request_id": "3c81785a198d43dea49d988285f4db35",
+  "signature": {
+    "algorithm": "Ed25519",
+    "public_key": "1aa4dda0d7fdbbc506f6d63eb8c0524ddcb2a75b80200c27be74b3e604b5805a",
+    "value": "0bf3afe7706cccffc18e09cfda974fe66c6d6f156e8d25c5f111be78beb12ef524fad7eabf0b5c2212da6b9a1d42350911b0079c837529e997da32184d21d502"
+  },
+  "source": {
+    "format": "agent_receipts",
+    "primary_hash": "00e09ba35930aa7d9af39c238d684d32fc00e2a182890ea5b7cb576cf957e71a",
+    "receipt_hashes": [
+      "00e09ba35930aa7d9af39c238d684d32fc00e2a182890ea5b7cb576cf957e71a"
+    ],
+    "source_key_ids": [
+      "did:example:autonomy-local-evaluator#key-1"
+    ]
+  },
+  "spec_uri": "https://github.com/terryncew/openline-receipt-gate",
+  "verdict": "VERIFIED"
+}

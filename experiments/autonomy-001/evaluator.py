@@ -15,6 +15,10 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
+import io
+import tarfile
+import integrations as IN
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -50,16 +54,17 @@ def _restore_protected(baseline: Path, worktree: Path, notes: list):
 
 
 def _run_unittests(workdir: Path, test_dir: str, extra_env=None) -> dict:
-    proc = subprocess.run(
-        [sys.executable, "-m", "unittest", "discover", "-s", test_dir],
-        cwd=workdir, capture_output=True, text=True, timeout=120,
-        env={**os.environ, **(extra_env or {})})
-    out = proc.stderr + proc.stdout
+    # No host execution or inherited environment. Imports resolve to candidate.
+    result = IN.isolated_run(workdir,
+        ["python", "-B", "-m", "unittest", "discover", "-s", test_dir])
+    out = result["stderr_tail"] + result["stdout_tail"]
     m = re.search(r"Ran (\d+) tests?", out)
     ran = int(m.group(1)) if m else 0
-    ok = proc.returncode == 0 and "FAILED" not in out and "ERROR" not in out
-    return {"ok": ok, "ran": ran,
-            "tail": "\n".join(out.strip().splitlines()[-4:])}
+    ok = (result["exit_code"] == 0 and ran > 0 and not result["timed_out"] and
+          "FAILED" not in out and "ERROR" not in out and "skipped=" not in out)
+    return {"ok": ok, "ran": ran, "exit_code": result["exit_code"],
+            "timed_out": result["timed_out"], "tail": out[-2000:],
+            "stdout_sha256": result["stdout_sha256"], "stderr_sha256": result["stderr_sha256"]}
 
 
 def evaluate(task: dict, worktree: Path, baseline: Path,
@@ -68,60 +73,71 @@ def evaluate(task: dict, worktree: Path, baseline: Path,
     notes: list = []
     res = EvaluationResult(passed=False)
 
-    # 1. Restore protected files first: the worker's test edits (if any)
-    #    are discarded before evaluation.
-    _restore_protected(baseline, worktree, notes)
-
-    # 2. Protected tests: the experiment's own suite, pristine.
-    pt = _run_unittests(worktree, "experiments/review-desk-001/tests")
-    res.protected_tests = pt
-    notes.append(f"protected tests: ran={pt['ran']} ok={pt['ok']}")
-    if not pt["ok"]:
-        res.notes = notes
-        return res  # fail closed
-
-    # 3. Holdout: checks the worker never saw, staged in the worktree for
-    #    this run only (via prepare_holdout) and removed afterwards.
-    hold = _run_unittests(
-        worktree, holdout_in_worktree,
-        extra_env={"PYTHONPATH": str(review_desk_dir)})
-    res.holdout = hold
-    notes.append(f"holdout: ran={hold['ran']} ok={hold['ok']}")
-    if not hold["ok"]:
-        res.notes = notes
-        return res
-
-    # 4. Invariants on the worker's diff.
-    inv: dict = {}
-    diff = subprocess.run(["git", "diff", "--stat"],
-                          cwd=worktree, capture_output=True,
-                          text=True).stdout
-    inv["diff_stat"] = diff.strip()[:500]
-    changed = subprocess.run(["git", "diff", "--name-only"],
-                             cwd=worktree, capture_output=True,
-                             text=True).stdout.split()
-    inv["files"] = changed
-    lines = subprocess.run(["git", "diff", "--numstat"],
-                           cwd=worktree, capture_output=True,
-                           text=True).stdout
-    total = sum(int(p.split()[0]) + int(p.split()[1])
-                for p in lines.splitlines() if p.strip())
-    inv["lines_changed"] = total
-    inv["within_budget"] = total <= budgets["max_changed_lines_per_task"]
-    new_imports = []
-    for f in changed:
-        if f.endswith(".py"):
-            text = (worktree / f).read_text()
-            if _SUSPICIOUS_IMPORTS.search(text):
-                new_imports.append(f)
-    inv["suspicious_imports"] = new_imports
-    inv["no_new_deps"] = not any("requirements" in f for f in changed)
+    # Inspect actual Git delta before any candidate execution. Worker claims
+    # cannot authorize files, staged changes, untracked payloads or symlinks.
+    def git(*args):
+        return subprocess.run(["git", *args], cwd=worktree, capture_output=True,
+                              check=True).stdout
+    changed = [x.decode() for x in git("diff", "HEAD", "--name-only", "-z").split(b"\0") if x]
+    untracked = [x.decode() for x in git("ls-files", "--others", "--exclude-standard", "-z").split(b"\0") if x]
+    inv = {"files": changed, "untracked": [x for x in untracked if not x.startswith(".holdout_tmp/")]}
+    scope = "experiments/review-desk-001/"
+    forbidden = [p for p in changed if not p.startswith(scope) or
+        p.startswith(scope + "tests/") or p == scope + "registry.json"]
+    unsafe = [p for p in changed if (worktree / p).is_symlink() or not (worktree / p).is_file()]
+    numstat = git("diff", "HEAD", "--numstat").decode().splitlines()
+    binary = any(line.split("\t")[0] == "-" for line in numstat)
+    total = sum(int(line.split("\t")[0]) + int(line.split("\t")[1])
+                for line in numstat if line.split("\t")[0] != "-")
+    inv.update(lines_changed=total, within_budget=total <= budgets["max_changed_lines_per_task"],
+               forbidden=forbidden, unsafe=unsafe, binary=binary,
+               no_new_deps=not any("requirements" in p or "pyproject" in p for p in changed))
     res.invariants = inv
-    notes.append(f"invariants: lines={total} files={changed}")
-    if not inv["within_budget"] or new_imports or not inv["no_new_deps"]:
-        res.notes = notes
+    if (not changed or forbidden or unsafe or inv["untracked"] or binary or
+            not inv["within_budget"] or not inv["no_new_deps"]):
+        res.notes = ["static boundary refused candidate"]
         return res
-
+    inv["suspicious_imports"] = [p for p in changed if p.endswith(".py") and
+                                     _SUSPICIOUS_IMPORTS.search((worktree / p).read_text())]
+    if inv["suspicious_imports"]:
+        return res
+    # Export only pinned tracked files. No .git, controller, rules or secrets.
+    with tempfile.TemporaryDirectory(prefix="autonomy-eval-") as temp:
+        exported = Path(temp)
+        raw = git("archive", "HEAD", scope)
+        with tarfile.open(fileobj=io.BytesIO(raw)) as archive:
+            archive.extractall(exported, filter="data")
+        for p in changed:
+            dst = exported / p
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_bytes((worktree / p).read_bytes())
+        # Holdout comes from the trusted controller, never another checkout.
+        shutil.copytree(worktree / holdout_in_worktree, exported / ".holdout_tmp")
+        if any(p.is_symlink() for p in exported.rglob("*")):
+            res.notes = ["symlink in exported baseline"]
+            return res
+        before = {p.relative_to(exported).as_posix(): p.read_bytes()
+                  for p in exported.rglob("*") if p.is_file()}
+        pt = _run_unittests(exported, scope + "tests")
+        res.protected_tests = pt
+        if not pt["ok"]:
+            return res
+        hold = IN.isolated_run(exported, ["python", "-B", "-c",
+            "import sys,unittest; sys.path.insert(0,'/workspace/experiments/review-desk-001'); "
+            "r=unittest.TextTestRunner().run(unittest.defaultTestLoader.discover('.holdout_tmp')); "
+            "sys.exit(0 if r.wasSuccessful() and r.testsRun > 0 else 1)"])
+        out = hold["stderr_tail"] + hold["stdout_tail"]
+        m = re.search(r"Ran (\d+) tests?", out)
+        res.holdout = {"ok": hold["exit_code"] == 0 and bool(m) and int(m.group(1)) > 0,
+                       "ran": int(m.group(1)) if m else 0, "tail": out[-2000:]}
+        if any(p.is_symlink() for p in exported.rglob("*")):
+            res.notes = ["evaluation created symlink; do not follow host paths"]
+            return res
+        after = {p.relative_to(exported).as_posix(): p.read_bytes()
+                 for p in exported.rglob("*") if p.is_file()}
+        inv["no_evaluation_side_effects"] = before == after
+        if not res.holdout["ok"] or before != after:
+            return res
     res.passed = True
     res.notes = notes
     return res

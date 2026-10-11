@@ -1,0 +1,142 @@
+{
+  "action": {
+    "capsule_hash": "3097d888c8abcdb2e5f8915ee549beadd87c33d2fa93f195ff2a21e04b95a0c4",
+    "evidence_hashes": [
+      "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369"
+    ],
+    "policy_hash": "3cc38656e78a74dd776775f7ce659b898b4a1f5c9e10ae7a4e1c5e5bad3305b1",
+    "run_id": "3c81785a198d43dea49d988285f4db35",
+    "settings": {
+      "commit": "e57f9208bb9d7682d52268b99862fa6e7a6c3020",
+      "expected_old": "0000000000000000000000000000000000000000"
+    },
+    "target": "refs/heads/autonomy-001/accepted/ui-empty-records",
+    "tool": "git.update-ref"
+  },
+  "binding": {
+    "challenge_expires_at": "2026-10-11T04:08:48.474442Z",
+    "challenge_nonce": "2db5af1da30826ced192c40d699ee245",
+    "expected_source_hash": "00e09ba35930aa7d9af39c238d684d32fc00e2a182890ea5b7cb576cf957e71a",
+    "parent_decision_hash": null,
+    "run_id": "3c81785a198d43dea49d988285f4db35",
+    "sequence": 1,
+    "session_id": "3c81785a198d43dea49d988285f4db35"
+  },
+  "outcome_receipt": {
+    "algorithm_id": "openline-orthogonal-outcome-0.2",
+    "canonicalization_id": "olp-canonical-json-int-v1",
+    "evidence_hash": "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369",
+    "kind": "witness_outcome_receipt",
+    "observed_at": "2026-10-11T04:03:48.477775Z",
+    "outcome": {
+      "harmful": false,
+      "rollback_supported": true,
+      "status": "pass"
+    },
+    "payload_hash": "0cc2384b3bc07a7424428f4d5ebd6cfab7e716ff1722f2cf3fda8fddf773cb20",
+    "receipt_version": "0.2",
+    "signature": {
+      "algorithm": "Ed25519",
+      "public_key": "194c0ee2782299c9c594aea2a145575e753c6b6b2a330bf435ec4ef1df8b0664",
+      "value": "45147696d8379e3c8f8c2875ace577f435ee5f1714ef7f6434ef352936b44bcb4254fbd7265e38a4cfa641b1020eca0b1273cf0cb9a558ae9d17c2fec607a307"
+    },
+    "source_receipt_hash": "00e09ba35930aa7d9af39c238d684d32fc00e2a182890ea5b7cb576cf957e71a",
+    "spec_uri": "https://github.com/terryncew/openline-receipt-gate",
+    "witness_id": "local-receiver"
+  },
+  "policy": {
+    "deny_risk_levels": [],
+    "evidence_assertions": [
+      {
+        "evidence_id": "result",
+        "op": "equals",
+        "path": "eligible",
+        "value": true
+      }
+    ],
+    "max_evidence_bytes": 10000000,
+    "max_source_age_seconds": 300,
+    "metadata": {
+      "verified_commit": {
+        "capsule_hash": "3097d888c8abcdb2e5f8915ee549beadd87c33d2fa93f195ff2a21e04b95a0c4",
+        "evidence_hashes": [
+          "6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369"
+        ],
+        "max_ttl_seconds": 120,
+        "required": true,
+        "run_id": "3c81785a198d43dea49d988285f4db35",
+        "settings_hash": "00b1bbc98af0a9057b0abe1e26c21c896f680eada7bfd6359a48374efb407772",
+        "target": "refs/heads/autonomy-001/accepted/ui-empty-records",
+        "tool": "git.update-ref"
+      }
+    },
+    "no_badge_action_types": [
+      "eval_score_claim"
+    ],
+    "policy_id": "autonomy-001.local-receiver",
+    "require_declared_coverage": true,
+    "require_evidence": true,
+    "require_independent_source": false,
+    "require_outcome_witness": true,
+    "require_replay_guard": true,
+    "require_source_bound_evidence": true,
+    "require_trusted_source": true,
+    "required_claim_ids": [],
+    "required_evidence_ids": [
+      "result"
+    ],
+    "rollback_on_harm": true,
+    "version": "1.5"
+  },
+  "source_receipts": [
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://agentreceipts.ai/context/v2"
+      ],
+      "credentialSubject": {
+        "action": {
+          "id": "3c81785a198d43dea49d988285f4db35",
+          "risk_level": "medium",
+          "timestamp": "2026-10-11T04:03:48.470116+00:00",
+          "type": "tool_call"
+        },
+        "chain": {
+          "chain_id": "3c81785a198d43dea49d988285f4db35",
+          "previous_receipt_hash": null,
+          "sequence": 1,
+          "status": "complete",
+          "terminal": true
+        },
+        "outcome": {
+          "response_hash": "sha256:6fea5704361cdd9fd2289450564242870fe6516bc2dcf8ce23819cc424583369",
+          "reversible": false,
+          "status": "success"
+        },
+        "principal": {
+          "id": "owner:Terrynce White",
+          "type": "HumanPrincipal"
+        }
+      },
+      "id": "urn:receipt:3c81785a198d43dea49d988285f4db35",
+      "issuanceDate": "2026-10-11T04:03:48.470116+00:00",
+      "issuer": {
+        "id": "did:example:autonomy-local-evaluator",
+        "session_id": "3c81785a198d43dea49d988285f4db35",
+        "type": "AIAgent"
+      },
+      "proof": {
+        "created": "2026-10-11T04:03:48.470116+00:00",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "uSiQQWKLko-oVHFKU4SdF69q-nhhQW5tOsRVdnwFnub3DvE1ExjWYoMKekmcfjN9k0y4QA6tvCZjHWFo-szj2AQ",
+        "type": "Ed25519Signature2020",
+        "verificationMethod": "did:example:autonomy-local-evaluator#key-1"
+      },
+      "type": [
+        "VerifiableCredential",
+        "AgentReceipt"
+      ],
+      "version": "0.5.0"
+    }
+  ]
+}

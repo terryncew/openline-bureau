@@ -6,8 +6,9 @@ receipts are evidence of what the controller decided and why — they do
 not prove the underlying work was correct; the evaluation results
 attached to each receipt are the evidence for that.
 
-Receipts are unsigned in Phase 1 (no signing key configured): structure
-is validated, authenticity is out of scope and stated as such.
+make_receipt returns a structurally validated unsigned template. The Phase
+1.5 controller adds chain links and signs it with Receipt Gate crypto before
+durable storage; direct factory callers do not receive authenticated evidence.
 """
 
 from __future__ import annotations
@@ -74,5 +75,8 @@ def make_receipt(kind: str, task_id: str | None, worker_id: str | None,
 def store_receipt(receipts_dir: Path, receipt: dict) -> Path:
     receipts_dir.mkdir(parents=True, exist_ok=True)
     path = receipts_dir / f"{receipt['receipt_id']}.json"
-    path.write_text(json.dumps(receipt, indent=2))
+    from integrations import durable_write
+    if path.exists():
+        raise FileExistsError(path)
+    durable_write(path, receipt)
     return path
