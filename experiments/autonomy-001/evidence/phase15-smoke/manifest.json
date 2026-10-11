@@ -12,6 +12,9 @@
     "receipts/autonomy-001-f56ec9194075.json": "7ca1a5aed796043490777df9cdadc9a30a95df0d52da75578d19f3cab6758824"
   },
   "local_receiver_public_key": "1aa4dda0d7fdbbc506f6d63eb8c0524ddcb2a75b80200c27be74b3e604b5805a",
+  "local_source_public_keys": {
+    "did:example:autonomy-local-evaluator#key-1": "350b9cce72f1da60c9a449a695c3095685b46817fa24d2c23974d446e3b8ae60"
+  },
   "outcome": {
     "branch": "autonomy-001/accepted/ui-empty-records",
     "status": "accepted"
