@@ -177,19 +177,28 @@ A second thread (`worker-c`) adds the incident/coverage material: a
 reconciled challenge, a false hold, a successful and a failed recovery,
 unresolved cases, and a narrowed mandate.
 
+## Autonomy research experiment
+
+OPENLINE-AUTONOMY-001 studies **“AI that can improve its own work without
+granting itself more power.”** Its current demonstration uses scripted workers
+and does not establish real AI improvement or production security. The
+[public research guide](experiments/autonomy-001/RESEARCH_RELEASE.md) explains
+the controls, limitations and one-command reproduction.
+
 ## Tests
 
 ```bash
 python3 -m unittest tests.test_bureau
 ```
 
-42 tests: schema validation, store round-trip/dedup/filters/ancestry,
-all five adapters, provenance preservation, unsupported-format behavior,
-metric measurability conditions, ingest CLI (incl. summary block and
-read-only sources), the canonical demo story (sequence, stale refusal,
-delayed artifact ancestry, successor continuation), metric→ledger
-drilldown parity, unknown/not-measurable behavior, every HTTP endpoint,
-and a static frontend syntax check (`node --check ui/app.js`).
+2 core regressions exercise the 28-record synthetic demo, schema/store
+round-trip and deduplication, ledger lookup, coverage states, and canonical
+adapter preservation. Full `python3 -m unittest discover -s tests` runs 54
+tests and also requires the Wallet/Exchange dependencies used by allocation,
+membership, and coverage experiments. The Phase 1.5
+[setup instructions](experiments/autonomy-001/PHASE15.md#run-and-limitations)
+provide a pinned optional Wallet checkout for those suites. Frontend syntax
+can be checked separately with `node --check ui/app.js`.
 
 ## Project status
 

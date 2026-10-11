@@ -1,5 +1,9 @@
 # OPENLINE-AUTONOMY-001 — Phase 1: thin coordinator experiment
 
+For the current public research presentation and one-command scripted demo,
+see [RESEARCH_RELEASE.md](RESEARCH_RELEASE.md). The Phase 1 account below is
+historical context; its claims and limitations describe that earlier phase.
+
 **Status: experiment branch. Nothing merged, nothing published, no external spend.**
 
 **Phase 1.5 continuation:** see [PHASE15.md](PHASE15.md) for the current
