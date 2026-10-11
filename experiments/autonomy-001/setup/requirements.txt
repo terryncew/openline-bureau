@@ -1,0 +1,7 @@
+# Exact runtime dependencies for Phase 1.5; no model/API clients or extras.
+PyYAML==6.0.3
+cryptography==50.0.0
+cffi==2.0.0
+pycparser==3.0
+openline-airlock @ git+https://github.com/terryncew/openline-airlock.git@ac7da750b5cf85749650f19c0acb5946b0adc39e
+openline-receipt-gate @ git+https://github.com/terryncew/openline-receipt-gate.git@abc610be560284130e0d08b2fd51e59ef0b1c623
