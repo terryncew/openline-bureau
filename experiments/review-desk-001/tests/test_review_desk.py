@@ -8,6 +8,7 @@ evidence, prompt injection, irrelevant comments, contradictory records.
 import json
 import os
 import sys
+import tempfile
 import threading
 import unittest
 from http.client import HTTPConnection
@@ -190,36 +191,107 @@ class RegistryIntegrityTests(unittest.TestCase):
 class ServerSmokeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        from server import Handler
-        cls.server = HTTPServer(("127.0.0.1", 0), Handler)
+        import server as srv
+        cls._orig = srv.RECORDS_DIR
+        cls.records = tempfile.TemporaryDirectory(prefix="review-desk-smoke-")
+        cls.tmp = cls.records.name
+        srv.RECORDS_DIR = cls.tmp
+        cls.server = HTTPServer(("127.0.0.1", 0), srv.Handler)
         cls.port = cls.server.server_address[1]
         cls.thread = threading.Thread(target=cls.server.serve_forever,
                                       daemon=True)
         cls.thread.start()
-        # Isolate records for the smoke test.
-        import server as srv
-        cls._orig = srv.RECORDS_DIR
-        cls.tmp = os.path.join(cls._orig, "..", "test-records-smoke")
-        os.makedirs(cls.tmp, exist_ok=True)
-        srv.RECORDS_DIR = cls.tmp
 
     @classmethod
     def tearDownClass(cls):
         import server as srv
-        srv.RECORDS_DIR = cls._orig
         cls.server.shutdown()
         cls.server.server_close()
         cls.thread.join(timeout=5)
-        import shutil
-        shutil.rmtree(cls.tmp, ignore_errors=True)
+        srv.RECORDS_DIR = cls._orig
+        cls.records.cleanup()
 
-    def _api(self, method, path, body=None):
+    def _api(self, method, path, body=None, headers=None):
         conn = HTTPConnection("127.0.0.1", self.port, timeout=10)
         data = json.dumps(body).encode() if body is not None else None
-        headers = {"Content-Type": "application/json"} if data else {}
-        conn.request(method, path, body=data, headers=headers)
-        resp = conn.getresponse()
-        return resp.status, json.loads(resp.read() or b"null")
+        if headers is None:
+            headers = {"Content-Type": "application/json"} if data else {}
+        try:
+            conn.request(method, path, body=data, headers=headers)
+            resp = conn.getresponse()
+            return resp.status, json.loads(resp.read() or b"null")
+        finally:
+            conn.close()
+
+    def _assert_no_write(self, expected_status, headers):
+        before = sorted(os.listdir(self.tmp))
+        status, _ = self._api("POST", "/api/review",
+                              {"comment": "Synthetic browser security test."},
+                              headers=headers)
+        self.assertEqual(status, expected_status)
+        self.assertEqual(sorted(os.listdir(self.tmp)), before)
+
+    def test_same_origin_browser_json_requests(self):
+        for hostname in ("127.0.0.1", "localhost"):
+            with self.subTest(hostname=hostname):
+                host = f"{hostname}:{self.port}"
+                status, _ = self._api("POST", "/api/review",
+                                      {"comment": "Unsigned receipts are VALID."},
+                                      headers={"Host": host,
+                                               "Origin": "http://" + host,
+                                               "Content-Type": "application/json; charset=utf-8"})
+                self.assertEqual(status, 200)
+
+    def test_untrusted_hosts_rejected_for_reads_and_writes(self):
+        for host in (f"attacker.invalid:{self.port}",
+                     f"127.0.0.1.attacker.invalid:{self.port}",
+                     f"localhost:{self.port + 1}",
+                     f"user@localhost:{self.port}",
+                     f"localhost:{self.port}/",
+                     "127.0.0.1"):
+            with self.subTest(host=host):
+                headers = {"Host": host, "Content-Type": "application/json"}
+                status, _ = self._api("GET", "/api/records", headers=headers)
+                self.assertEqual(status, 403)
+                self._assert_no_write(403, headers)
+
+    def test_foreign_or_malformed_origins_rejected(self):
+        for origin in ("https://attacker.invalid", "null",
+                       f"http://localhost:{self.port}",
+                       f"http://127.0.0.1:{self.port + 1}",
+                       f"http://127.0.0.1:{self.port}/",
+                       f"http://127.0.0.1:{self.port}#"):
+            with self.subTest(origin=origin):
+                headers = {"Origin": origin, "Content-Type": "application/json"}
+                status, _ = self._api("GET", "/api/records", headers=headers)
+                self.assertEqual(status, 403)
+                self._assert_no_write(403, headers)
+
+    def test_simple_browser_content_types_cannot_write(self):
+        for ctype in (None, "text/plain", "application/x-www-form-urlencoded",
+                      "multipart/form-data"):
+            with self.subTest(ctype=ctype):
+                headers = {"Content-Type": ctype} if ctype is not None else {}
+                self._assert_no_write(415, headers)
+
+    def test_duplicate_host_or_origin_headers_rejected(self):
+        for header in ("Host", "Origin"):
+            with self.subTest(header=header):
+                conn = HTTPConnection("127.0.0.1", self.port, timeout=10)
+                try:
+                    conn.putrequest("GET", "/api/records", skip_host=True)
+                    conn.putheader("Host", f"127.0.0.1:{self.port}")
+                    if header == "Host":
+                        conn.putheader("Host", f"localhost:{self.port}")
+                    else:
+                        conn.putheader("Origin", f"http://127.0.0.1:{self.port}")
+                        conn.putheader("Origin", "https://attacker.invalid")
+                    conn.endheaders()
+                    resp = conn.getresponse()
+                    resp.read()
+                    self.assertEqual(resp.status, 403)
+                finally:
+                    conn.close()
 
     def test_review_roundtrip(self):
         status, rec = self._api("POST", "/api/review",

@@ -49,6 +49,13 @@ committed). The **Export** button produces the machine-readable review
 record, with `human_statements`, `automated_checks`, `test_outcomes`, and
 `human_approvals` kept in separate sections.
 
+The server accepts a literal loopback `Host` with its listening port, checks
+any browser `Origin` against that same origin, and requires `application/json`
+for writes. These checks reject DNS rebinding and simple cross-origin browser
+writes. Local JSON API clients may omit `Origin`. This is an experimental
+single-user local interface, without authentication for other local processes;
+do not expose it through a network proxy or deploy it publicly.
+
 ## What this reuses from the Bureau
 
 - The claim-taxonomy concept (`conformance/claims.md`): every registry

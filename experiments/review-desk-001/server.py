@@ -18,6 +18,7 @@ import json
 import os
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from pathlib import Path
 
 from review import (  # noqa: E402  (local module, same directory)
     create_challenge, export_record, load_registry, review, utcnow,
@@ -39,6 +40,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(code)
         self.send_header("Content-Type", ctype + "; charset=utf-8")
         self.send_header("Content-Length", str(len(data)))
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Cache-Control", "no-store")
         self.end_headers()
         self.wfile.write(data)
 
@@ -51,16 +54,57 @@ class Handler(BaseHTTPRequestHandler):
             return {}
         return json.loads(self.rfile.read(length).decode("utf-8"))
 
+    @staticmethod
+    def _local_origin(value):
+        """Parse a literal loopback HTTP origin, never resolve a hostname."""
+        try:
+            parsed = urllib.parse.urlsplit(value)
+            if (parsed.scheme != "http" or
+                    parsed.hostname not in ("127.0.0.1", "localhost", "::1") or
+                    parsed.username is not None or parsed.password is not None or
+                    parsed.path or parsed.query or parsed.fragment or
+                    "?" in value or "#" in value or
+                    any(c.isspace() for c in value)):
+                return None
+            return parsed.hostname, (80 if parsed.port is None else parsed.port)
+        except ValueError:
+            return None
+
+    def _local_request(self, *, write=False):
+        """Reject DNS rebinding and cross-origin browser requests.
+
+        Origin-less local API clients remain supported. Writes require JSON,
+        which a cross-origin browser cannot send without a successful CORS
+        preflight; this server never grants CORS permissions.
+        """
+        hosts = self.headers.get_all("Host", [])
+        origin = (self._local_origin("http://" + hosts[0])
+                  if len(hosts) == 1 else None)
+        if origin is None or origin[1] != self.server.server_address[1]:
+            self._json(403, {"error": "loopback Host and server port required"})
+            return False
+        origins = self.headers.get_all("Origin", [])
+        if origins and (len(origins) != 1 or
+                        self._local_origin(origins[0]) != origin):
+            self._json(403, {"error": "same-origin request required"})
+            return False
+        if write and (len(self.headers.get_all("Content-Type", [])) != 1 or
+                      self.headers.get_content_type() != "application/json"):
+            self._json(415, {"error": "application/json required"})
+            return False
+        return True
+
     def _record_path(self, kind, rid):
         os.makedirs(RECORDS_DIR, exist_ok=True)
         return os.path.join(RECORDS_DIR, f"{kind}-{rid}.json")
 
     # -- routes ---------------------------------------------------------
     def do_GET(self):
+        if not self._local_request():
+            return
         parsed = urllib.parse.urlparse(self.path)
         if parsed.path == "/":
-            return self._send(200, open(
-                os.path.join(UI_DIR, "index.html"), "rb").read(),
+            return self._send(200, (Path(UI_DIR) / "index.html").read_bytes(),
                 "text/html")
         if parsed.path.startswith("/ui/"):
             name = os.path.basename(parsed.path)
@@ -70,7 +114,7 @@ class Handler(BaseHTTPRequestHandler):
             if not os.path.exists(path):
                 return self._send(404, "not found", "text/plain")
             ext = os.path.splitext(name)[1]
-            return self._send(200, open(path, "rb").read(),
+            return self._send(200, Path(path).read_bytes(),
                               MIME.get(ext, "text/plain"))
         if parsed.path == "/api/registry":
             return self._json(200, load_registry())
@@ -79,15 +123,15 @@ class Handler(BaseHTTPRequestHandler):
             if os.path.isdir(RECORDS_DIR):
                 for name in sorted(os.listdir(RECORDS_DIR)):
                     if name.endswith(".json"):
-                        records.append(json.loads(open(
-                            os.path.join(RECORDS_DIR, name)).read()))
+                        records.append(json.loads(
+                            (Path(RECORDS_DIR) / name).read_text(encoding="utf-8")))
             return self._json(200, {"records": records})
         if parsed.path == "/api/export":
             reviews, challenges = [], []
             if os.path.isdir(RECORDS_DIR):
                 for name in sorted(os.listdir(RECORDS_DIR)):
-                    doc = json.loads(open(
-                        os.path.join(RECORDS_DIR, name)).read())
+                    doc = json.loads(
+                        (Path(RECORDS_DIR) / name).read_text(encoding="utf-8"))
                     (reviews if name.startswith("rev-")
                      else challenges).append(doc)
             out = [export_record(r, [c for c in challenges
@@ -98,6 +142,8 @@ class Handler(BaseHTTPRequestHandler):
         return self._send(404, "not found", "text/plain")
 
     def do_POST(self):
+        if not self._local_request(write=True):
+            return
         parsed = urllib.parse.urlparse(self.path)
         try:
             body = self._read_json()
@@ -110,7 +156,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(400, {"error": "comment is required"})
             rec = review(comment)
             path = self._record_path("rev", rec["review_id"])
-            open(path, "w").write(json.dumps(rec, indent=2))
+            Path(path).write_text(json.dumps(rec, indent=2), encoding="utf-8")
             return self._json(200, rec)
 
         if parsed.path == "/api/challenge":
@@ -123,7 +169,7 @@ class Handler(BaseHTTPRequestHandler):
                                    body.get("source_review_id"),
                                    body.get("evidence_refs"))
             path = self._record_path("chg", rec["challenge_id"])
-            open(path, "w").write(json.dumps(rec, indent=2))
+            Path(path).write_text(json.dumps(rec, indent=2), encoding="utf-8")
             return self._json(200, rec)
 
         if parsed.path == "/api/approve":
@@ -131,14 +177,14 @@ class Handler(BaseHTTPRequestHandler):
             path = self._record_path("rev", rid)
             if not os.path.exists(path):
                 return self._json(404, {"error": "review not found"})
-            rec = json.loads(open(path).read())
+            rec = json.loads(Path(path).read_text(encoding="utf-8"))
             rec["human_approval"] = {
                 "decision": body.get("decision", "approved"),
                 "note": body.get("note", ""),
                 "approved_at": utcnow(),
                 "approved_draft": rec["draft"]["draft"],
             }
-            open(path, "w").write(json.dumps(rec, indent=2))
+            Path(path).write_text(json.dumps(rec, indent=2), encoding="utf-8")
             return self._json(200, rec)
 
         return self._send(404, "not found", "text/plain")
