@@ -1,0 +1,5 @@
+# Local working state: state.json, receipts, scratch clones, worktrees,
+# dashboard snapshots. Never committed. The mission, policy, queue, and
+# code are the committed artifacts; runs are local evidence.
+*
+!.gitignore

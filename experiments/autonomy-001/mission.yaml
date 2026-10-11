@@ -1,0 +1,48 @@
+# OPENLINE-AUTONOMY-001 — standing mission (owner-approved)
+#
+# This file is OWNER-AUTHORED. Workers cannot read it as instruction and
+# cannot modify it: it is outside every worker worktree, and any worker
+# output touching these paths is rejected and quarantined.
+# Change requires the owner. The coordinator treats it as read-only.
+
+mission: >
+  Improve the review-desk experiment's robustness and documentation
+  through small, reversible, independently-verified changes. Each change
+  must pass the experiment's protected tests, respect the preauthorized
+  policy, and be recorded as a Bureau-compatible receipt.
+
+target:
+  # Scratch clone of this repository; the paused review-desk branch is
+  # used as the read-only baseline and is NEVER modified in place.
+  baseline_commit: "24f5609"
+  scope_paths:
+    - "experiments/review-desk-001/"
+  # Accepted changes land on isolated branches in the scratch clone.
+  # They are NEVER merged to main by the coordinator.
+
+boundaries:
+  no_merge_to_main: true
+  no_publish: true
+  no_external_spend: true
+  no_new_dependencies: true
+  # Paths no worker output may touch (coordinator-enforced, two layers):
+  protected_paths:
+    - "experiments/autonomy-001/mission.yaml"
+    - "experiments/autonomy-001/policy/"
+    - "experiments/autonomy-001/evaluator.py"
+    - "experiments/autonomy-001/holdout/"
+    - "experiments/review-desk-001/tests/"
+    - "experiments/review-desk-001/registry.json"
+
+budgets:
+  max_cycles: 10
+  max_tasks: 5
+  max_changed_lines_per_task: 30
+  worker_timeout_seconds: 120
+
+# Owner revocation switch. When true, the coordinator finishes the current
+# phase safely and starts no new work. Checked at every phase boundary.
+revoked: false
+
+owner: "Terrynce White"
+approved_at: "2026-10-10"
