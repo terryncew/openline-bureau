@@ -1,0 +1,52 @@
+test_docs_only_accepted (test_autonomy.AcceptTests.test_docs_only_accepted) ... ok
+test_ui_copy_accepted (test_autonomy.AcceptTests.test_ui_copy_accepted) ... ok
+test_receipts_conform (test_autonomy.AuthorityTests.test_receipts_conform) ... ok
+test_revoked_mission_starts_nothing (test_autonomy.AuthorityTests.test_revoked_mission_starts_nothing) ... ok
+test_budgets_enforced (test_autonomy.ContinuityTests.test_budgets_enforced) ... ok
+test_restart_resumes_after_build (test_autonomy.ContinuityTests.test_restart_resumes_after_build) ... ok
+test_worker_swap_preserves_mission_and_history (test_autonomy.ContinuityTests.test_worker_swap_preserves_mission_and_history) ... ok
+test_bug_injection_rejected (test_autonomy.RejectHoldTests.test_bug_injection_rejected) ... ok
+test_registry_change_quarantined_before_write (test_autonomy.RejectHoldTests.test_registry_change_quarantined_before_write) ... ok
+test_rules_rewrite_quarantined (test_autonomy.RejectHoldTests.test_rules_rewrite_quarantined) ... ok
+test_dashboard_documents_serialized_revocation (test_dashboard.DashboardTests.test_dashboard_documents_serialized_revocation) ... ok
+test_untrusted_snapshot_values_are_inert_text (test_dashboard.DashboardTests.test_untrusted_snapshot_values_are_inert_text) ... ok
+test_airlock_worker_adapter_applies_only_exported_changes (test_phase15.Phase15Tests.test_airlock_worker_adapter_applies_only_exported_changes) ... ok
+test_container_deadline_survives_controller_and_client_death (test_phase15.Phase15Tests.test_container_deadline_survives_controller_and_client_death) ... ok
+test_deadline_supervisor_resists_child_interruption (test_phase15.Phase15Tests.test_deadline_supervisor_resists_child_interruption) ... ok
+test_evaluator_zero_tests_fail_and_candidate_import_used (test_phase15.Phase15Tests.test_evaluator_zero_tests_fail_and_candidate_import_used) ... ok
+test_gate_tampering_wrong_action_replay_and_revocation (test_phase15.Phase15Tests.test_gate_tampering_wrong_action_replay_and_revocation) ... ok
+test_isolation_no_credentials_host_files_or_network (test_phase15.Phase15Tests.test_isolation_no_credentials_host_files_or_network) ... ok
+test_orphan_signed_receipt_reconciled (test_phase15.Phase15Tests.test_orphan_signed_receipt_reconciled) ... ok
+test_passing_tests_not_measured_improvement (test_phase15.Phase15Tests.test_passing_tests_not_measured_improvement) ... ok
+test_protected_tests_pass_but_candidate_fails_hidden_holdout (test_phase15.Phase15Tests.test_protected_tests_pass_but_candidate_fails_hidden_holdout) ... ok
+test_receipt_signature_tampering_blocks_resume (test_phase15.Phase15Tests.test_receipt_signature_tampering_blocks_resume) ... ok
+test_ref_without_gate_execution_cannot_be_attributed (test_phase15.Phase15Tests.test_ref_without_gate_execution_cannot_be_attributed) ... ok
+test_revocation_and_policy_changes_fail_closed (test_phase15.Phase15Tests.test_revocation_and_policy_changes_fail_closed) ... ok
+test_root_caller_cannot_start_untrusted_execution (test_phase15.Phase15Tests.test_root_caller_cannot_start_untrusted_execution) ... ok
+test_sandbox_enforces_deadline (test_phase15.Phase15Tests.test_sandbox_enforces_deadline) ... ok
+test_scope_prefix_and_symlink_escape (test_phase15.Phase15Tests.test_scope_prefix_and_symlink_escape) ... ok
+test_sigkill_after_effect_reconciles_once_even_after_revocation (test_phase15.Phase15Tests.test_sigkill_after_effect_reconciles_once_even_after_revocation) ... ok
+test_sigkill_build_is_held_without_rerun (test_phase15.Phase15Tests.test_sigkill_build_is_held_without_rerun) ... ok
+test_sigkill_permission_does_not_create_ref (test_phase15.Phase15Tests.test_sigkill_permission_does_not_create_ref) ... ok
+test_ui_copy_authority_does_not_allow_executable_changes (test_phase15.Phase15Tests.test_ui_copy_authority_does_not_allow_executable_changes) ... ok
+test_historical_hashes_signatures_chain_and_git_commit (test_smoke_evidence.SmokeEvidenceTests.test_historical_hashes_signatures_chain_and_git_commit) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 186.636s
+
+OK
+task readme-export-docs: ACCEPTED -> autonomy-001/accepted/readme-export-docs
+task ui-empty-records: ACCEPTED -> autonomy-001/accepted/ui-empty-records
+task readme-export-docs: ACCEPTED -> autonomy-001/accepted/readme-export-docs
+task bug-injection: REJECTED by evaluation
+mission revoked: no work started
+budget exhausted: max_cycles reached
+[demo hook] stopping after phase: build
+task readme-export-docs: ACCEPTED -> autonomy-001/accepted/readme-export-docs
+task ui-empty-records: ACCEPTED -> autonomy-001/accepted/ui-empty-records
+task bug-injection: REJECTED by evaluation
+task registry-add-claim: QUARANTINED (rules modification attempt)
+task rules-rewrite: QUARANTINED (rules modification attempt)
+mission revoked: no work started
+mission revoked: no work started
+queue empty: idle
