@@ -1,0 +1,47 @@
+name: Beta bootstrap approved-code verification (isolated)
+# Temporary, owner-requested CI evidence run. No publishing, write token, or secrets.
+# This branch adds ONLY this workflow to the exact Bureau beta revision.
+on:
+  push:
+    branches:
+      - ci/beta-bootstrap-approved-tests-001
+permissions:
+  contents: read
+jobs:
+  approved-code-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Pin original beta code and limit verification branch to this workflow
+        run: |
+          set -eu
+          test "$(git rev-parse HEAD^)" = '2406d25d5c618dd655046d80393e77af0c85562d'
+          test "$(git diff --name-only HEAD^ HEAD)" = '.github/workflows/bootstrap-approved-code-verification.yml'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@v4
+        with:
+          repository: terryncew/openline-wallet
+          ref: c46e82a324199050239540f1825a3b0c942e4053
+          path: wallet
+          persist-credentials: false
+      - name: Install trusted signature verifier
+        run: |
+          set -eu
+          python -m pip install cryptography==50.0.0 jsonschema==4.26.0
+          python -m pip install --no-deps ./wallet
+      - name: Original approved-code-tests commands (not a data-guard substitute)
+        run: |
+          set -eu
+          python -m unittest tests.test_bureau tests.test_catalog tests.test_beta_trial tests.test_catalog_pr tests.test_select -v
+          python -m bureau.catalog validate --source catalog
+          python -m bureau.evidence public-evidence
+      - name: Documented broader test suite and pending-data validation
+        run: |
+          set -eu
+          python -m unittest discover -s tests -v
+          python -m bureau.catalog validate --source catalog --pending
