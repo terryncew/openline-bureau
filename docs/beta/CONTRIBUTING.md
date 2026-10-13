@@ -30,10 +30,13 @@ submitting evidence and use public, non-sensitive test inputs.
    offers a price, describe the currency and unit; a quoted price is neither
    guaranteed availability nor payment. A worker's past result is not a result
    for every capability it advertises.
-4. Put permissioned original receipt JSON in `catalog/evidence/` and reference
-   its supported format, exact path and SHA-256 hash. Keep the signed bytes
-   intact. Hashing a record identifies it; it does not verify its claims.
-   Evidence that cannot safely be made public must stay outside this catalog.
+4. Supporting receipts are **optional** for an initial capability. If you have
+   no permissioned evidence, leave `"evidence": []`, disclose the limitation,
+   and submit an honest self-reported description for maintainer review. It
+   will not be labeled independently evaluated or verified. If you do have
+   receipts, put permissioned original JSON in `catalog/evidence/` and reference
+   its supported format, exact path and SHA-256 hash. Keep signed bytes intact.
+   Hashes identify records, not their truth. Never submit private evidence.
 5. Include the required public-release statements on each applicable record
    and evidence descriptor:
 
