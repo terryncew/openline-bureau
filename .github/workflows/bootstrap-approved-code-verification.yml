@@ -1,0 +1,67 @@
+name: Beta bootstrap approved-code verification (isolated)
+# Temporary, owner-requested CI evidence run. No publishing, write token, or secrets.
+# This branch adds ONLY this workflow to the exact Bureau beta revision.
+on:
+  push:
+    branches:
+      - ci/beta-owner-review-002
+permissions:
+  contents: read
+jobs:
+  approved-code-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENLINE_WALLET_REPO: ${{ github.workspace }}/wallet
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Pin original beta code and limit verification branch to this workflow
+        run: |
+          set -eu
+          git cat-file -e '97bbfe05349f7be8af3c929fb18442c4d02e3b12^{commit}'
+          git merge-base --is-ancestor '97bbfe05349f7be8af3c929fb18442c4d02e3b12' HEAD
+          test "$(git diff --name-only '97bbfe05349f7be8af3c929fb18442c4d02e3b12' HEAD)" = '.github/workflows/bootstrap-approved-code-verification.yml'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@v4
+        with:
+          repository: terryncew/openline-wallet
+          ref: c46e82a324199050239540f1825a3b0c942e4053
+          path: wallet
+          persist-credentials: false
+      - name: Install trusted signature verifier
+        run: |
+          set -eu
+          python -m pip install cryptography==50.0.0 jsonschema==4.26.0
+          python -m pip install --no-deps ./wallet
+      - name: Original approved-code-tests commands (not a data-guard substitute)
+        run: |
+          set -eu
+          python -m unittest tests.test_bureau tests.test_catalog tests.test_beta_trial tests.test_catalog_pr tests.test_select -v
+          python -m bureau.catalog validate --source catalog
+          python -m bureau.evidence public-evidence
+      - name: Documented broader test suite and pending-data validation
+        run: |
+          set -eu
+          python -m unittest discover -s tests -v
+          python -m bureau.catalog validate --source catalog --pending
+      - uses: actions/checkout@v4
+        with:
+          repository: terryncew/openline-exchange
+          ref: abf1d3a25182b56b7a9312d79285b2b8ed2fd190
+          path: pinned-exchange
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify paired Select policy and regenerate static public beta offline
+        run: |
+          set -eu
+          python scripts/check_select_parity.py --exchange pinned-exchange
+          python pinned-exchange/scripts/build_beta.py --bureau . --out /tmp/openline-beta-paired-rebuild
+          python pinned-exchange/scripts/validate_beta.py --site /tmp/openline-beta-paired-rebuild
+          diff -qr --exclude=build-manifest.json pinned-exchange/docs/beta /tmp/openline-beta-paired-rebuild
