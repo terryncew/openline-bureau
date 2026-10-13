@@ -1,0 +1,118 @@
+name: Isolated independent Bureau negative-case review
+on:
+  push:
+    branches:
+      - ci/beta-independent-adversarial-003
+permissions:
+  contents: read
+jobs:
+  negative-boundaries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify exact PR code; only isolated workflow differs
+        run: |
+          set -eu
+          git merge-base --is-ancestor 97bbfe05349f7be8af3c929fb18442c4d02e3b12 HEAD
+          test "$(git diff --name-only 97bbfe05349f7be8af3c929fb18442c4d02e3b12 HEAD)" = '.github/workflows/isolated-negative-review.yml'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@v4
+        with:
+          repository: terryncew/openline-wallet
+          ref: c46e82a324199050239540f1825a3b0c942e4053
+          path: wallet
+          persist-credentials: false
+      - name: Install only pinned trusted verification dependencies
+        run: |
+          set -eu
+          python -m pip install cryptography==50.0.0 jsonschema==4.26.0
+          python -m pip install --no-deps ./wallet
+      - name: Existing adversarial catalog, PR guard and selection tests
+        run: python -m unittest tests.test_catalog tests.test_catalog_pr tests.test_select -v
+      - name: Independent negative and first-time-submission walkthrough
+        run: |
+          python - <<'PY'
+          from tests.test_catalog import CatalogTests, build_catalog, validate_source, CatalogError, load_json
+          from pathlib import Path
+          
+          def scenario(name, test):
+              c = CatalogTests('test_default_catalog_empty_and_fixture_catalog_separate')
+              c.setUp()
+              try:
+                  test(c)
+                  print('PASS: ' + name)
+              finally:
+                  c.tearDown()
+          
+          def no_unreviewed_publication(c):
+              c.add_cap(approved=False)
+              pending=validate_source(c.root,pending=True)
+              assert len(pending['capabilities']) == 1
+              assert pending['capabilities'][0]['publication']['reviewed'] is False
+              assert build_catalog(c.root)['capabilities'] == []
+          scenario('unreviewed submission stays pending and absent from published catalog',no_unreviewed_publication)
+          
+          def honest_first_submission(c):
+              c.add_cap(approved=True)
+              actual=build_catalog(c.root)['capabilities']
+              assert len(actual)==1 and actual[0]['evidence_summary']['label']=='SELF_REPORTED'
+              assert actual[0]['evidence_summary']['receipt_count']==0
+              assert 'Supporting receipts' in actual[0]['evidence_summary']['missing']
+          scenario('receipt-free first submission retains self-reported evidence limit',honest_first_submission)
+          
+          def false_approval_status(c):
+              c.cap['reviewed']=True
+              c.add_cap(approved=False)
+              try: validate_source(c.root,pending=True)
+              except CatalogError: return
+              raise AssertionError('forged reviewed status was accepted')
+          scenario('forged reviewed field is rejected',false_approval_status)
+          
+          def signed_outcome_claim(c):
+              c.add_cap(approved=True)
+              c.add_eval(approved=True)
+              out=build_catalog(c.root)
+              assert out['capabilities'][0]['evidence_summary']['label']=='INDEPENDENTLY_REPORTED'
+              assert out['evaluations'][0]['outcome_verification']=='EVALUATOR_REPORTED'
+              c.ev['outcome_verification']='MAINTAINER_REPRODUCED'
+              c.write('submissions/evaluations/test.json',c.ev)
+              try: build_catalog(c.root)
+              except CatalogError: return
+              raise AssertionError('unreviewed reproduced outcome claim accepted')
+          scenario('self-claimed independently verified outcome rejected',signed_outcome_claim)
+          
+          def changed_reviewed_byte(c):
+              c.add_cap(approved=True)
+              c.cap['summary']='Mutated after approval'
+              c.write('submissions/capabilities/test.json',c.cap)
+              try: build_catalog(c.root)
+              except CatalogError: return
+              raise AssertionError('tampered approved record was published')
+          scenario('approved record hash cannot be replaced silently',changed_reviewed_byte)
+          
+          def private_disclosure(c):
+              c.cap['public_release']['contains_private_data']=True
+              c.add_cap(approved=True)
+              try: build_catalog(c.root)
+              except CatalogError: return
+              raise AssertionError('declared private data was approved')
+          scenario('declared private contribution fails closed',private_disclosure)
+          
+          def missing_failure(c):
+              c.add_cap(approved=True)
+              c.ev['sample']={'dataset':'test','selection':'test','total':1,'passed':0,'failed':1,'inconclusive':0}
+              c.ev['results']=[{'case_id':'failure-1','outcome':'FAIL','summary':'actual negative'}]
+              c.ev['failures']=[]
+              c.add_eval(approved=True)
+              try: build_catalog(c.root)
+              except CatalogError: return
+              raise AssertionError('omitted failure detail was published')
+          scenario('failure details must not disappear from published evaluation',missing_failure)
+          print('ADVERSARIAL-BOUNDARIES: 7/7 PASS (synthetic isolated files only).')
+          PY
