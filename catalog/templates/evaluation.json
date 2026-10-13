@@ -1,0 +1,38 @@
+{
+  "format": "openline.evaluation.v1",
+  "id": "your-evaluation",
+  "capability_id": "your-capability",
+  "capability_version": "1.0.0",
+  "worker_id": null,
+  "evaluator_id": "separate-github-login",
+  "task": "Specify the exact task tested",
+  "method": "Describe the exact procedure, configuration and acceptance criteria.",
+  "sample": {
+    "dataset": "Identify the permissioned, public dataset",
+    "selection": "Describe how cases were selected",
+    "total": 1,
+    "passed": 0,
+    "failed": 0,
+    "inconclusive": 1
+  },
+  "results": [
+    {
+      "case_id": "case-1",
+      "outcome": "INCONCLUSIVE",
+      "summary": "Replace with the actually observed result and its evidence."
+    }
+  ],
+  "failures": [],
+  "limitations": [
+    "Document limitations and any omitted cases."
+  ],
+  "environment": "Describe the actual runtime and versions.",
+  "conflicts": "Disclose relevant affiliation or conflicts; unknown is permitted.",
+  "evidence": [],
+  "public_release": {
+    "authorized": true,
+    "rights_confirmed": true,
+    "contains_private_data": false
+  },
+  "synthetic": false
+}
