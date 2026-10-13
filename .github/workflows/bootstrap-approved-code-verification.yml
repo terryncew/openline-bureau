@@ -11,6 +11,8 @@ jobs:
   approved-code-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      OPENLINE_WALLET_REPO: ${{ github.workspace }}/wallet
     steps:
       - uses: actions/checkout@v4
         with:
@@ -47,3 +49,19 @@ jobs:
           set -eu
           python -m unittest discover -s tests -v
           python -m bureau.catalog validate --source catalog --pending
+      - uses: actions/checkout@v4
+        with:
+          repository: terryncew/openline-exchange
+          ref: 8ee6fc3fd668b2d5ad7eb994946e18834b4d1e3d
+          path: pinned-exchange
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify paired Select policy and regenerate static public beta offline
+        run: |
+          set -eu
+          python scripts/check_select_parity.py --exchange pinned-exchange
+          python pinned-exchange/scripts/build_beta.py --bureau . --out /tmp/openline-beta-paired-rebuild
+          python pinned-exchange/scripts/validate_beta.py --site /tmp/openline-beta-paired-rebuild
+          diff -qr --exclude=build-manifest.json pinned-exchange/docs/beta /tmp/openline-beta-paired-rebuild
