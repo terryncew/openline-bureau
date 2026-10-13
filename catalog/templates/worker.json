@@ -1,0 +1,30 @@
+{
+  "format": "openline.worker.v1",
+  "id": "your-worker",
+  "name": "Your worker name",
+  "summary": "Describe who offers this work and what can be requested.",
+  "contributor_id": "your-github-login",
+  "capability_ids": [
+    "your-capability"
+  ],
+  "provenance": {
+    "source_url": "https://github.com/your-github-login/your-project",
+    "source_revision": null,
+    "authors": [
+      "Your credited author names"
+    ]
+  },
+  "inquiry": {
+    "url": "https://github.com/terryncew/openline-bureau/issues/new",
+    "accepts_inquiries": false
+  },
+  "limitations": [
+    "Describe worker availability and scope."
+  ],
+  "public_release": {
+    "authorized": true,
+    "rights_confirmed": true,
+    "contains_private_data": false
+  },
+  "synthetic": false
+}

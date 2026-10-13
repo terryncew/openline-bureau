@@ -1,0 +1,40 @@
+{
+  "format": "openline.capability.v1",
+  "id": "your-capability",
+  "version": "1.0.0",
+  "name": "Your capability name",
+  "summary": "Describe a useful capability and its limits.",
+  "tasks": [
+    "text digest",
+    "word count"
+  ],
+  "contributor_id": "your-github-login",
+  "worker_id": null,
+  "provenance": {
+    "source_url": "https://github.com/your-github-login/your-project",
+    "source_revision": null,
+    "authors": [
+      "Your credited author names"
+    ]
+  },
+  "usage_terms": {
+    "license": "Specify the actual license or usage terms",
+    "summary": "Describe permission to use the capability and any restrictions."
+  },
+  "price": null,
+  "inquiry": {
+    "url": "https://github.com/terryncew/openline-bureau/issues/new",
+    "accepts_inquiries": false
+  },
+  "limitations": [
+    "Describe the known scope and limitations."
+  ],
+  "lineage": [],
+  "evidence": [],
+  "public_release": {
+    "authorized": true,
+    "rights_confirmed": true,
+    "contains_private_data": false
+  },
+  "synthetic": false
+}

@@ -1,0 +1,10 @@
+{
+  "format": "openline.catalog.reviews.v1",
+  "policy": {
+    "repository_url": "https://github.com/terryncew/openline-bureau",
+    "contribution_url": "https://github.com/terryncew/openline-bureau/compare",
+    "catalog_url": "https://raw.githubusercontent.com/terryncew/openline-exchange/feat/openline-public-beta/docs/beta/catalog/v1/index.json",
+    "inquiries_enabled": false
+  },
+  "reviews": []
+}

@@ -1,0 +1,7 @@
+# Branch protection must require this owner's approval. Metadata cannot enforce it.
+/catalog/reviewed.json @terryncew
+/catalog/policy.json @terryncew
+/bureau/ @terryncew
+/scripts/ @terryncew
+/.github/ @terryncew
+/docs/beta/ @terryncew

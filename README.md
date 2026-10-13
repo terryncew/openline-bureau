@@ -9,6 +9,16 @@ record and answers operator questions from receipts — not from vibes.
 
 ## What it is
 
+The limited **OpenLine Exchange beta** builds on this evidence engine. It adds
+reviewed capability and worker records, separately contributed evaluations,
+version lineage, machine discovery and manual public work inquiries, with
+**Bureau Select** as a buyer tool. The default public catalog is empty until
+permissioned real contributions are reviewed. Synthetic walkthrough fixtures
+are kept separate. See the [updated assignment](docs/beta/ASSIGNMENT.md),
+[contribution guide](docs/beta/CONTRIBUTING.md) and
+[deployment gates](docs/beta/DEPLOYMENT.md). No public deployment or payments
+are part of implementing this beta.
+
 - A normalized, provenance-preserving store of consequence receipts.
 - Five analyst views: System Overview, Event/Receipt Ledger,
   Authority Timeline, Incident/Recovery Record, Evidence Coverage.

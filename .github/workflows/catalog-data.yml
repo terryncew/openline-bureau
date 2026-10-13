@@ -1,0 +1,80 @@
+name: Reviewed catalog data guard
+on:
+  pull_request:
+    paths:
+      - 'catalog/**'
+      - 'bureau/catalog.py'
+      - 'scripts/check_catalog_pr.py'
+      - '.github/workflows/catalog-data.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  data-guard:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: candidate
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check out the trusted pinned signature verifier
+        uses: actions/checkout@v4
+        with:
+          repository: terryncew/openline-wallet
+          ref: c46e82a324199050239540f1825a3b0c942e4053
+          path: wallet
+          persist-credentials: false
+      - name: Install only trusted verification dependencies
+        run: |
+          set -eu
+          python -m pip install cryptography==50.0.0 jsonschema==4.26.0
+          python -m pip install --no-deps ./wallet
+      - name: Validate only new JSON using the base validator and policy
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          set -eu
+          if [ ! -f trusted/scripts/check_catalog_pr.py ]; then
+            echo 'The initial compiler implementation needs maintainer code review before the data-only guard can run.' >&2
+            exit 1
+          fi
+          python trusted/scripts/check_catalog_pr.py --base trusted --candidate candidate
+  approved-code-tests:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@v4
+        with:
+          repository: terryncew/openline-wallet
+          ref: c46e82a324199050239540f1825a3b0c942e4053
+          path: wallet
+          persist-credentials: false
+      - name: Install trusted signature verifier
+        run: |
+          set -eu
+          python -m pip install cryptography==50.0.0 jsonschema==4.26.0
+          python -m pip install --no-deps ./wallet
+      - name: Approved-code tests (manual; never submitted code on a data PR)
+        run: |
+          set -eu
+          python -m unittest tests.test_bureau tests.test_catalog tests.test_beta_trial tests.test_catalog_pr tests.test_select -v
+          python -m bureau.catalog validate --source catalog
+          python -m bureau.evidence public-evidence
